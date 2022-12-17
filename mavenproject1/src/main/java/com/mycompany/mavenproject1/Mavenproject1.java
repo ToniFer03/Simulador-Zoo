@@ -4,11 +4,9 @@ public class Mavenproject1 {
 
     public static void main(String[] args) {
         // função principal
-        testarMenu();
+        // testarMenu();
+        // testarCarcInd();
+
     }
 
-    public static void testarMenu() {
-        Menu menu = new Menu();
-        menu.showMenu();
-    }
 }
