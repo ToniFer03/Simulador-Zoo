@@ -7,7 +7,7 @@ public class CaractristicaIndividual {
     private Double valores;
 
     // add a new characteristic to the list
-    public void addCaracteristica(String caracteristica, Double valor) {
+    public CaractristicaIndividual(String caracteristica, Double valor) {
         this.caracteristicas = caracteristica;
         this.valores = valor;
     }
@@ -17,7 +17,7 @@ public class CaractristicaIndividual {
         return caracteristicas;
     }
 
-    public Double getValores() {
+    public Double getValor() {
         return valores;
     }
 

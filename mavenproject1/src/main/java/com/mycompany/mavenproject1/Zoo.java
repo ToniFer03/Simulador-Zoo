@@ -53,6 +53,11 @@ public class Zoo {
         numeroAnimais++;
     }
 
+    public void addIdToInstalacao(Instalacoes instalacao) { // receives an instalacao and adds an id to it
+        instalacao.setId(numeroInstalacao);
+        numeroInstalacao++;
+    }
+
     public void calcProbFugir() {
         // TODO - calculate the probability of an animal to escape based on money it has
     }

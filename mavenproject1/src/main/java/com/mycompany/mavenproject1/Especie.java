@@ -9,7 +9,7 @@ public class Especie {
     private double atratividadeBase;
     private double custoRacaobase;
     private double probNascimento;
-    private ArrayList<CaractristicaIndividual> caracteristicasIndividuais; // problem here
+    private ArrayList<CaractristicaIndividual> caracteristicasIndividuais;
 
     // constructor
     public Especie(String nomeEspecie, int esperancaVida, double atratividadeBase, double custoRacaobase,
@@ -51,6 +51,18 @@ public class Especie {
 
     public double getProbNascimento() {
         return probNascimento;
+    }
+
+    public ArrayList<CaractristicaIndividual> getCaracteristicasIndividuais() {
+        return caracteristicasIndividuais;
+    }
+
+    public Double somaValoresCaracteristicas() {
+        Double result = 0.0;
+        for (CaractristicaIndividual caracteristica : caracteristicasIndividuais) {
+            result += caracteristica.getValor();
+        }
+        return result;
     }
 
     // toString

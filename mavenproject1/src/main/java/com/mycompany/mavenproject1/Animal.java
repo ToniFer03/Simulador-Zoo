@@ -8,26 +8,22 @@ public class Animal extends Especie {
     private int id;
     private String nomeArtistico;
     private int idade;
-    private double atratividade; // calculated based on the species and the
-                                 // individual characteristics
     private ArrayList<CaractristicaIndividual> caracteristicasIndividuais;
 
     // constructor without id and caracteristicasIndividuais and recieves the
     // species
-    public Animal(String nomeArtistico, int idade, double atratividade, Especie especie) {
+    public Animal(String nomeArtistico, int idade, Especie especie) {
         super(especie.getNomeEspecie(), especie.getEsperancaVida(), especie.getAtratividadeBase(),
-                especie.custoRacaobase(), especie.getProbNascimento());
+                especie.custoRacaobase(), especie.getProbNascimento(), especie.getCaracteristicasIndividuais());
         this.nomeArtistico = nomeArtistico;
         this.idade = idade;
-        this.atratividade = atratividade;
         this.caracteristicasIndividuais = new ArrayList<CaractristicaIndividual>();
     }
 
     // toString (incomplete)
     @Override
     public String toString() {
-        return "Animal [id=" + id + ", nomeArtistico=" + nomeArtistico + ", idade=" + idade
-                + ", atratividade=" + atratividade;
+        return "Animal [id=" + id + ", nomeArtistico=" + nomeArtistico + ", idade=" + idade;
     }
 
     // receives number of animals and incrementes id by 1
@@ -35,9 +31,24 @@ public class Animal extends Especie {
         this.id = numeroAnimal;
     }
 
-    public void calculatAtratividade() {
-        // TODO - calculate the attractiveness of the animal based on the
-        // caracteristics, and the age
+    public double calculatAtratividade() {
+        double atratividade;
+        atratividade = this.getAtratividadeBase();
+        for (CaractristicaIndividual caracteristica : caracteristicasIndividuais) {
+            atratividade += caracteristica.getValor(); // gets the atratividade of all caracteristics
+        }
+
+        // get the atratividade from the species characterisitics
+        atratividade += super.somaValoresCaracteristicas();
+
+        atratividade = atratividade * ComplexMath.calculateAtracBasedAge(idade,
+                super.getEsperancaVida());
+
+        return atratividade;
+    }
+
+    public void aumentarIdade() {
+        this.idade++;
     }
 
     public void calculateCustoRacao() {

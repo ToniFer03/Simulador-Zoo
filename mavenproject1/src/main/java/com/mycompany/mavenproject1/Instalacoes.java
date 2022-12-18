@@ -1,32 +1,44 @@
 package com.mycompany.mavenproject1;
 
 public class Instalacoes {
-    private int custoTrabalhadores;
-    private int custoLimpeza;
-    private int custoSeguranca;
+    private double custoTrabalhadores;
+    private double custoLimpeza;
+    private double custoSeguranca;
+    private int lotacaoMaxima;
     private int idInstalacao;
 
-    public Instalacoes(int custoTrabalhadores, int custoLimpeza, int custoSeguranca) {
+    public Instalacoes(double custoTrabalhadores, double custoLimpeza, double custoSeguranca, int lotacaoMaxima,
+            int idInstalacao) {
         this.custoTrabalhadores = custoTrabalhadores;
         this.custoLimpeza = custoLimpeza;
         this.custoSeguranca = custoSeguranca;
+        this.lotacaoMaxima = lotacaoMaxima;
+        this.idInstalacao = idInstalacao;
     }
 
     // getters
-    public int getCustoTrabalhadores() {
+    public double getCustoTrabalhadores() {
         return custoTrabalhadores;
     }
 
-    public int getCustoLimpeza() {
+    public double getCustoLimpeza() {
         return custoLimpeza;
     }
 
-    public int getCustoSeguranca() {
+    public double getCustoSeguranca() {
         return custoSeguranca;
+    }
+
+    public int getLotacaoMaxima() {
+        return lotacaoMaxima;
     }
 
     public int getIdInstalacao() {
         return idInstalacao;
+    }
+
+    public void setId(int id) {
+        this.idInstalacao = id;
     }
 
     // calculate cleaning costs
@@ -43,4 +55,5 @@ public class Instalacoes {
     public void custoTrabalhadores() {
         // to do
     }
+
 }
