@@ -64,6 +64,7 @@ public class Especie {
         return caracteristicasIndividuais;
     }
 
+    // gets the sum of the values of the characteristics of the species
     public Double somaValoresCaracteristicas() {
         Double result = 0.0;
         for (CaractristicaIndividual caracteristica : caracteristicasIndividuais) {

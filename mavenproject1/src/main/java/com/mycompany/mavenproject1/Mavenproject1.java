@@ -23,13 +23,8 @@ public class Mavenproject1 {
         Especie gato = new Especie("Gato", 10, 0.8, 0.5, 0.2, caracteristicasIndividuais);
         Animal b1 = new Animal("Betinho", 1, leao);
         Animal b2 = new Animal("Betinho", 3, tigre);
-        Animal b3 = new Animal("Betinho", 5, gato);
 
         Instalacao inst = new Instalacao(4, 0);
-
-        zoo.addAnimal(b1);
-        zoo.addAnimal(b2);
-        zoo.addAnimal(b3);
 
         zoo.addInstalacao(2);
 
@@ -41,7 +36,7 @@ public class Mavenproject1 {
         NomeArtistico.addNome("João");
         NomeArtistico.addNome("Pedro");
 
-        Menu menu = new Menu();
+        Menu menu = new Menu(zoo);
         menu.showMenu();
 
     }

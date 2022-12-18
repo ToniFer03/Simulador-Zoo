@@ -17,4 +17,9 @@ public abstract class OpcaoMenu {
     public void voltarMenu() {
         parentMenu.showMenu();
     }
+
+    // function to get the zoo
+    public Zoo getZoo() {
+        return parentMenu.getZoo();
+    }
 }

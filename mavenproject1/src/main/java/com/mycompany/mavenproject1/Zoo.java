@@ -42,6 +42,14 @@ public class Zoo {
         return numeroAnimais;
     }
 
+    public ArrayList<Instalacao> getInstalacoes() {
+        return instalacoes;
+    }
+
+    public ArrayList<Animal> getAnimais() {
+        return animais;
+    }
+
     // methods
     public void addIdToAnimal(Animal animal) { // receives an animal and adds an id to it
         animal.setId(numeroAnimais);
@@ -64,9 +72,4 @@ public class Zoo {
     public void removeAnimal(Animal animal) {
         animais.remove(animal);
     }
-
-    public ArrayList<Instalacao> getInstalacoes() {
-        return instalacoes;
-    }
-
 }

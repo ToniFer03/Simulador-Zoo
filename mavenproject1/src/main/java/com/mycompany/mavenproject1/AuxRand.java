@@ -13,20 +13,6 @@ public abstract class AuxRand {
         return random < probNascimento;
     }
 
-    // method to see how many caracteristics the new animal will have
-    public static int numCaracteristicas() {
-        double random = Math.random();
-        if (random < 0.5) {
-            return 1;
-        } else if (random < 0.8) {
-            return 2;
-        } else if (random < 0.95) {
-            return 3;
-        } else {
-            return 4;
-        }
-    }
-
     // method that selects a certain number of random characteristics from the list
     // of characteristics and returns them
     public static ArrayList<CaractristicaIndividual> selectCaracteristicas() {
@@ -55,6 +41,20 @@ public abstract class AuxRand {
     public static Especie randomEspecie() {
         int random = (int) (Math.random() * Especie.getEspecies().size());
         return Especie.getEspecies().get(random);
+    }
+
+    // method to see how many caracteristics the new animal will have
+    private static int numCaracteristicas() {
+        double random = Math.random();
+        if (random < 0.5) {
+            return 1;
+        } else if (random < 0.8) {
+            return 2;
+        } else if (random < 0.95) {
+            return 3;
+        } else {
+            return 4;
+        }
     }
 
 }

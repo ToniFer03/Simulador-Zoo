@@ -9,7 +9,7 @@ public class CaractristicaIndividual {
     private Double valores;
     private static ArrayList<CaractristicaIndividual> ci = new ArrayList<CaractristicaIndividual>();
 
-    // add a new characteristic to the list
+    // constructor
     public CaractristicaIndividual(String caracteristica, Double valor) {
         this.caracteristicas = caracteristica;
         this.valores = valor;
@@ -32,10 +32,10 @@ public class CaractristicaIndividual {
     // to string
     @Override
     public String toString() {
-        return "CaractristicaIndividual{" +
-                "caracteristicas='" + caracteristicas + '\'' +
-                ", valores=" + valores +
-                '}';
+        String info;
+        info = "    " + caracteristicas + " - [" + valores + "]";
+
+        return info;
     }
 
 }

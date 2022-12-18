@@ -25,6 +25,10 @@ public abstract class ComplexMath {
         return result;
     }
 
+    /*
+     * The following function calculates the probability of an animal dying based on
+     * its current age in relations to the life expectancy of its species
+     */
     public static double calculateProbabilityDeath(int idade, int esperancaVida) {
         double result;
         double aux = (double) idade / (double) esperancaVida * 100;

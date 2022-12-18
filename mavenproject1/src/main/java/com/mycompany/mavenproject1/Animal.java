@@ -34,6 +34,22 @@ public class Animal extends Especie {
         this.id = numeroAnimal;
     }
 
+    public void removeId() {
+        this.id = null;
+    }
+
+    public int getId() {
+        return this.id;
+    }
+
+    public int getIdade() {
+        return this.idade;
+    }
+
+    public void aumentarIdade() {
+        this.idade++;
+    }
+
     public double calculatAtratividade() {
         double atratividade;
         atratividade = this.getAtratividadeBase();
@@ -50,14 +66,6 @@ public class Animal extends Especie {
         return atratividade;
     }
 
-    public void removeId() {
-        this.id = null;
-    }
-
-    public void aumentarIdade() {
-        this.idade++;
-    }
-
     public void morte(Zoo zoo) {
         zoo.removeAnimal(this);
         this.removeId();
@@ -69,10 +77,6 @@ public class Animal extends Especie {
         }
     }
 
-    public int getId() {
-        return this.id;
-    }
-
     public void calculateCustoRacao() {
         // TODO
     }
@@ -80,7 +84,16 @@ public class Animal extends Especie {
     // to string
     @Override
     public String toString() {
-        return "Animal [id=" + id + ", nomeArtistico=" + nomeArtistico + ", idade=" + idade
-                + caracteristicasIndividuais;
+        String info;
+        info = "---------------------------------- \n";
+        info += "Nome Artistico: " + this.nomeArtistico + "\n";
+        info += "Idade: " + this.idade + "\n";
+        info += "Caracteristicas Individuais: \n";
+        for (CaractristicaIndividual caracteristica : caracteristicasIndividuais) {
+            info += caracteristica.toString() + "\n";
+        }
+        info += "---------------------------------- \n";
+
+        return info;
     }
 }

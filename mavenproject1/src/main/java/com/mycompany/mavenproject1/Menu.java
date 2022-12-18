@@ -6,12 +6,13 @@ import java.util.ArrayList;
 public class Menu {
     // declare variables
     private int menuID;
+    private Zoo zoo;
 
     // list that contains all the objects from all options
     private ArrayList<OpcaoMenu> opcoesMenu;
 
     // constructor
-    public Menu() {
+    public Menu(Zoo zoo) {
         menuID = 0;
         opcoesMenu = new ArrayList<OpcaoMenu>();
         opcoesMenu.add(new AdqAnimalRand(this));
@@ -27,10 +28,13 @@ public class Menu {
         opcoesMenu.add(new Historico(this));
         opcoesMenu.add(new PeriodoConta(this));
         opcoesMenu.add(new Jumanji(this));
+        this.zoo = zoo;
+
     }
 
     // show menu options
     public void showMenu() {
+        System.out.println("\n \n \n");
         System.out.println("Escolha uma das seguintes opções: ");
         System.out.println("[1] - Adquirir animal aleatório");
         System.out.println("[2] - Adquirir animal com característica genética");
@@ -48,7 +52,6 @@ public class Menu {
         System.out.println("[14] - Sair da aplicação");
         System.out.print("Digite a sua opção: ");
         menuID = getOption();
-        System.out.println(menuID);
         executeItem(menuID);
     }
 
@@ -110,5 +113,10 @@ public class Menu {
                 showMenu();
                 break;
         }
+    }
+
+    // get zoo
+    public Zoo getZoo() {
+        return zoo;
     }
 }

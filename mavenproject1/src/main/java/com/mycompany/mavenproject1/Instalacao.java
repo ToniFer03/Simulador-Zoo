@@ -3,6 +3,7 @@ package com.mycompany.mavenproject1;
 import java.util.ArrayList;
 
 public class Instalacao {
+    // atributs
     private double custoTrabalhadores;
     private double custoLimpeza;
     private double custoSeguranca;
@@ -10,6 +11,7 @@ public class Instalacao {
     private int idInstalacao;
     private ArrayList<Animal> animais;
 
+    // constructor
     public Instalacao(int lotacaoMaxima,
             int idInstalacao) {
         this.custoTrabalhadores = 0;
@@ -41,10 +43,12 @@ public class Instalacao {
         return idInstalacao;
     }
 
+    // set id
     public void setId(int id) {
         this.idInstalacao = id;
     }
 
+    // methods
     public void addAnimal(Animal animal, int posicao) {
         if (animais.size() < lotacaoMaxima) {
             animais.add(animal);
