@@ -10,6 +10,7 @@ public class Especie {
     private double custoRacaobase;
     private double probNascimento;
     private ArrayList<CaractristicaIndividual> caracteristicasIndividuais;
+    private static ArrayList<Especie> especies = new ArrayList<Especie>();
 
     // constructor
     public Especie(String nomeEspecie, int esperancaVida, double atratividadeBase, double custoRacaobase,
@@ -20,6 +21,7 @@ public class Especie {
         this.custoRacaobase = custoRacaobase;
         this.probNascimento = probNascimento;
         this.caracteristicasIndividuais = new ArrayList<CaractristicaIndividual>();
+        especies.add(this);
     }
 
     public Especie(String nomeEspecie, int esperancaVida, double atratividadeBase, double custoRacaobase,
@@ -30,9 +32,14 @@ public class Especie {
         this.custoRacaobase = custoRacaobase;
         this.probNascimento = probNascimento;
         this.caracteristicasIndividuais = caracteristicasIndividuais;
+        especies.add(this);
     }
 
     // getters
+    public static ArrayList<Especie> getEspecies() {
+        return especies;
+    }
+
     public String getNomeEspecie() {
         return nomeEspecie;
     }
@@ -73,11 +80,12 @@ public class Especie {
     }
 
     // methods
-    public void nascimento() {
-        // TODO - create a new animal of this species
-    }
-
-    public void morte() {
-        // TODO - kill an animal of this species
+    public void nascimento(Zoo zoo) {
+        if (AuxRand.animalBorn(probNascimento)) {
+            ArrayList<CaractristicaIndividual> aux = new ArrayList<CaractristicaIndividual>();
+            aux = AuxRand.selectCaracteristicas();
+            // create an animal and add it to the zoo (zoo.addAnimal(animal))
+            zoo.addAnimal(new Animal("Teste", 1, this));
+        }
     }
 }

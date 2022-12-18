@@ -1,11 +1,14 @@
 package com.mycompany.mavenproject1;
 
+import java.util.ArrayList;
+
 public class Zoo {
     // attributes
     private int saldoContabilistico;
     private double probFugir;
     private int numeroAnimais; // to keep track of what id to atribute
-    private int numeroInstalacao;
+    private ArrayList<Animal> animais;
+    private ArrayList<Instalacao> instalacoes;
 
     /*
      * Talvez seja necessario ter um array de instaçãoes aqui, e dentro de cada
@@ -14,16 +17,12 @@ public class Zoo {
      */
 
     // constructor
-    public Zoo() {
-        saldoContabilistico = 0;
-        probFugir = 0.1;
-        numeroAnimais = 0;
-    }
-
     public Zoo(int saldoContabilistico, double probFugir) {
         this.saldoContabilistico = saldoContabilistico;
         this.probFugir = probFugir;
         numeroAnimais = 0;
+        animais = new ArrayList<Animal>();
+        instalacoes = new ArrayList<Instalacao>();
     }
 
     // getters
@@ -43,23 +42,31 @@ public class Zoo {
         return numeroAnimais;
     }
 
-    public int getNumeroInstalacao() {
-        return numeroInstalacao;
-    }
-
     // methods
     public void addIdToAnimal(Animal animal) { // receives an animal and adds an id to it
         animal.setId(numeroAnimais);
         numeroAnimais++;
     }
 
-    public void addIdToInstalacao(Instalacoes instalacao) { // receives an instalacao and adds an id to it
-        instalacao.setId(numeroInstalacao);
-        numeroInstalacao++;
+    public void addAnimal(Animal animal) { // receives an animal and adds it to the zoo
+        addIdToAnimal(animal);
+        animais.add(animal);
     }
 
     public void calcProbFugir() {
         // TODO - calculate the probability of an animal to escape based on money it has
+    }
+
+    public void addInstalacao(int lotacaoMaxima) {
+        instalacoes.add(new Instalacao(lotacaoMaxima, instalacoes.size()));
+    }
+
+    public void removeAnimal(Animal animal) {
+        animais.remove(animal);
+    }
+
+    public ArrayList<Instalacao> getInstalacoes() {
+        return instalacoes;
     }
 
 }

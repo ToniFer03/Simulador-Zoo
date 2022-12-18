@@ -24,4 +24,16 @@ public abstract class ComplexMath {
 
         return result;
     }
+
+    public static double calculateProbabilityDeath(int idade, int esperancaVida) {
+        double result;
+        double aux = (double) idade / (double) esperancaVida * 100;
+
+        result = (-1.031 * Math.pow(10, -7)) * Math.pow(aux, 3);
+        result += (5.1108 * Math.pow(10, -5)) * Math.pow(aux, 2);
+        result += (5.504 * Math.pow(10, -4) * aux);
+        result += -0.013;
+
+        return result;
+    }
 }

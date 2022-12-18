@@ -5,7 +5,7 @@ import java.util.ArrayList;
 //abstract class that is the base for all animals
 public class Animal extends Especie {
     // attributes
-    private int id;
+    private Integer id; // so it can be null
     private String nomeArtistico;
     private int idade;
     private ArrayList<CaractristicaIndividual> caracteristicasIndividuais;
@@ -20,10 +20,13 @@ public class Animal extends Especie {
         this.caracteristicasIndividuais = new ArrayList<CaractristicaIndividual>();
     }
 
-    // toString (incomplete)
-    @Override
-    public String toString() {
-        return "Animal [id=" + id + ", nomeArtistico=" + nomeArtistico + ", idade=" + idade;
+    public Animal(String nomeArtistico, int idade, Especie especie,
+            ArrayList<CaractristicaIndividual> caracteristicasIndividuais) {
+        super(especie.getNomeEspecie(), especie.getEsperancaVida(), especie.getAtratividadeBase(),
+                especie.custoRacaobase(), especie.getProbNascimento(), especie.getCaracteristicasIndividuais());
+        this.nomeArtistico = nomeArtistico;
+        this.idade = idade;
+        this.caracteristicasIndividuais = caracteristicasIndividuais;
     }
 
     // receives number of animals and incrementes id by 1
@@ -47,11 +50,37 @@ public class Animal extends Especie {
         return atratividade;
     }
 
+    public void removeId() {
+        this.id = null;
+    }
+
     public void aumentarIdade() {
         this.idade++;
     }
 
+    public void morte(Zoo zoo) {
+        zoo.removeAnimal(this);
+        this.removeId();
+        // check all instalations and remove the animal from them
+        for (Instalacao instalacao : zoo.getInstalacoes()) {
+            if (instalacao.getAnimais().contains(this)) {
+                instalacao.removeAnimal(this);
+            }
+        }
+    }
+
+    public int getId() {
+        return this.id;
+    }
+
     public void calculateCustoRacao() {
         // TODO
+    }
+
+    // to string
+    @Override
+    public String toString() {
+        return "Animal [id=" + id + ", nomeArtistico=" + nomeArtistico + ", idade=" + idade
+                + caracteristicasIndividuais;
     }
 }
