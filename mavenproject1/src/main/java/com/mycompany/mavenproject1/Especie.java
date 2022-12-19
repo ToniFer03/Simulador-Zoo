@@ -87,8 +87,8 @@ public class Especie {
     @Override
     public String toString() {
         String info;
-        info = "--------------------------------------------\n";
-        info += "Nome da Especie: " + nomeEspecie + "\n";
+
+        info = "Nome da Especie: " + nomeEspecie + "\n";
         info += "Esperanca de vida: " + esperancaVida + "\n";
         info += "Atratividade base: " + atratividadeBase + "\n";
         info += "Custo racao base: " + custoRacaobase + "\n";
@@ -97,7 +97,6 @@ public class Especie {
         for (CaracteristicasEspecie caracteristica : CaracteristicasEspecie) {
             info += caracteristica.toString() + "\n";
         }
-        info += "--------------------------------------------";
 
         return info;
     }

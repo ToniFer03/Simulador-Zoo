@@ -84,13 +84,20 @@ public class Zoo {
         s += "Saldo Contabilistico: " + saldoContabilistico + "\n";
         s += "Probabilidade de Fugir: " + probFugir + "\n";
         s += "Numero de Animais: " + numeroAnimais + "\n";
-        s += "Animais: \n";
+        s += "--------------------------------------------\n";
+        s += "                   Animais                  \n";
+        s += "--------------------------------------------\n";
         for (Animal animal : animais) {
-            s += animal.toString() + "\n";
+            s += animal.toString();
+            s += "--------------------------------------------\n";
         }
-        s += "Instalacoes: \n";
+        s += "--------------------------------------------\n";
+        s += "                 Instalacoes                \n";
+        s += "--------------------------------------------\n";
+
         for (Instalacao instalacao : instalacoes) {
-            s += instalacao.toString() + "\n";
+            s += instalacao.toString();
+            s += "--------------------------------------------\n";
         }
         return s;
     }

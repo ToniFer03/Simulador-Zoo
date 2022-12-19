@@ -1,18 +1,15 @@
 package com.mycompany.mavenproject1;
 
-//Referente a opção de menu "Adquirir animal com características genéticas"
-public class AdqAnimalCaracGen extends OpcaoMenu {
+public class sairMenu extends OpcaoMenu {
 
     // constructor
-    public AdqAnimalCaracGen(Menu parentMenu) {
+    public sairMenu(Menu parentMenu) {
         super(parentMenu);
     }
 
     // function that executes the action of this option
     @Override
     public void executarOpcao() {
-
         voltarMenu();
     }
-
 }

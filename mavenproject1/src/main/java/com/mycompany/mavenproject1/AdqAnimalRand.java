@@ -25,19 +25,19 @@ public class AdqAnimalRand extends OpcaoMenu {
 
         System.out.println("\n \n \n");
         System.out.println("Escolha um dos seguintes animais para adquirir!");
+        System.out.println("----------------------------------------");
         System.out.println("Opção 1: ");
         System.out.println(a1.toString());
-        System.out.println("----------------------------------------");
         System.out.println("Preço da primeira opção: " + price1);
         System.out.println("----------------------------------------\n\n");
+        System.out.println("----------------------------------------");
         System.out.println("Opção 2: ");
         System.out.println(a2.toString());
-        System.out.println("----------------------------------------");
         System.out.println("Preço da segunda opção: " + price2);
         System.out.println("----------------------------------------\n\n");
+        System.out.println("----------------------------------------");
         System.out.println("Opção 3: ");
         System.out.println(a3.toString());
-        System.out.println("----------------------------------------");
         System.out.println("Preço da terceira opção: " + price3);
         System.out.println("----------------------------------------\n\n");
         System.out.println("Opção 4: Cancelar \n");

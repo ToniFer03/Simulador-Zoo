@@ -99,15 +99,13 @@ public class Animal extends Especie {
     @Override
     public String toString() {
         String info;
-        info = "---------------------------------- \n";
-        info += "Especie: " + super.getNomeEspecie() + "\n";
+        info = "Especie: " + super.getNomeEspecie() + "\n";
         info += "Nome Artistico: " + this.nomeArtistico + "\n";
         info += "Idade: " + this.idade + "\n";
         info += "Caracteristicas Individuais: \n";
         for (CaractristicaIndividual caracteristica : caracteristicasIndividuais) {
             info += caracteristica.toString() + "\n";
         }
-        info += "---------------------------------- \n";
 
         return info;
     }
