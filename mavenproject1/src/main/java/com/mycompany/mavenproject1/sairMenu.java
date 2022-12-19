@@ -10,6 +10,7 @@ public class sairMenu extends OpcaoMenu {
     // function that executes the action of this option
     @Override
     public void executarOpcao() {
-        voltarMenu();
+        System.out.println("A sair da aplicação...");
+        System.exit(0);
     }
 }

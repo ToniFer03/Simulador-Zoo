@@ -1,37 +1,31 @@
 package com.mycompany.mavenproject1;
 
-import java.util.Scanner;
-import java.util.ArrayList;
-
-public class Menu {
+public class Menu extends MenuBase {
     // declare variables
-    private int menuID;
     private Zoo zoo;
-
-    // list that contains all the objects from all options
-    private ArrayList<OpcaoMenu> opcoesMenu;
 
     // constructor
     public Menu(Zoo zoo) {
-        menuID = 0;
-        opcoesMenu = new ArrayList<OpcaoMenu>();
-        opcoesMenu.add(new AdqAnimalRand(this));
-        opcoesMenu.add(new AdqAnimalCaracGen(this));
-        opcoesMenu.add(new ConstInstal(this));
-        opcoesMenu.add(new CalendChines(this));
-        opcoesMenu.add(new ListAnimais(this));
-        opcoesMenu.add(new ListAnimaisCarcGenetica(this));
-        opcoesMenu.add(new ListAnimaisMutacao(this));
-        opcoesMenu.add(new ListInstal(this));
-        opcoesMenu.add(new RetratoFamilia(this));
-        opcoesMenu.add(new Obituario(this));
-        opcoesMenu.add(new Historico(this));
-        opcoesMenu.add(new PeriodoConta(this));
-        opcoesMenu.add(new Jumanji(this));
+        super();
+        addOpcaoMenu(new sairMenu(this));
+        addOpcaoMenu(new AdqAnimalRand(this));
+        addOpcaoMenu(new AdqAnimalCaracGen(this));
+        addOpcaoMenu(new ConstInstal(this));
+        addOpcaoMenu(new CalendChines(this));
+        addOpcaoMenu(new ListAnimais(this));
+        addOpcaoMenu(new ListAnimaisCarcGenetica(this));
+        addOpcaoMenu(new ListAnimaisMutacao(this));
+        addOpcaoMenu(new ListInstal(this));
+        addOpcaoMenu(new RetratoFamilia(this));
+        addOpcaoMenu(new Obituario(this));
+        addOpcaoMenu(new Historico(this));
+        addOpcaoMenu(new PeriodoConta(this));
+        addOpcaoMenu(new Jumanji(this));
         this.zoo = zoo;
     }
 
     // show menu options
+    @Override
     public void showMenu() {
         System.out.println(zoo.toString());
         System.out.println("\n \n \n");
@@ -49,70 +43,9 @@ public class Menu {
         System.out.println("[11] - Histórico");
         System.out.println("[12] - Período contabilístico");
         System.out.println("[13] - Jumanji");
-        System.out.println("[14] - Sair da aplicação");
+        System.out.println("[0] - Sair da aplicação");
         System.out.print("Digite a sua opção: ");
-        menuID = getOption();
-        executeItem(menuID);
-    }
-
-    // function to get the option inputed by the user
-    private int getOption() {
-        Scanner input = new Scanner(System.in);
-        int option = input.nextInt();
-        return option;
-    }
-
-    // function to select the action to be taken based on the inputed option
-    private void executeItem(int menuID) {
-        switch (menuID) {
-            case 1:
-                opcoesMenu.get(0).executarOpcao();
-                break;
-            case 2:
-                opcoesMenu.get(1).executarOpcao();
-                break;
-            case 3:
-                opcoesMenu.get(2).executarOpcao();
-                break;
-            case 4:
-                opcoesMenu.get(3).executarOpcao();
-                break;
-            case 5:
-                opcoesMenu.get(4).executarOpcao();
-                break;
-            case 6:
-                opcoesMenu.get(5).executarOpcao();
-                break;
-            case 7:
-                opcoesMenu.get(6).executarOpcao();
-                break;
-            case 8:
-                opcoesMenu.get(7).executarOpcao();
-                break;
-            case 9:
-                opcoesMenu.get(8).executarOpcao();
-                break;
-            case 10:
-                opcoesMenu.get(9).executarOpcao();
-                break;
-            case 11:
-                opcoesMenu.get(10).executarOpcao();
-                break;
-            case 12:
-                opcoesMenu.get(11).executarOpcao();
-                break;
-            case 13:
-                opcoesMenu.get(12).executarOpcao();
-                break;
-            case 14:
-                System.out.println("A sair da aplicação...");
-                System.exit(0);
-                break;
-            default:
-                System.out.println("Opção inválida");
-                showMenu();
-                break;
-        }
+        executeItem(getOption());
     }
 
     // get zoo

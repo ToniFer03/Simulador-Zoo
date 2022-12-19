@@ -9,18 +9,36 @@ public abstract class MenuBase {
     private ArrayList<OpcaoMenu> opcoesMenu;
 
     public MenuBase() {
+        menuId = 0;
         opcoesMenu = new ArrayList<OpcaoMenu>();
     }
 
     public abstract void showMenu();
 
-    private int getOption() {
+    public int getOption() {
         Scanner input = new Scanner(System.in);
         int option = input.nextInt();
         return option;
     }
 
-    private void executeItem(int menuId) {
+    public void executeItem(int menuId) {
         opcoesMenu.get(menuId).executarOpcao();
+    }
+
+    // getters and setters
+    public int getMenuId() {
+        return menuId;
+    }
+
+    public ArrayList<OpcaoMenu> getOpcoesMenu() {
+        return opcoesMenu;
+    }
+
+    public void setMenuId(int menuId) {
+        this.menuId = menuId;
+    }
+
+    public void addOpcaoMenu(OpcaoMenu opcaoMenu) {
+        opcoesMenu.add(opcaoMenu);
     }
 }

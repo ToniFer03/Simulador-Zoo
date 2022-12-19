@@ -11,8 +11,17 @@ public class AdqAnimalCaracGen extends OpcaoMenu {
     // function that executes the action of this option
     @Override
     public void executarOpcao() {
-
+        showText();
         voltarMenu();
+    }
+
+    private void showText() {
+        System.out.println("\n");
+        System.out.println("Selecione a característica genética que deseja adquirir:");
+        for (int i = 0; i < CaractristicaIndividual.getCaracteristicasIndividuais().size(); i++) {
+            System.out.println("[" + i + "] - "
+                    + CaractristicaIndividual.getCaracteristicasIndividuais().get(i).getCaracteristicas());
+        }
     }
 
 }
