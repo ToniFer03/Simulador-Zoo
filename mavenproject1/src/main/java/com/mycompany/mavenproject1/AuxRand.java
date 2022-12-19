@@ -57,4 +57,9 @@ public abstract class AuxRand {
         }
     }
 
+    // method to get a raondom number between 50 and 500 for the price of the animal
+    public static int getPrecoRand() {
+        return (int) (Math.random() * 450) + 50;
+    }
+
 }

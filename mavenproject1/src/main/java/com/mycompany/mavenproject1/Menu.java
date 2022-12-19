@@ -34,6 +34,7 @@ public class Menu {
 
     // show menu options
     public void showMenu() {
+        System.out.println(zoo.toString());
         System.out.println("\n \n \n");
         System.out.println("Escolha uma das seguintes opções: ");
         System.out.println("[1] - Adquirir animal aleatório");

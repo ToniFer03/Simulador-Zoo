@@ -6,7 +6,6 @@ public class Instalacao {
     // atributs
     private double custoTrabalhadores;
     private double custoLimpeza;
-    private double custoSeguranca;
     private int lotacaoMaxima;
     private int idInstalacao;
     private ArrayList<Animal> animais;
@@ -14,9 +13,8 @@ public class Instalacao {
     // constructor
     public Instalacao(int lotacaoMaxima,
             int idInstalacao) {
-        this.custoTrabalhadores = 0;
-        this.custoLimpeza = 0;
-        this.custoSeguranca = 0;
+        this.custoTrabalhadores = 5;
+        this.custoLimpeza = 5;
         this.lotacaoMaxima = lotacaoMaxima;
         this.idInstalacao = idInstalacao;
         animais = new ArrayList<Animal>(lotacaoMaxima);
@@ -29,10 +27,6 @@ public class Instalacao {
 
     public double getCustoLimpeza() {
         return custoLimpeza;
-    }
-
-    public double getCustoSeguranca() {
-        return custoSeguranca;
     }
 
     public int getLotacaoMaxima() {
@@ -52,18 +46,53 @@ public class Instalacao {
     public void addAnimal(Animal animal, int posicao) {
         if (animais.size() < lotacaoMaxima) {
             animais.add(animal);
+            aumentarCustoLimpeza();
+            aumentarCustoTrabalhadores();
         } else {
-            // logica para substituir um animal
+            animais.set(posicao, animal);
+            aumentarCustoLimpeza();
+            aumentarCustoTrabalhadores();
         }
     }
 
     public void removeAnimal(Animal animal) {
         animais.remove(animal);
+        if (animais.size() == 0) {
+            this.custoLimpeza = 5;
+            this.custoTrabalhadores = 5;
+        }
     }
 
     // get all animals in the instalation
     public ArrayList<Animal> getAnimais() {
         return animais;
+    }
+
+    // increase cleaning cost by 10 +- random number
+    private void aumentarCustoLimpeza() {
+        this.custoLimpeza += 10 + (Math.random() * 10);
+    }
+
+    // increase workers cost by 10 +- random number
+    private void aumentarCustoTrabalhadores() {
+        this.custoTrabalhadores += 10 + (Math.random() * 10);
+    }
+
+    // toString
+    @Override
+    public String toString() {
+        String info;
+        info = "---------------------------------- \n";
+        info += "ID Instalacao: " + idInstalacao + "\n";
+        info += "Custo Trabalhadores: " + custoTrabalhadores + "\n";
+        info += "Custo Limpeza: " + custoLimpeza + "\n";
+        info += "Lotacao Maxima: " + lotacaoMaxima + "\n";
+        for (Animal animal : animais) {
+            info += animal.toString();
+        }
+        info += "---------------------------------- \n";
+
+        return info;
     }
 
 }

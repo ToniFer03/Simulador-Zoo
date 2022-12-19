@@ -9,7 +9,7 @@ public class Especie {
     private double atratividadeBase;
     private double custoRacaobase;
     private double probNascimento;
-    private ArrayList<CaractristicaIndividual> caracteristicasIndividuais;
+    private ArrayList<CaracteristicasEspecie> CaracteristicasEspecie;
     private static ArrayList<Especie> especies = new ArrayList<Especie>();
 
     // constructor
@@ -20,18 +20,18 @@ public class Especie {
         this.atratividadeBase = atratividadeBase;
         this.custoRacaobase = custoRacaobase;
         this.probNascimento = probNascimento;
-        this.caracteristicasIndividuais = new ArrayList<CaractristicaIndividual>();
+        this.CaracteristicasEspecie = new ArrayList<CaracteristicasEspecie>();
         especies.add(this);
     }
 
     public Especie(String nomeEspecie, int esperancaVida, double atratividadeBase, double custoRacaobase,
-            double probNascimento, ArrayList<CaractristicaIndividual> caracteristicasIndividuais) {
+            double probNascimento, ArrayList<CaracteristicasEspecie> CaracteristicasEspecie) {
         this.nomeEspecie = nomeEspecie;
         this.esperancaVida = esperancaVida;
         this.atratividadeBase = atratividadeBase;
         this.custoRacaobase = custoRacaobase;
         this.probNascimento = probNascimento;
-        this.caracteristicasIndividuais = caracteristicasIndividuais;
+        this.CaracteristicasEspecie = CaracteristicasEspecie;
         especies.add(this);
     }
 
@@ -60,24 +60,17 @@ public class Especie {
         return probNascimento;
     }
 
-    public ArrayList<CaractristicaIndividual> getCaracteristicasIndividuais() {
-        return caracteristicasIndividuais;
+    public ArrayList<CaracteristicasEspecie> getCaracteristicasEspecie() {
+        return CaracteristicasEspecie;
     }
 
     // gets the sum of the values of the characteristics of the species
     public Double somaValoresCaracteristicas() {
         Double result = 0.0;
-        for (CaractristicaIndividual caracteristica : caracteristicasIndividuais) {
+        for (CaracteristicasEspecie caracteristica : CaracteristicasEspecie) {
             result += caracteristica.getValor();
         }
         return result;
-    }
-
-    // toString
-    @Override
-    public String toString() {
-        return "Especie{" + "nomeEspecie=" + nomeEspecie + ", esperancaVida=" + esperancaVida + ", atratividadeBase="
-                + atratividadeBase + '}';
     }
 
     // methods
@@ -88,5 +81,24 @@ public class Especie {
             // create an animal and add it to the zoo (zoo.addAnimal(animal))
             zoo.addAnimal(new Animal("Teste", 1, this));
         }
+    }
+
+    // toString
+    @Override
+    public String toString() {
+        String info;
+        info = "--------------------------------------------\n";
+        info += "Nome da Especie: " + nomeEspecie + "\n";
+        info += "Esperanca de vida: " + esperancaVida + "\n";
+        info += "Atratividade base: " + atratividadeBase + "\n";
+        info += "Custo racao base: " + custoRacaobase + "\n";
+        info += "Probabilidade de nascimento: " + probNascimento + "\n";
+        info += "Caracteristicas de especies:  \n";
+        for (CaracteristicasEspecie caracteristica : CaracteristicasEspecie) {
+            info += caracteristica.toString() + "\n";
+        }
+        info += "--------------------------------------------";
+
+        return info;
     }
 }

@@ -14,7 +14,7 @@ public class Animal extends Especie {
     // species
     public Animal(String nomeArtistico, int idade, Especie especie) {
         super(especie.getNomeEspecie(), especie.getEsperancaVida(), especie.getAtratividadeBase(),
-                especie.custoRacaobase(), especie.getProbNascimento(), especie.getCaracteristicasIndividuais());
+                especie.custoRacaobase(), especie.getProbNascimento(), especie.getCaracteristicasEspecie());
         this.nomeArtistico = nomeArtistico;
         this.idade = idade;
         this.caracteristicasIndividuais = new ArrayList<CaractristicaIndividual>();
@@ -23,7 +23,7 @@ public class Animal extends Especie {
     public Animal(String nomeArtistico, int idade, Especie especie,
             ArrayList<CaractristicaIndividual> caracteristicasIndividuais) {
         super(especie.getNomeEspecie(), especie.getEsperancaVida(), especie.getAtratividadeBase(),
-                especie.custoRacaobase(), especie.getProbNascimento(), especie.getCaracteristicasIndividuais());
+                especie.custoRacaobase(), especie.getProbNascimento(), especie.getCaracteristicasEspecie());
         this.nomeArtistico = nomeArtistico;
         this.idade = idade;
         this.caracteristicasIndividuais = caracteristicasIndividuais;
@@ -57,6 +57,10 @@ public class Animal extends Especie {
             atratividade += caracteristica.getValor(); // gets the atratividade of all caracteristics
         }
 
+        for (CaracteristicasEspecie caracteristica : super.getCaracteristicasEspecie()) {
+            atratividade += caracteristica.getValor();
+        }
+
         // get the atratividade from the species characterisitics
         atratividade += super.somaValoresCaracteristicas();
 
@@ -77,8 +81,18 @@ public class Animal extends Especie {
         }
     }
 
-    public void calculateCustoRacao() {
-        // TODO
+    // every time this function calculates the cost of the food, it has a 50% chance
+    // of increasing or decreasing the cost by up to 25%
+    public double calculateCustoRacao() {
+        double result;
+        if (Math.random() > 0.5) {
+            result = super.custoRacaobase() - Math.random() * 0.25 * super.custoRacaobase();
+
+        } else {
+            result = super.custoRacaobase() + Math.random() * 0.25 * super.custoRacaobase();
+        }
+
+        return result;
     }
 
     // to string
@@ -86,6 +100,7 @@ public class Animal extends Especie {
     public String toString() {
         String info;
         info = "---------------------------------- \n";
+        info += "Especie: " + super.getNomeEspecie() + "\n";
         info += "Nome Artistico: " + this.nomeArtistico + "\n";
         info += "Idade: " + this.idade + "\n";
         info += "Caracteristicas Individuais: \n";

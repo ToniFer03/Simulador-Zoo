@@ -72,4 +72,26 @@ public class Zoo {
     public void removeAnimal(Animal animal) {
         animais.remove(animal);
     }
+
+    public void decreaseZooMoney(int money) {
+        saldoContabilistico -= money;
+    }
+
+    // toString
+    @Override
+    public String toString() {
+        String s = "Zoo: \n";
+        s += "Saldo Contabilistico: " + saldoContabilistico + "\n";
+        s += "Probabilidade de Fugir: " + probFugir + "\n";
+        s += "Numero de Animais: " + numeroAnimais + "\n";
+        s += "Animais: \n";
+        for (Animal animal : animais) {
+            s += animal.toString() + "\n";
+        }
+        s += "Instalacoes: \n";
+        for (Instalacao instalacao : instalacoes) {
+            s += instalacao.toString() + "\n";
+        }
+        return s;
+    }
 }
