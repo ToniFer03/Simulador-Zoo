@@ -2,6 +2,13 @@ package com.mycompany.mavenproject1;
 
 import java.util.ArrayList;
 
+import com.mycompany.mavenproject1.Classes_Principais.CaracteristicasEspecie;
+import com.mycompany.mavenproject1.Classes_Principais.CaractristicaIndividual;
+import com.mycompany.mavenproject1.Classes_Principais.Especie;
+import com.mycompany.mavenproject1.Classes_Principais.NomeArtistico;
+import com.mycompany.mavenproject1.Classes_Principais.Zoo;
+import com.mycompany.mavenproject1.Menus.MenuPrincipal;
+
 public class Mavenproject1 {
 
     public static void main(String[] args) {
@@ -12,7 +19,7 @@ public class Mavenproject1 {
 
         Zoo zoo = initializeZoo();
 
-        Menu menu = new Menu(zoo);
+        MenuPrincipal menu = new MenuPrincipal(zoo);
         menu.showMenu();
     }
 
