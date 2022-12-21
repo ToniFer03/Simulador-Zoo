@@ -5,7 +5,7 @@ import com.mycompany.mavenproject1.Menus.OpcaoMenu;
 
 public class sairMenu extends OpcaoMenu {
 
-    MenuPrincipal menu;
+    private MenuPrincipal menu;
 
     // constructor
     public sairMenu(MenuPrincipal menu) {

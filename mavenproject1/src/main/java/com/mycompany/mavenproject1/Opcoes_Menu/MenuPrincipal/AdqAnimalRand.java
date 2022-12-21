@@ -10,7 +10,7 @@ import com.mycompany.mavenproject1.Menus.OpcaoMenu;
 //referente a opção de menu "Adquirir animal aleatório"
 public class AdqAnimalRand extends OpcaoMenu {
 
-    MenuPrincipal menu;
+    private MenuPrincipal menu;
 
     // constructor
     public AdqAnimalRand(MenuPrincipal menu) {

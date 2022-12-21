@@ -6,7 +6,7 @@ import com.mycompany.mavenproject1.Menus.OpcaoMenu;
 //referente a opcaao de menu "Colocar animal em instalação"
 public class ColcAnimalInstal extends OpcaoMenu {
 
-    MenuPrincipal menu;
+    private MenuPrincipal menu;
 
     // constructor
     public ColcAnimalInstal(MenuPrincipal menu) {

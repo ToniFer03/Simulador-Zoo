@@ -6,7 +6,7 @@ import com.mycompany.mavenproject1.Opcoes_Menu.MenuAdqAnimalCar.voltarMenuPrin;
 
 public class MenuAdqAnimalCarc extends MenuBase {
 
-    MenuPrincipal menu;
+    private MenuPrincipal menu;
 
     public MenuAdqAnimalCarc(MenuPrincipal menu) {
         super();
@@ -26,5 +26,9 @@ public class MenuAdqAnimalCarc extends MenuBase {
         System.out.println("[0] - Voltar ao menu anterior");
         System.out.print("Digite a sua opção: ");
         executeItem(getOption());
+    }
+
+    public MenuPrincipal getMenu() {
+        return menu;
     }
 }

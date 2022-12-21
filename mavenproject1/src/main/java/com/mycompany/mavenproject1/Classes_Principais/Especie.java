@@ -62,6 +62,14 @@ public class Especie {
         return probNascimento;
     }
 
+    public void bonusAnoChines() {
+        atratividadeBase += 0.5 * atratividadeBase;
+    }
+
+    public void addCaracteristicaEspecie(CaracteristicasEspecie caracteristica) {
+        CaracteristicasEspecie.add(caracteristica);
+    }
+
     public ArrayList<CaracteristicasEspecie> getCaracteristicasEspecie() {
         return CaracteristicasEspecie;
     }
@@ -81,7 +89,7 @@ public class Especie {
             ArrayList<CaractristicaIndividual> aux = new ArrayList<CaractristicaIndividual>();
             aux = AuxRand.selectCaracteristicas();
             // create an animal and add it to the zoo (zoo.addAnimal(animal))
-            zoo.addAnimal(new Animal("Teste", 1, this));
+            zoo.addAnimal(new Animal("Teste", 1, this, aux));
         }
     }
 
@@ -102,4 +110,5 @@ public class Especie {
 
         return info;
     }
+
 }

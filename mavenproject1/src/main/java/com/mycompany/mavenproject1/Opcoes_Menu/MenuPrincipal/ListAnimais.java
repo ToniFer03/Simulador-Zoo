@@ -6,7 +6,7 @@ import com.mycompany.mavenproject1.Menus.OpcaoMenu;
 //referente a opcao de menu "Construir instalação"
 public class ListAnimais extends OpcaoMenu {
 
-    MenuPrincipal menu;
+    private MenuPrincipal menu;
 
     // constructor
     public ListAnimais(MenuPrincipal menu) {

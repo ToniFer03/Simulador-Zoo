@@ -4,7 +4,7 @@ import com.mycompany.mavenproject1.Menus.MenuPrincipal;
 import com.mycompany.mavenproject1.Menus.OpcaoMenu;
 
 public class voltarMenuPrin extends OpcaoMenu {
-    MenuPrincipal menu;
+    private MenuPrincipal menu;
 
     // constructor
     public voltarMenuPrin(MenuPrincipal menu) {

@@ -44,9 +44,12 @@ public class Animal extends Especie {
         return this.id;
     }
 
-    // get species name
     public ArrayList<CaracteristicasEspecie> getCaraEspecie() {
         return super.getCaracteristicasEspecie();
+    }
+
+    public ArrayList<CaractristicaIndividual> getCaracteristicasIndividuais() {
+        return this.caracteristicasIndividuais;
     }
 
     public int getIdade() {

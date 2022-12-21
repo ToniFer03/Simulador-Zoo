@@ -80,20 +80,51 @@ public class Mavenproject1 {
 
     private static void initializeSpecies() {
         Especie leao = new Especie("Leão", 10, 6.5, 0.5, 0.2);
+        leao.addCaracteristicaEspecie(CaracteristicasEspecie.getCaracteristicasEspecie().get(0));
+
         Especie tigre = new Especie("Tigre", 12, 7.8, 0.5, 0.2);
+        tigre.addCaracteristicaEspecie(CaracteristicasEspecie.getCaracteristicasEspecie().get(0));
+        tigre.addCaracteristicaEspecie(CaracteristicasEspecie.getCaracteristicasEspecie().get(3));
+
         Especie gato = new Especie("Gato", 11, 3.4, 0.5, 0.2);
-        Especie cachorro = new Especie("Cachorro", 15, 1.8, 0.5, 0.2);
+        gato.addCaracteristicaEspecie(CaracteristicasEspecie.getCaracteristicasEspecie().get(6));
+
+        Especie sapo = new Especie("Sapo", 6, 6.8, 0.5, 0.2);
+        sapo.addCaracteristicaEspecie(CaracteristicasEspecie.getCaracteristicasEspecie().get(1));
+        sapo.addCaracteristicaEspecie(CaracteristicasEspecie.getCaracteristicasEspecie().get(4));
+        sapo.addCaracteristicaEspecie(CaracteristicasEspecie.getCaracteristicasEspecie().get(5));
+        sapo.addCaracteristicaEspecie(CaracteristicasEspecie.getCaracteristicasEspecie().get(6));
+
         Especie urso = new Especie("Urso", 40, 4.3, 0.5, 0.2);
+        urso.addCaracteristicaEspecie(CaracteristicasEspecie.getCaracteristicasEspecie().get(7));
+
         Especie panda = new Especie("Panda", 20, 10, 0.5, 0.2);
+        panda.addCaracteristicaEspecie(CaracteristicasEspecie.getCaracteristicasEspecie().get(6));
+        panda.addCaracteristicaEspecie(CaracteristicasEspecie.getCaracteristicasEspecie().get(7));
+
         Especie elefante = new Especie("Elefante", 70, 6.5, 0.5, 0.2);
+        elefante.addCaracteristicaEspecie(CaracteristicasEspecie.getCaracteristicasEspecie().get(7));
+
         Especie girafa = new Especie("Girafa", 35, 7.2, 0.5, 0.2);
-        Especie hipopotamo = new Especie("Hipopotamo", 22, 5.5, 0.5, 0.2);
-        Especie rinoceronte = new Especie("Rinoceronte", 17, 5.3, 0.5, 0.2);
+        girafa.addCaracteristicaEspecie(CaracteristicasEspecie.getCaracteristicasEspecie().get(7));
+
         Especie baleia = new Especie("Baleia", 50, 9.4, 0.5, 0.2);
+        baleia.addCaracteristicaEspecie(CaracteristicasEspecie.getCaracteristicasEspecie().get(1));
+
         Especie tubarao = new Especie("Tubarão", 43, 9.6, 0.5, 0.2);
+        tubarao.addCaracteristicaEspecie(CaracteristicasEspecie.getCaracteristicasEspecie().get(1));
+        tubarao.addCaracteristicaEspecie(CaracteristicasEspecie.getCaracteristicasEspecie().get(7));
+
         Especie peixe = new Especie("Peixe", 6, 1.7, 0.5, 0.2);
+        peixe.addCaracteristicaEspecie(CaracteristicasEspecie.getCaracteristicasEspecie().get(1));
+
         Especie pinguim = new Especie("Pinguim", 8, 10, 0.5, 0.2);
-        Especie avestruz = new Especie("Avestruz", 13, 3.8, 0.5, 0.2);
+        pinguim.addCaracteristicaEspecie(CaracteristicasEspecie.getCaracteristicasEspecie().get(1));
+        pinguim.addCaracteristicaEspecie(CaracteristicasEspecie.getCaracteristicasEspecie().get(6));
+        pinguim.addCaracteristicaEspecie(CaracteristicasEspecie.getCaracteristicasEspecie().get(7));
+
+        Especie aguia = new Especie("Aguia", 13, 3.8, 0.5, 0.2);
+        aguia.addCaracteristicaEspecie(CaracteristicasEspecie.getCaracteristicasEspecie().get(2));
     }
 
     private static Zoo initializeZoo() {
