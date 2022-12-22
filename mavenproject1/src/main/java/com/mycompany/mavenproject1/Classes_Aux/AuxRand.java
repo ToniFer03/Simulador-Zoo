@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import com.mycompany.mavenproject1.Classes_Principais.Animal;
 import com.mycompany.mavenproject1.Classes_Principais.CaractristicaIndividual;
 import com.mycompany.mavenproject1.Classes_Principais.Especie;
+import com.mycompany.mavenproject1.Classes_Principais.Instalacao;
 import com.mycompany.mavenproject1.Classes_Principais.NomeArtistico;
 
 public abstract class AuxRand {
@@ -63,8 +64,8 @@ public abstract class AuxRand {
     }
 
     // method to get a raondom number between 50 and 500 for the price of the animal
-    public static int getPrecoRand() {
-        return (int) (Math.random() * 450) + 50;
+    public static double getPrecoRand() {
+        return (double) (Math.random() * 450) + 50;
     }
 
     public static Animal randomAnimal() {
@@ -72,4 +73,18 @@ public abstract class AuxRand {
                 AuxRand.selectCaracteristicas()));
     }
 
+    // methond to get a random number between 50 and 250 for the costs
+    public static int getCostsRand() {
+        return (int) (Math.random() * 50) + 50;
+    }
+
+    // method to get a random number between 1 and 6 for the capacity of the cage
+    public static int getCapacidadeRand() {
+        return (int) (Math.random() * 5) + 1;
+    }
+
+    // create a random instalation
+    public static Instalacao randomInstalacao() {
+        return (new Instalacao(getCapacidadeRand(), getCostsRand(), getCostsRand()));
+    }
 }

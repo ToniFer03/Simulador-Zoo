@@ -1,5 +1,6 @@
 package com.mycompany.mavenproject1.Opcoes_Menu.MenuPrincipal;
 
+import com.mycompany.mavenproject1.Classes_Principais.Instalacao;
 import com.mycompany.mavenproject1.Menus.MenuPrincipal;
 import com.mycompany.mavenproject1.Menus.OpcaoMenu;
 
@@ -17,8 +18,18 @@ public class ListInstal extends OpcaoMenu {
     // function that executes the action of this option
     @Override
     public void executarOpcao() {
-        System.out.println("Teste bem sucedido!");
+        showInstalacoes();
         voltarMenu();
+    }
+
+    private void showInstalacoes() {
+        System.out.println("\n");
+        System.out.println("As instalações que este zoo possui são: ");
+        for (Instalacao inst : menu.getZoo().getInstalacoes()) {
+            System.out.println("----------------------------------------");
+            System.out.print(inst.toString());
+            System.out.println("----------------------------------------\n");
+        }
     }
 
     // function to go back

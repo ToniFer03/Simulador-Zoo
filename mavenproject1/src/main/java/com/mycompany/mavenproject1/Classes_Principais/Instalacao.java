@@ -6,17 +6,19 @@ public class Instalacao {
     // atributs
     private double custoTrabalhadores;
     private double custoLimpeza;
+    private double custoTrabalhadoresInicial;
+    private double custoLimpezaInicial;
     private int lotacaoMaxima;
     private int idInstalacao;
     private ArrayList<Animal> animais;
 
     // constructor
-    public Instalacao(int lotacaoMaxima,
-            int idInstalacao) {
-        this.custoTrabalhadores = 5;
-        this.custoLimpeza = 5;
+    public Instalacao(int lotacaoMaxima, int custoTrabalhadores, int custoLimpeza) {
+        this.custoTrabalhadores = custoTrabalhadores;
+        this.custoLimpeza = custoLimpeza;
         this.lotacaoMaxima = lotacaoMaxima;
-        this.idInstalacao = idInstalacao;
+        this.custoTrabalhadoresInicial = custoTrabalhadores;
+        this.custoLimpezaInicial = custoLimpeza;
         animais = new ArrayList<Animal>(lotacaoMaxima);
     }
 
@@ -45,21 +47,19 @@ public class Instalacao {
     // methods
     public void addAnimal(Animal animal, int posicao) {
         if (animais.size() < lotacaoMaxima) {
-            animais.add(animal);
+            animais.add(0, animal);
             aumentarCustoLimpeza();
             aumentarCustoTrabalhadores();
         } else {
-            animais.set(posicao, animal);
-            aumentarCustoLimpeza();
-            aumentarCustoTrabalhadores();
+            System.out.println("Lotacao maxima atingida");
         }
     }
 
     public void removeAnimal(Animal animal) {
         animais.remove(animal);
         if (animais.size() == 0) {
-            this.custoLimpeza = 5;
-            this.custoTrabalhadores = 5;
+            this.custoLimpeza = custoLimpezaInicial;
+            this.custoTrabalhadores = custoTrabalhadoresInicial;
         }
     }
 
@@ -87,7 +87,10 @@ public class Instalacao {
         info += "Custo Trabalhadores: " + custoTrabalhadores + "\n";
         info += "Custo Limpeza: " + custoLimpeza + "\n";
         info += "Lotacao Maxima: " + lotacaoMaxima + "\n";
+        info += "Animais: \n";
+        info += "---------------------------------- \n";
         for (Animal animal : animais) {
+            info += "Posição: " + animais.indexOf(animal) + "\n";
             info += animal.toString();
         }
         info += "---------------------------------- \n";

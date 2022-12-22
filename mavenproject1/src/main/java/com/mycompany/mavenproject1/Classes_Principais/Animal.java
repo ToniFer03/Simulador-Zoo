@@ -109,7 +109,9 @@ public class Animal extends Especie {
     @Override
     public String toString() {
         String info;
-        info = "Especie: " + super.getNomeEspecie() + "\n";
+        info = super.toString();
+        info += "- - - - - - - - - - - - - - -\n";
+        info += "ID: " + this.id + "\n";
         info += "Nome Artistico: " + this.nomeArtistico + "\n";
         info += "Idade: " + this.idade + "\n";
         info += "Caracteristicas Individuais: \n";

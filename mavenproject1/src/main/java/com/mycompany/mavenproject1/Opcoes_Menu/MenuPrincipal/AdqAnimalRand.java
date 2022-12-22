@@ -27,26 +27,26 @@ public class AdqAnimalRand extends OpcaoMenu {
 
     private void showAnimals(Animal a1, Animal a2, Animal a3) {
         Scanner sc = new Scanner(System.in);
-        int price1 = AuxRand.getPrecoRand();
-        int price2 = AuxRand.getPrecoRand();
-        int price3 = AuxRand.getPrecoRand();
+        double price1 = AuxRand.getPrecoRand();
+        double price2 = AuxRand.getPrecoRand();
+        double price3 = AuxRand.getPrecoRand();
 
         System.out.println("\n \n \n");
         System.out.println("Escolha um dos seguintes animais para adquirir!");
         System.out.println("----------------------------------------");
         System.out.println("Opção 1: ");
         System.out.println(a1.toString());
-        System.out.println("Preço da primeira opção: " + price1);
+        System.out.printf("Preço da primeira opção: %.2f \n", price1);
         System.out.println("----------------------------------------\n\n");
         System.out.println("----------------------------------------");
         System.out.println("Opção 2: ");
         System.out.println(a2.toString());
-        System.out.println("Preço da segunda opção: " + price2);
+        System.out.printf("Preço da segunda opção: %.2f \n", price2);
         System.out.println("----------------------------------------\n\n");
         System.out.println("----------------------------------------");
         System.out.println("Opção 3: ");
         System.out.println(a3.toString());
-        System.out.println("Preço da terceira opção: " + price3);
+        System.out.printf("Preço da terceira opção: %.2f \n", price3);
         System.out.println("----------------------------------------\n\n");
         System.out.println("Opção 4: Cancelar \n");
         System.out.print("Opção: ");
@@ -54,15 +54,15 @@ public class AdqAnimalRand extends OpcaoMenu {
 
         switch (opcao) {
             case "1":
-                menu.getZoo().addAnimal(a1);
+                menu.getZoo().addAnimalZoo(a1);
                 menu.getZoo().decreaseZooMoney(price1);
                 break;
             case "2":
-                menu.getZoo().addAnimal(a2);
+                menu.getZoo().addAnimalZoo(a2);
                 menu.getZoo().decreaseZooMoney(price2);
                 break;
             case "3":
-                menu.getZoo().addAnimal(a3);
+                menu.getZoo().addAnimalZoo(a3);
                 menu.getZoo().decreaseZooMoney(price3);
                 break;
             case "4":

@@ -89,7 +89,7 @@ public class Especie {
             ArrayList<CaractristicaIndividual> aux = new ArrayList<CaractristicaIndividual>();
             aux = AuxRand.selectCaracteristicas();
             // create an animal and add it to the zoo (zoo.addAnimal(animal))
-            zoo.addAnimal(new Animal("Teste", 1, this, aux));
+            zoo.addAnimalZoo(new Animal("Teste", 1, this, aux));
         }
     }
 

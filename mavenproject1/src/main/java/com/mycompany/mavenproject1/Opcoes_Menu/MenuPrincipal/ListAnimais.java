@@ -17,8 +17,19 @@ public class ListAnimais extends OpcaoMenu {
     // function that executes the action of this option
     @Override
     public void executarOpcao() {
-        System.out.println("Teste bem sucedido!");
+        listarAnimais();
         voltarMenu();
+    }
+
+    private void listarAnimais() {
+        System.out.println("\n");
+        System.out.println("Lista de animais:");
+        System.out.println("_____________________________");
+        for (int i = 0; i < menu.getZoo().getAnimais().size(); i++) {
+            System.out.println("-----------------------------");
+            System.out.print(menu.getZoo().getAnimais().get(i));
+            System.out.println("-----------------------------\n");
+        }
     }
 
     // function to go back
