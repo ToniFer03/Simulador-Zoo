@@ -122,6 +122,8 @@ public class Zoo {
         todosAnimais.remove(animal);
         if (animaisSemInstacao.contains(animal)) {
             animaisSemInstacao.remove(animal);
+        } else {
+            removeAnimalInstalacao(animal);
         }
         Obituario.add(animal);
     }
@@ -140,8 +142,12 @@ public class Zoo {
     }
 
     // methods
-    public void calcProbFugir() {
-        // TODO - calculate the probability of an animal to escape based on money it has
+    public void setProbFugir(double valor) {
+        probFugir = valor;
+    }
+
+    public void addAnimalObituario(Animal animal) {
+        Obituario.add(animal);
     }
 
     // toString
@@ -184,5 +190,13 @@ public class Zoo {
     private void addIdToInstalacao(Instalacao instalacao) { // receives an instalacao and adds an id to it
         instalacao.setId(numeroInstalacoes);
         numeroInstalacoes++;
+    }
+
+    private void removeAnimalInstalacao(Animal animal) { // receives an animal and removes it from the instalacao
+        for (Instalacao i : instalacoes) {
+            if (i.getAnimais().contains(animal)) {
+                i.getAnimais().remove(animal);
+            }
+        }
     }
 }

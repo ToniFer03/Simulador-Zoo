@@ -3,7 +3,10 @@ package com.mycompany.mavenproject1.Opcoes_Menu.MenuPrincipal;
 import com.mycompany.mavenproject1.Classes_Principais.Instalacao;
 import com.mycompany.mavenproject1.Menus.MenuPrincipal;
 import com.mycompany.mavenproject1.Menus.OpcaoMenu;
+import com.mycompany.mavenproject1.Classes_Aux.AuxRand;
+import com.mycompany.mavenproject1.Classes_Aux.ComplexMath;
 import com.mycompany.mavenproject1.Classes_Principais.Animal;
+import java.util.ArrayList;
 
 //referente a opcao de menu "Construir instalação"
 public class PeriodoConta extends OpcaoMenu {
@@ -19,12 +22,22 @@ public class PeriodoConta extends OpcaoMenu {
     // function that executes the action of this option
     @Override
     public void executarOpcao() {
-        calculcarCustos();
-        calcularGanhos();
+        double dinheiro;
+        dinheiro = calculcarCustos();
+        dinheiro += calcularGanhos();
+        atualizarProbFugir(dinheiro);
+        morteAnimal();
+        increaseAge();
         menu.showMenu();
     }
 
-    private void calculcarCustos() {
+    private void increaseAge() {
+        for (Animal a : menu.getZoo().getTodosAnimais()) {
+            a.aumentarIdade();
+        }
+    }
+
+    private double calculcarCustos() {
         double custoTotal = 0;
 
         // calcular custo das instalacoes
@@ -35,13 +48,13 @@ public class PeriodoConta extends OpcaoMenu {
         // calcular custo dos animais
         for (Animal a : menu.getZoo().getAnimaisSemInstacao()) {
             custoTotal += a.calculateCustoRacao();
-            System.out.println(a.toString());
         }
 
         menu.getZoo().decreaseZooMoney(custoTotal);
+        return custoTotal;
     }
 
-    private void calcularGanhos() {
+    private double calcularGanhos() {
         double ganhoTotal = 0;
         for (Instalacao i : menu.getZoo().getInstalacoes()) {
             for (Animal a : i.getAnimais()) {
@@ -50,6 +63,32 @@ public class PeriodoConta extends OpcaoMenu {
         }
 
         menu.getZoo().increaseZooMoney(ganhoTotal);
+        return ganhoTotal;
+    }
+
+    private void atualizarProbFugir(double valor) {
+        if (valor < 0) {
+            if (menu.getZoo().getProbFugir() > 0.94)
+                menu.getZoo().setProbFugir(menu.getZoo().getProbFugir() + 0.05);
+        } else {
+            if (menu.getZoo().getProbFugir() < 0.06)
+                menu.getZoo().setProbFugir(menu.getZoo().getProbFugir() - 0.05);
+        }
+
+    }
+
+    private void morteAnimal() {
+        ArrayList<Animal> animaisMortos = new ArrayList<>();
+
+        for (Animal a : menu.getZoo().getTodosAnimais()) {
+            if (AuxRand.isAnimalDead(ComplexMath.calculateProbabilityDeath(a.getIdade(), a.getEsperancaVida()))) {
+                animaisMortos.add(a);
+            }
+        }
+
+        for (Animal b : animaisMortos) {
+            menu.getZoo().removeAnimal(b);
+        }
     }
 
 }

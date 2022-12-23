@@ -23,6 +23,9 @@ public class Obituario extends OpcaoMenu {
     }
 
     private void mostrarObituario() {
+        System.out.println("\n");
+        System.out.println("Obituario: ");
+        System.out.println("--------------------------------------------");
         for (Animal animal : menu.getZoo().getObituario()) {
             System.out.println(animal);
         }
