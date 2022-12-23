@@ -3,9 +3,12 @@ package com.mycompany.mavenproject1.Classes_Principais;
 import java.util.ArrayList;
 
 public class CaracteristicasEspecie {
+
     // attributes
     private String caracteristicas;
     private Double valores;
+
+    // arraylist that stores all the characteristics instances
     private static ArrayList<CaracteristicasEspecie> ce = new ArrayList<CaracteristicasEspecie>();
 
     // constructor

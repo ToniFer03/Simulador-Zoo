@@ -10,8 +10,8 @@ import java.util.Scanner;
 
 public class carcAnimal extends OpcaoMenu {
 
-    private MenuAdqAnimalCarc menu;
     private final int precoCaracteristica;
+    private MenuAdqAnimalCarc menu;
 
     // constructor
     public carcAnimal(MenuAdqAnimalCarc menu) {
@@ -24,6 +24,7 @@ public class carcAnimal extends OpcaoMenu {
     @Override
     public void executarOpcao() {
         Scanner input = new Scanner(System.in);
+
         System.out.println("\n");
         System.out.println("Selecione a caracteristica que deseja adquirir:");
         for (int i = 0; i < CaractristicaIndividual.getCaracteristicasIndividuais().size(); i++) {
@@ -47,7 +48,7 @@ public class carcAnimal extends OpcaoMenu {
             System.out.println("Foi adquirido o seguinte animal: ");
             System.out.println(ani); // adicionar maneira de ver as caracteristicas da especie
             menu.getMenu().getZoo().addAnimalZoo(ani);
-            menu.getMenu().getZoo().decreaseZooMoney(AuxRand.getPrecoRand() + precoCaracteristica);
+            menu.getMenu().getZoo().decreaseZooMoney(AuxRand.getRandomPreco() + precoCaracteristica);
             menu.getMenu().showMenu();
         } else {
             // calls the funtion again until the animal has the desired characteristic

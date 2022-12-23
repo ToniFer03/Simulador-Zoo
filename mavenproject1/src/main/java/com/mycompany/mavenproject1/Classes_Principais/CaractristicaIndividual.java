@@ -4,9 +4,12 @@ import java.util.ArrayList;
 
 //característica individuais de um animal
 public class CaractristicaIndividual {
+
     // attributes
     private String caracteristicas;
     private Double valores;
+
+    // arraylist that stores all the characteristics instances
     private static ArrayList<CaractristicaIndividual> ci = new ArrayList<CaractristicaIndividual>();
 
     // constructor

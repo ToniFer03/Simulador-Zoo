@@ -45,7 +45,7 @@ public class ListAnimaisMutacao extends OpcaoMenu {
     private void displayAnimals(int opcao) {
         System.out.println("\n");
         System.out.println("Os seguintes animais possuem a caracteristica selecionada: ");
-        for (Animal ani : menu.getZoo().getAnimais()) {
+        for (Animal ani : menu.getZoo().getTodosAnimais()) {
             if (ani.getCaracteristicasIndividuais()
                     .contains(
                             CaractristicaIndividual.getCaracteristicasIndividuais().get(opcao))) {

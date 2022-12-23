@@ -45,7 +45,7 @@ public class carcEspecie extends OpcaoMenu {
             System.out.println("Foi adquirido o seguinte animal: ");
             System.out.println(ani); // adicionar maneira de ver as caracteristicas da especie
             menu.getMenu().getZoo().addAnimalZoo(ani);
-            menu.getMenu().getZoo().decreaseZooMoney(AuxRand.getPrecoRand() + precoCaracteristica);
+            menu.getMenu().getZoo().decreaseZooMoney(AuxRand.getRandomPreco() + precoCaracteristica);
             menu.getMenu().showMenu();
         } else {
             // calls the funtion again until the animal has the desired characteristic

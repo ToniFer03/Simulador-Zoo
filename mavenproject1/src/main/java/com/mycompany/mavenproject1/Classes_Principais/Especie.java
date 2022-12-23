@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import com.mycompany.mavenproject1.Classes_Aux.AuxRand;
 
 public class Especie {
+
     // attributes
     private String nomeEspecie;
     private int esperancaVida;
@@ -12,9 +13,11 @@ public class Especie {
     private double custoRacaobase;
     private double probNascimento;
     private ArrayList<CaracteristicasEspecie> CaracteristicasEspecie;
+
+    // static array with all the species
     private static ArrayList<Especie> especies = new ArrayList<Especie>();
 
-    // constructor
+    // constructor for species without CaracteristicasEspecie
     public Especie(String nomeEspecie, int esperancaVida, double atratividadeBase, double custoRacaobase,
             double probNascimento) {
         this.nomeEspecie = nomeEspecie;
@@ -26,6 +29,7 @@ public class Especie {
         especies.add(this);
     }
 
+    // constructor for species with CaracteristicasEspecie
     public Especie(String nomeEspecie, int esperancaVida, double atratividadeBase, double custoRacaobase,
             double probNascimento, ArrayList<CaracteristicasEspecie> CaracteristicasEspecie) {
         this.nomeEspecie = nomeEspecie;
@@ -37,11 +41,12 @@ public class Especie {
         especies.add(this);
     }
 
-    // getters
+    // static methods
     public static ArrayList<Especie> getEspecies() {
         return especies;
     }
 
+    // getters
     public String getNomeEspecie() {
         return nomeEspecie;
     }
@@ -62,35 +67,29 @@ public class Especie {
         return probNascimento;
     }
 
-    public void bonusAnoChines() {
-        atratividadeBase += 0.5 * atratividadeBase;
-    }
-
-    public void addCaracteristicaEspecie(CaracteristicasEspecie caracteristica) {
-        CaracteristicasEspecie.add(caracteristica);
-    }
-
     public ArrayList<CaracteristicasEspecie> getCaracteristicasEspecie() {
         return CaracteristicasEspecie;
     }
 
-    // gets the sum of the values of the characteristics of the species
-    public Double somaValoresCaracteristicas() {
-        Double result = 0.0;
-        for (CaracteristicasEspecie caracteristica : CaracteristicasEspecie) {
-            result += caracteristica.getValor();
+    // methods
+    // method that determines if the animal is born and adds it to the zoo
+    public void nascimento(Zoo zoo) {
+        if (AuxRand.isAnimalBorn(probNascimento)) {
+            ArrayList<CaractristicaIndividual> ci;
+            ci = AuxRand.getRandomCaracIndividual();
+            // create an animal and add it to the zoo (zoo.addAnimal(animal))
+            zoo.addAnimalZoo(new Animal("Teste", 1, this, ci));
         }
-        return result;
     }
 
-    // methods
-    public void nascimento(Zoo zoo) {
-        if (AuxRand.animalBorn(probNascimento)) {
-            ArrayList<CaractristicaIndividual> aux = new ArrayList<CaractristicaIndividual>();
-            aux = AuxRand.selectCaracteristicas();
-            // create an animal and add it to the zoo (zoo.addAnimal(animal))
-            zoo.addAnimalZoo(new Animal("Teste", 1, this, aux));
-        }
+    // method that adds the bonus the chinese year is the same as the species
+    public void bonusAnoChines() {
+        atratividadeBase += 0.5 * atratividadeBase;
+    }
+
+    // method that adds a CaracteristicasEspecie to the array
+    public void addCaracteristicaEspecie(CaracteristicasEspecie caracteristica) {
+        CaracteristicasEspecie.add(caracteristica);
     }
 
     // toString

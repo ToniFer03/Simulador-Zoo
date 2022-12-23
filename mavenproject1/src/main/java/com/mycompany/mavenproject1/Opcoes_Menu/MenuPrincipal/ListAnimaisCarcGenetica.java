@@ -43,7 +43,7 @@ public class ListAnimaisCarcGenetica extends OpcaoMenu {
     private void displayAnimals(int opcao) {
         System.out.println("\n");
         System.out.println("Os seguintes animais possuem a caracteristica selecionada: ");
-        for (Animal ani : menu.getZoo().getAnimais()) {
+        for (Animal ani : menu.getZoo().getTodosAnimais()) {
             if (ani.getCaracteristicasEspecie()
                     .contains(CaracteristicasEspecie.getCaracteristicasEspecie().get(opcao))) {
                 System.out.println("----------------------------------------");

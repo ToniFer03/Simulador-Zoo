@@ -27,9 +27,9 @@ public class ConstInstal extends OpcaoMenu {
 
     private void showInstals(Instalacao instal1, Instalacao instal2, Instalacao instal3) {
         Scanner sc = new Scanner(System.in);
-        double price1 = AuxRand.getPrecoRand();
-        double price2 = AuxRand.getPrecoRand();
-        double price3 = AuxRand.getPrecoRand();
+        double price1 = AuxRand.getRandomPreco();
+        double price2 = AuxRand.getRandomPreco();
+        double price3 = AuxRand.getRandomPreco();
 
         System.out.println("\n \n \n");
         System.out.println("Escolha um dos seguintes animais para adquirir!");
@@ -54,15 +54,15 @@ public class ConstInstal extends OpcaoMenu {
 
         switch (opcao) {
             case "1":
-                menu.getZoo().addInstalacao(instal1);
+                menu.getZoo().addInstalacaoZoo(instal1);
                 menu.getZoo().decreaseZooMoney(price1);
                 break;
             case "2":
-                menu.getZoo().addIdToInstalacao(instal2);
+                menu.getZoo().addInstalacaoZoo(instal2);
                 menu.getZoo().decreaseZooMoney(price2);
                 break;
             case "3":
-                menu.getZoo().addInstalacao(instal3);
+                menu.getZoo().addInstalacaoZoo(instal3);
                 menu.getZoo().decreaseZooMoney(price3);
                 break;
             case "4":

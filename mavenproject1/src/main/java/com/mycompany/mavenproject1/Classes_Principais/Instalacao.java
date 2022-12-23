@@ -3,13 +3,14 @@ package com.mycompany.mavenproject1.Classes_Principais;
 import java.util.ArrayList;
 
 public class Instalacao {
+
     // atributs
     private double custoTrabalhadores;
     private double custoLimpeza;
     private double custoTrabalhadoresInicial;
     private double custoLimpezaInicial;
     private int lotacaoMaxima;
-    private int idInstalacao;
+    private Integer idInstalacao;
     private ArrayList<Animal> animais;
 
     // constructor
@@ -20,6 +21,15 @@ public class Instalacao {
         this.custoTrabalhadoresInicial = custoTrabalhadores;
         this.custoLimpezaInicial = custoLimpeza;
         animais = new ArrayList<Animal>(lotacaoMaxima);
+    }
+
+    // ids
+    public int getIdInstalacao() {
+        return idInstalacao;
+    }
+
+    public void setId(int id) {
+        this.idInstalacao = id;
     }
 
     // getters
@@ -35,13 +45,8 @@ public class Instalacao {
         return lotacaoMaxima;
     }
 
-    public int getIdInstalacao() {
-        return idInstalacao;
-    }
-
-    // set id
-    public void setId(int id) {
-        this.idInstalacao = id;
+    public ArrayList<Animal> getAnimais() {
+        return animais;
     }
 
     // methods
@@ -63,19 +68,13 @@ public class Instalacao {
         }
     }
 
-    // get all animals in the instalation
-    public ArrayList<Animal> getAnimais() {
-        return animais;
-    }
-
-    // increase cleaning cost by 10 +- random number
+    // private methods
     private void aumentarCustoLimpeza() {
-        this.custoLimpeza += 10 + (Math.random() * 10);
+        this.custoLimpeza = custoLimpezaInicial + 10 + (Math.random() * 10);
     }
 
-    // increase workers cost by 10 +- random number
     private void aumentarCustoTrabalhadores() {
-        this.custoTrabalhadores += 10 + (Math.random() * 10);
+        this.custoTrabalhadores = custoTrabalhadoresInicial + 10 + (Math.random() * 10);
     }
 
     // toString

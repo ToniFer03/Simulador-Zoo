@@ -10,18 +10,24 @@ import com.mycompany.mavenproject1.Classes_Principais.NomeArtistico;
 
 public abstract class AuxRand {
 
+    // private constructor because this functions is not be instanciated
     private AuxRand() {
     }
 
-    // method to see if a new animal will be born
-    public static boolean animalBorn(double probNascimento) {
+    // method to see if a new animal will be born or not
+    public static boolean isAnimalBorn(double probNascimento) {
         double random = Math.random();
         return random < probNascimento;
     }
 
-    // method that selects a certain number of random characteristics from the list
-    // of characteristics and returns them
-    public static ArrayList<CaractristicaIndividual> selectCaracteristicas() {
+    // method to see if an animal will die or not
+    public static boolean isAnimalDead(double probMorte) {
+        double random = Math.random();
+        return random < probMorte;
+    }
+
+    // method that selects random characteristics from the list of characteristics
+    public static ArrayList<CaractristicaIndividual> getRandomCaracIndividual() {
         ArrayList<CaractristicaIndividual> caracteristicasSelecionadas = new ArrayList<CaractristicaIndividual>();
         for (int i = 0; i < AuxRand.numCaracteristicas(); i++) {
             int random = (int) (Math.random() * CaractristicaIndividual.getCaracteristicasIndividuais().size());
@@ -33,20 +39,20 @@ public abstract class AuxRand {
         return caracteristicasSelecionadas;
     }
 
-    public static boolean animalDies(double probMorte) {
-        double random = Math.random();
-        return random < probMorte;
+    // method to get a random number between 50 and 500 for the price of the animal
+    public static double getRandomPreco() {
+        return (double) (Math.random() * 450) + 50;
     }
 
-    // receives and int and gives a random int between 0 and the int received
-    public static int randomInt(int max) {
-        return (int) (Math.random() * max);
+    public static Animal randomAnimal() {
+        return (new Animal(NomeArtistico.getNome(),
+                getRandomInt(10), AuxRand.getRandomEspecie(),
+                AuxRand.getRandomCaracIndividual()));
     }
 
-    // returns a random species
-    public static Especie randomEspecie() {
-        int random = (int) (Math.random() * Especie.getEspecies().size());
-        return Especie.getEspecies().get(random);
+    // create a random instalation
+    public static Instalacao randomInstalacao() {
+        return (new Instalacao(getRandomCapacity(), getRandomCosts(), getRandomCosts()));
     }
 
     // method to see how many caracteristics the new animal will have
@@ -63,28 +69,24 @@ public abstract class AuxRand {
         }
     }
 
-    // method to get a raondom number between 50 and 500 for the price of the animal
-    public static double getPrecoRand() {
-        return (double) (Math.random() * 450) + 50;
+    // method that returns a random species from the list of species
+    private static Especie getRandomEspecie() {
+        int random = (int) (Math.random() * Especie.getEspecies().size());
+        return Especie.getEspecies().get(random);
     }
 
-    public static Animal randomAnimal() {
-        return (new Animal(NomeArtistico.getNome(), randomInt(10), AuxRand.randomEspecie(),
-                AuxRand.selectCaracteristicas()));
+    // receives and int and gives a random int between 0 and the int received
+    private static int getRandomInt(int max) {
+        return (int) (Math.random() * max);
     }
 
-    // methond to get a random number between 50 and 250 for the costs
-    public static int getCostsRand() {
+    // methond to get a random number between 50 and 100 for the costs
+    private static int getRandomCosts() {
         return (int) (Math.random() * 50) + 50;
     }
 
     // method to get a random number between 1 and 6 for the capacity of the cage
-    public static int getCapacidadeRand() {
+    private static int getRandomCapacity() {
         return (int) (Math.random() * 5) + 1;
-    }
-
-    // create a random instalation
-    public static Instalacao randomInstalacao() {
-        return (new Instalacao(getCapacidadeRand(), getCostsRand(), getCostsRand()));
     }
 }

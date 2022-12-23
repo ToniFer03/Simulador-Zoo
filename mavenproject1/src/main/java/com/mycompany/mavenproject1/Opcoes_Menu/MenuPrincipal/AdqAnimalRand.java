@@ -27,9 +27,9 @@ public class AdqAnimalRand extends OpcaoMenu {
 
     private void showAnimals(Animal a1, Animal a2, Animal a3) {
         Scanner sc = new Scanner(System.in);
-        double price1 = AuxRand.getPrecoRand();
-        double price2 = AuxRand.getPrecoRand();
-        double price3 = AuxRand.getPrecoRand();
+        double price1 = AuxRand.getRandomPreco();
+        double price2 = AuxRand.getRandomPreco();
+        double price3 = AuxRand.getRandomPreco();
 
         System.out.println("\n \n \n");
         System.out.println("Escolha um dos seguintes animais para adquirir!");
