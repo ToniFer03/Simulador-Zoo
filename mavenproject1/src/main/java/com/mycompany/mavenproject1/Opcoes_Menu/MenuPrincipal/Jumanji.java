@@ -18,13 +18,6 @@ public class Jumanji extends OpcaoMenu {
     @Override
     public void executarOpcao() {
         System.out.println("Teste bem sucedido!");
-        voltarMenu();
-    }
-
-    // function to go back
-    @Override
-    public void voltarMenu() {
         menu.showMenu();
     }
-
 }

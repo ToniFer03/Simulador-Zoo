@@ -19,9 +19,4 @@ public class voltarMenuPrin extends OpcaoMenu {
         menu.showMenu();
     }
 
-    // function to go back
-    @Override
-    public void voltarMenu() {
-        menu.showMenu();
-    }
 }

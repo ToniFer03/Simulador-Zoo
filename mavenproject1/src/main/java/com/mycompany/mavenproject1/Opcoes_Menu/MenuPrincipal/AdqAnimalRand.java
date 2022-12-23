@@ -22,7 +22,7 @@ public class AdqAnimalRand extends OpcaoMenu {
     @Override
     public void executarOpcao() {
         getRandomAnimals();
-        voltarMenu();
+        menu.showMenu();
     }
 
     private void showAnimals(Animal a1, Animal a2, Animal a3) {
@@ -67,7 +67,7 @@ public class AdqAnimalRand extends OpcaoMenu {
                 break;
             case "4":
                 System.out.println("Operação cancelada!");
-                voltarMenu();
+                menu.executeItem(0);
                 break;
             default:
                 break;
@@ -83,11 +83,4 @@ public class AdqAnimalRand extends OpcaoMenu {
         // show the animals and ask the user to choose one
         showAnimals(a1, a2, a3);
     }
-
-    // function to go back
-    @Override
-    public void voltarMenu() {
-        menu.showMenu();
-    }
-
 }

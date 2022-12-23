@@ -22,7 +22,7 @@ public class ConstInstal extends OpcaoMenu {
     @Override
     public void executarOpcao() {
         getRandomInstal();
-        voltarMenu();
+        menu.showMenu();
     }
 
     private void showInstals(Instalacao instal1, Instalacao instal2, Instalacao instal3) {
@@ -67,7 +67,7 @@ public class ConstInstal extends OpcaoMenu {
                 break;
             case "4":
                 System.out.println("Operação cancelada!");
-                voltarMenu();
+                menu.executeItem(0);
                 break;
             default:
                 break;
@@ -82,11 +82,5 @@ public class ConstInstal extends OpcaoMenu {
 
         // show the installations
         showInstals(instal1, instal2, instal3);
-    }
-
-    // function to go back
-    @Override
-    public void voltarMenu() {
-        menu.showMenu();
     }
 }

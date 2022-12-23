@@ -5,7 +5,7 @@ import com.mycompany.mavenproject1.Menus.OpcaoMenu;
 
 //referente a opcao de menu "Construir instalação"
 public class RetratoFamilia extends OpcaoMenu {
-    
+
     private MenuPrincipal menu;
 
     // constructor
@@ -18,12 +18,6 @@ public class RetratoFamilia extends OpcaoMenu {
     @Override
     public void executarOpcao() {
         System.out.println("Teste bem sucedido!");
-        voltarMenu();
-    }
-
-    // function to go back
-    @Override
-    public void voltarMenu() {
         menu.showMenu();
     }
 

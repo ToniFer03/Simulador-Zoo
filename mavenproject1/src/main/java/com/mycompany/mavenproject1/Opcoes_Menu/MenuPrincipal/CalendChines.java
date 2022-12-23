@@ -8,8 +8,8 @@ import java.util.Scanner;
 //referente a opção de menu "Calendário Chinês"
 public class CalendChines extends OpcaoMenu {
 
-    private MenuPrincipal menu;
     private final String[] nomesCalendario;
+    private MenuPrincipal menu;
 
     // constructor
     public CalendChines(MenuPrincipal menu) {
@@ -23,25 +23,29 @@ public class CalendChines extends OpcaoMenu {
     @Override
     public void executarOpcao() {
         showText();
-        voltarMenu();
+        menu.showMenu();
     }
 
+    // function that shows the text of this option
     private void showText() {
         Scanner sc = new Scanner(System.in);
+
         System.out.println("\n");
         System.out.print("Digite um ano: ");
         int ano = sc.nextInt();
-        aplicarBonus(ano % 12);
+
+        verificarBonus(ano % 12);
     }
 
-    private void aplicarBonus(int restoAno) {
-        boolean achou = false;
+    private void verificarBonus(int restoAno) {
+        boolean achou = false; // boleans that checks if there is a species that belongs to the year
 
         for (Especie especie : Especie.getEspecies()) {
             if (especie.getNomeEspecie().equals(nomesCalendario[restoAno])) {
                 especie.bonusAnoChines();
                 System.out
                         .println("A espécie " + especie.getNomeEspecie() + " ganhou um bônus de 50% de atrativiidade.");
+                especie.bonusAnoChines();
                 achou = true;
             }
         }
@@ -51,9 +55,4 @@ public class CalendChines extends OpcaoMenu {
         }
     }
 
-    // function to go back
-    @Override
-    public void voltarMenu() {
-        menu.showMenu();
-    }
 }

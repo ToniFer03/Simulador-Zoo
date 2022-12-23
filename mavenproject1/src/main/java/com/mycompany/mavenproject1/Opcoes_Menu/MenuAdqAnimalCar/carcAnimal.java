@@ -23,8 +23,15 @@ public class carcAnimal extends OpcaoMenu {
     // function that executes the action of this option
     @Override
     public void executarOpcao() {
+        showText();
+        menu.executeItem(0); // return to the main menu
+    }
+
+    // function that shows the text of this option
+    private void showText() {
         Scanner input = new Scanner(System.in);
 
+        // asks the user to select the desired characteristic
         System.out.println("\n");
         System.out.println("Selecione a caracteristica que deseja adquirir:");
         for (int i = 0; i < CaractristicaIndividual.getCaracteristicasIndividuais().size(); i++) {
@@ -40,28 +47,22 @@ public class carcAnimal extends OpcaoMenu {
     }
 
     private void createRandomAnimal(int opcao) {
-        Animal ani = AuxRand.randomAnimal();
+        Animal ani = AuxRand.randomAnimal(); // creates a random animal
 
+        // checks if the animal has the desired characteristic
         if (ani.getCaracteristicasIndividuais()
                 .contains(CaractristicaIndividual.getCaracteristicasIndividuais().get(opcao))) {
             System.out.println("\n");
             System.out.println("Foi adquirido o seguinte animal: ");
-            System.out.println(ani); // adicionar maneira de ver as caracteristicas da especie
+            System.out.println(ani);
+
+            // adds the animal to the zoo and decreases the zoo's money
             menu.getMenu().getZoo().addAnimalZoo(ani);
             menu.getMenu().getZoo().decreaseZooMoney(AuxRand.getRandomPreco() + precoCaracteristica);
-            menu.getMenu().showMenu();
         } else {
             // calls the funtion again until the animal has the desired characteristic
             createRandomAnimal(opcao);
         }
 
     }
-
-    // function to go back
-    @Override
-    public void voltarMenu() {
-        System.out.println("A voltar ao menu anterior...");
-        menu.showMenu();
-    }
-
 }

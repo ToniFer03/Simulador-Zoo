@@ -21,7 +21,7 @@ public class PeriodoConta extends OpcaoMenu {
     public void executarOpcao() {
         calculcarCustos();
         calcularGanhos();
-        voltarMenu();
+        menu.showMenu();
     }
 
     private void calculcarCustos() {
@@ -50,12 +50,6 @@ public class PeriodoConta extends OpcaoMenu {
         }
 
         menu.getZoo().increaseZooMoney(ganhoTotal);
-    }
-
-    // function to go back
-    @Override
-    public void voltarMenu() {
-        menu.showMenu();
     }
 
 }

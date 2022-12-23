@@ -22,9 +22,10 @@ public class ListAnimaisMutacao extends OpcaoMenu {
     @Override
     public void executarOpcao() {
         showText();
-        voltarMenu();
+        menu.showMenu();
     }
 
+    // function that shows all the installations and ask the user to choose one
     private void showText() {
         Scanner input = new Scanner(System.in);
         System.out.println("\n");
@@ -40,8 +41,7 @@ public class ListAnimaisMutacao extends OpcaoMenu {
         displayAnimals(opcao);
     }
 
-    // falta verificar se existe algum animal com essa caracteristica e caso não
-    // exista mostrar uma mensagem
+    // Shows all animals with the caracteristics the user selected
     private void displayAnimals(int opcao) {
         System.out.println("\n");
         System.out.println("Os seguintes animais possuem a caracteristica selecionada: ");
@@ -54,11 +54,5 @@ public class ListAnimaisMutacao extends OpcaoMenu {
                 System.out.println("----------------------------------------\n");
             }
         }
-    }
-
-    // function to go back
-    @Override
-    public void voltarMenu() {
-        menu.showMenu();
     }
 }

@@ -19,7 +19,7 @@ public class ListInstal extends OpcaoMenu {
     @Override
     public void executarOpcao() {
         showInstalacoes();
-        voltarMenu();
+        menu.showMenu();
     }
 
     private void showInstalacoes() {
@@ -30,11 +30,5 @@ public class ListInstal extends OpcaoMenu {
             System.out.print(inst.toString());
             System.out.println("----------------------------------------\n");
         }
-    }
-
-    // function to go back
-    @Override
-    public void voltarMenu() {
-        menu.showMenu();
     }
 }

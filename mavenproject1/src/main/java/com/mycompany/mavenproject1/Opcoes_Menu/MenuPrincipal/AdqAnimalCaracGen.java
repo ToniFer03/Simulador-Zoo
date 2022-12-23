@@ -21,13 +21,6 @@ public class AdqAnimalCaracGen extends OpcaoMenu {
     @Override
     public void executarOpcao() {
         menuAdqAnimalCarc.showMenu();
-        voltarMenu();
-    }
-
-    // function to go back
-    @Override
-    public void voltarMenu() {
-        menu.showMenu();
     }
 
 }

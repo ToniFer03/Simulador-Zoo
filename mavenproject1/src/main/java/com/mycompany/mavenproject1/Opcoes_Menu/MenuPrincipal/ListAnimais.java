@@ -18,7 +18,7 @@ public class ListAnimais extends OpcaoMenu {
     @Override
     public void executarOpcao() {
         listarAnimais();
-        voltarMenu();
+        menu.showMenu();
     }
 
     private void listarAnimais() {
@@ -30,11 +30,5 @@ public class ListAnimais extends OpcaoMenu {
             System.out.print(menu.getZoo().getTodosAnimais().get(i));
             System.out.println("-----------------------------\n");
         }
-    }
-
-    // function to go back
-    @Override
-    public void voltarMenu() {
-        menu.showMenu();
     }
 }

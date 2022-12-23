@@ -10,7 +10,4 @@ public abstract class OpcaoMenu {
     // functions that executes the action of this option
     public abstract void executarOpcao();
 
-    // function to go back
-    public abstract void voltarMenu();
-
 }

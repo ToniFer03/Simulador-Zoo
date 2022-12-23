@@ -19,18 +19,12 @@ public class Obituario extends OpcaoMenu {
     @Override
     public void executarOpcao() {
         mostrarObituario();
-        voltarMenu();
+        menu.showMenu();
     }
 
     private void mostrarObituario() {
         for (Animal animal : menu.getZoo().getObituario()) {
             System.out.println(animal);
         }
-    }
-
-    // function to go back
-    @Override
-    public void voltarMenu() {
-        menu.showMenu();
     }
 }

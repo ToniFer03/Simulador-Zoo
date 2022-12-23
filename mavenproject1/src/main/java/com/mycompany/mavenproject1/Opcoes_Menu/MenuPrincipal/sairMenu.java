@@ -19,10 +19,4 @@ public class sairMenu extends OpcaoMenu {
         System.out.println("A sair da aplicação...");
         System.exit(0);
     }
-
-    // function to go back
-    @Override
-    public void voltarMenu() {
-        menu.showMenu();
-    }
 }
