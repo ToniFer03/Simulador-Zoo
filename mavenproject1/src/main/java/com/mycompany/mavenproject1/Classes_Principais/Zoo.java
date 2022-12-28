@@ -58,7 +58,7 @@ public class Zoo {
     }
 
     public Animal getAnimaisSemInstacao(int id) {
-        for (Animal a : todosAnimais) {
+        for (Animal a : animaisSemInstacao) {
             if (a.getId() == id) {
                 return a;
             }
@@ -128,6 +128,17 @@ public class Zoo {
         Obituario.add(animal);
     }
 
+    public void animalFugiu(Animal animal) {
+        todosAnimais.remove(animal);
+        if (animaisSemInstacao.contains(animal)) {
+            animaisSemInstacao.remove(animal);
+            removeAnimalTotal(animal);
+        } else {
+            removeAnimalInstalacao(animal);
+            removeAnimalTotal(animal);
+        }
+    }
+
     public void removerAnimalSemInstalacao(Animal animal) {
         animaisSemInstacao.remove(animal);
     }
@@ -148,6 +159,10 @@ public class Zoo {
 
     public void addAnimalObituario(Animal animal) {
         Obituario.add(animal);
+    }
+
+    public void setSaldocoContabilistico(double valor) {
+        saldoContabilistico = valor;
     }
 
     // toString
@@ -198,5 +213,9 @@ public class Zoo {
                 i.getAnimais().remove(animal);
             }
         }
+    }
+
+    private void removeAnimalTotal(Animal animal) {
+        todosAnimais.remove(animal);
     }
 }

@@ -67,6 +67,10 @@ public class Especie {
         return probNascimento;
     }
 
+    public Especie getEspecie() {
+        return this;
+    }
+
     public ArrayList<CaracteristicasEspecie> getCaracteristicasEspecie() {
         return CaracteristicasEspecie;
     }

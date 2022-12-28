@@ -52,15 +52,15 @@ public class ColcAnimalInstal extends OpcaoMenu {
         System.out.println("\n");
         System.out.println("Animais no zoo: ");
         System.out.println("--------------------------------------------");
-        for (int i = 0; i < menu.getZoo().getAnimaisSemInstacao().size(); i++) {
-            System.out.println(menu.getZoo().getAnimaisSemInstacao(i).toString());
+        for (Animal a : menu.getZoo().getAnimaisSemInstacao()) {
+            System.out.println(a.toString());
         }
         System.out.print("Escolha um animal: ");
         Scanner sc = new Scanner(System.in);
         int idAnimal = sc.nextInt();
 
         // check if the animal exists
-        if (menu.getZoo().getTodosAnimais(idAnimal) == null) {
+        if (menu.getZoo().getAnimaisSemInstacao(idAnimal) == null) {
             System.out.println("Animal não existe, por favor selecione um animal válido!");
             mostrarAnimais(); // recursive call if the animal doesn't exist
         } else {
@@ -73,8 +73,20 @@ public class ColcAnimalInstal extends OpcaoMenu {
         Animal ani = menu.getZoo().getTodosAnimais(idAnimal);
         Instalacao instal = menu.getZoo().getInstalacoes(idInstalacao);
 
-        instal.addAnimal(ani, idInstalacao);
-        menu.getZoo().removerAnimalSemInstalacao(ani);
-        System.out.println("Animal colocado com sucesso.");
+        if (instal.getAnimais().size() > 0) {
+            if (instal.getAnimais(0).getNomeEspecie() == ani.getNomeEspecie()) {
+                System.out.println("Animal colocado com sucesso.");
+                instal.addAnimal(ani, idInstalacao);
+                menu.getZoo().removerAnimalSemInstalacao(ani);
+                System.out.println("Animal colocado com sucesso.");
+            } else {
+                System.out.println("O animal não pode ser colocado nesta instalação.");
+            }
+        } else {
+            System.out.println("Animal colocado com sucesso.");
+            instal.addAnimal(ani, idInstalacao);
+            menu.getZoo().removerAnimalSemInstalacao(ani);
+        }
+
     }
 }

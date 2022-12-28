@@ -17,8 +17,14 @@ public class RetratoFamilia extends OpcaoMenu {
     // function that executes the action of this option
     @Override
     public void executarOpcao() {
-        System.out.println("Teste bem sucedido!");
+        printZoo();
         menu.showMenu();
+    }
+
+    private void printZoo() {
+        System.out.println(menu.getZoo().toString());
+        menu.executarOpcao(11);
+        menu.executarOpcao(12);
     }
 
 }

@@ -71,4 +71,9 @@ public class MenuPrincipal extends MenuBase {
     public Zoo getZoo() {
         return zoo;
     }
+
+    public void executarOpcao(int opcao) {
+        executeItem(opcao);
+    }
+
 }

@@ -50,9 +50,20 @@ public abstract class AuxRand {
                 AuxRand.getRandomCaracIndividual()));
     }
 
+    // overload of the randomAnimal method to create a new animal with the species
+    // defined
+    public static Animal randomAnimal(Especie especie) {
+        return (new Animal(NomeArtistico.getNome(), 0, especie, AuxRand.getRandomCaracIndividual()));
+    }
+
     // create a random instalation
     public static Instalacao randomInstalacao() {
         return (new Instalacao(getRandomCapacity(), getRandomCosts(), getRandomCosts()));
+    }
+
+    public static boolean AnimalFoge(double probFuga) {
+        double random = Math.random();
+        return random < probFuga;
     }
 
     // method to see how many caracteristics the new animal will have

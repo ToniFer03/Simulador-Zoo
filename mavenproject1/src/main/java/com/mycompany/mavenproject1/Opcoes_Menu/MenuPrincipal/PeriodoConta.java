@@ -25,9 +25,12 @@ public class PeriodoConta extends OpcaoMenu {
         double dinheiro;
         dinheiro = calculcarCustos();
         dinheiro += calcularGanhos();
+        Historico.addSaldoContabilistico(dinheiro);
         atualizarProbFugir(dinheiro);
         morteAnimal();
+        nasceAnimal();
         increaseAge();
+        fogeAnimal();
         menu.showMenu();
     }
 
@@ -91,4 +94,28 @@ public class PeriodoConta extends OpcaoMenu {
         }
     }
 
+    // function that checks if a new animal is born and adds it to the zoo
+    private void nasceAnimal() {
+        for (Instalacao i : menu.getZoo().getInstalacoes()) {
+            if (i.getAnimais().size() > 1) {
+                if (AuxRand.isAnimalBorn(i.getAnimais(0).getProbNascimento())) {
+                    Animal a = AuxRand.randomAnimal(i.getAnimais(0).getEspecie());
+                    menu.getZoo().addAnimalZoo(a);
+                    Historico.addAnimalNascido(a);
+                }
+            }
+        }
+    }
+
+    private void fogeAnimal() {
+        for (int i = 0; i < menu.getZoo().getInstalacoes().size(); i++) {
+            for (int j = 0; j < menu.getZoo().getInstalacoes().get(i).getAnimais().size(); j++) {
+                if (AuxRand.AnimalFoge(menu.getZoo().getProbFugir())) {
+                    Historico.addAnimalFugido(menu.getZoo().getInstalacoes().get(i).getAnimais().get(j));
+                    menu.getZoo().animalFugiu(menu.getZoo().getInstalacoes().get(i).getAnimais().get(j));
+
+                }
+            }
+        }
+    }
 }

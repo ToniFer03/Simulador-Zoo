@@ -5,6 +5,7 @@ import com.mycompany.mavenproject1.Classes_Principais.Animal;
 import com.mycompany.mavenproject1.Classes_Principais.CaracteristicasEspecie;
 import com.mycompany.mavenproject1.Menus.MenuAdqAnimalCarc;
 import com.mycompany.mavenproject1.Menus.OpcaoMenu;
+import com.mycompany.mavenproject1.Opcoes_Menu.MenuPrincipal.Historico;
 
 import java.util.Scanner;
 
@@ -58,6 +59,7 @@ public class carcEspecie extends OpcaoMenu {
             // adds the animal to the zoo and decreases the zoo's money
             menu.getMenu().getZoo().addAnimalZoo(ani);
             menu.getMenu().getZoo().decreaseZooMoney(AuxRand.getRandomPreco() + precoCaracteristica);
+            Historico.addAnimalAdquerido(ani);
         } else {
             // calls the funtion again until the animal has the desired characteristic
             createRandomAnimal(opcao);

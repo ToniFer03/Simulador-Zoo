@@ -56,14 +56,17 @@ public class AdqAnimalRand extends OpcaoMenu {
             case "1":
                 menu.getZoo().addAnimalZoo(a1);
                 menu.getZoo().decreaseZooMoney(price1);
+                Historico.addAnimalAdquerido(a1);
                 break;
             case "2":
                 menu.getZoo().addAnimalZoo(a2);
                 menu.getZoo().decreaseZooMoney(price2);
+                Historico.addAnimalAdquerido(a2);
                 break;
             case "3":
                 menu.getZoo().addAnimalZoo(a3);
                 menu.getZoo().decreaseZooMoney(price3);
+                Historico.addAnimalAdquerido(a3);
                 break;
             case "4":
                 System.out.println("Operação cancelada!");

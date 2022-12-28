@@ -7,17 +7,24 @@ import com.mycompany.mavenproject1.Classes_Principais.CaractristicaIndividual;
 import com.mycompany.mavenproject1.Classes_Principais.Especie;
 import com.mycompany.mavenproject1.Classes_Principais.NomeArtistico;
 import com.mycompany.mavenproject1.Classes_Principais.Zoo;
+import com.mycompany.mavenproject1.Menus.MenuInicial;
 import com.mycompany.mavenproject1.Menus.MenuPrincipal;
 
 public class Mavenproject1 {
 
     public static void main(String[] args) {
-        initializeNames();
-        ArrayList<CaracteristicasEspecie> caracteristicasEspecie = initializeCaracteristicasEspecie();
-        ArrayList<CaractristicaIndividual> caracteristicasIndividuais = initializeCaracteristicasIndividuais();
-        initializeSpecies();
+        /*
+         * initializeNames();
+         * ArrayList<CaracteristicasEspecie> caracteristicasEspecie =
+         * initializeCaracteristicasEspecie();
+         * ArrayList<CaractristicaIndividual> caracteristicasIndividuais =
+         * initializeCaracteristicasIndividuais();
+         * initializeSpecies();
+         */
 
         Zoo zoo = initializeZoo();
+        MenuInicial menuInicial = new MenuInicial(zoo);
+        menuInicial.showMenu();
 
         MenuPrincipal menu = new MenuPrincipal(zoo);
         menu.showMenu();
@@ -128,7 +135,7 @@ public class Mavenproject1 {
     }
 
     private static Zoo initializeZoo() {
-        Zoo zoo = new Zoo(1000.0, 0.5);
+        Zoo zoo = new Zoo(0.0, 0.0);
 
         return zoo;
     }

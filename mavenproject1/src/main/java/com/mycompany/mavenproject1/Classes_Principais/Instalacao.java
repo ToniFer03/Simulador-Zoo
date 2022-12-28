@@ -49,6 +49,10 @@ public class Instalacao {
         return animais;
     }
 
+    public Animal getAnimais(int posicao) {
+        return animais.get(posicao);
+    }
+
     // methods
     public void addAnimal(Animal animal, int posicao) {
         if (animais.size() < lotacaoMaxima) {

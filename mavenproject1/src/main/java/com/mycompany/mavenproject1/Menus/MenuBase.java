@@ -25,4 +25,9 @@ public abstract class MenuBase {
     public void addOpcaoMenu(OpcaoMenu opcaoMenu) {
         opcoesMenu.add(opcaoMenu);
     }
+
+    public ArrayList<OpcaoMenu> getOpcoesMenu() {
+        return opcoesMenu;
+    }
+
 }
