@@ -1,9 +1,9 @@
-Cor especial - 6.3
-Sem pelo - 2.3
-Albino - 7.0
-Cego - 5.1
-Sem um membro - 1.5
-Trissomia - 1.0
-Mudo - 3.0
-Anão - 8.1
-Gigante - 5.1
+Cor especial-6.3
+Sem pelo-2.3
+Albino-7.0
+Cego-5.1
+Sem um membro-1.5
+Trissomia-1.0
+Mudo-3.0
+Anão-8.1
+Gigante-5.1

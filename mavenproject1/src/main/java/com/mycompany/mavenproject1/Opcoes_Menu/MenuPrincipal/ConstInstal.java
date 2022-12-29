@@ -54,17 +54,31 @@ public class ConstInstal extends OpcaoMenu {
 
         switch (opcao) {
             case "1":
-                menu.getZoo().addInstalacaoZoo(instal1);
-                menu.getZoo().decreaseZooMoney(price1);
+                if (menu.getZoo().getSaldoContabilistico() < price1) {
+                    System.out.println("Não tem dinheiro suficiente para comprar esta instalação!");
+                    menu.showMenu();
+                } else {
+                    menu.getZoo().addInstalacaoZoo(instal1);
+                    menu.getZoo().decreaseZooMoney(price1);
+                }
                 break;
             case "2":
-                menu.getZoo().addInstalacaoZoo(instal2);
-                menu.getZoo().decreaseZooMoney(price2);
+                if (menu.getZoo().getSaldoContabilistico() < price2) {
+                    System.out.println("Não tem dinheiro suficiente para comprar esta instalação!");
+                    menu.showMenu();
+                } else {
+                    menu.getZoo().addInstalacaoZoo(instal2);
+                    menu.getZoo().decreaseZooMoney(price2);
+                }
                 break;
             case "3":
-                menu.getZoo().addInstalacaoZoo(instal3);
-                menu.getZoo().decreaseZooMoney(price3);
-                break;
+                if (menu.getZoo().getSaldoContabilistico() < price3) {
+                    System.out.println("Não tem dinheiro suficiente para comprar esta instalação!");
+                    menu.showMenu();
+                } else {
+                    menu.getZoo().addInstalacaoZoo(instal3);
+                    menu.getZoo().decreaseZooMoney(price3);
+                }
             case "4":
                 System.out.println("Operação cancelada!");
                 menu.showMenu();

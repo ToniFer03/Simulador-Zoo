@@ -62,22 +62,29 @@ public class carcEspecie extends OpcaoMenu {
     // function that creates a random animal with the desired characteristic
     private void createRandomAnimal(int opcao) throws IndexOutOfBoundsException {
         Animal ani = AuxRand.randomAnimal(); // creates a random animal
+        double precoAnimal = AuxRand.getRandomPreco() + precoCaracteristica; // gets the random price of the animal
 
-        // checks if the animal has the desired characteristic
-        if (ani.getCaracteristicasEspecie().contains(CaracteristicasEspecie.getCaracteristicasEspecie().get(opcao))) {
-            System.out.println("\n");
-            System.out.println("Foi adquirido o seguinte animal: ");
-            System.out.println(ani.basicInfo()); // adicionar maneira de ver as caracteristicas da especie
-
-            // adds the animal to the zoo and decreases the zoo's money
-            menu.getMenu().getZoo().addAnimalZoo(ani);
-            menu.getMenu().getZoo().decreaseZooMoney(AuxRand.getRandomPreco() +
-                    precoCaracteristica);
-            Historico.addAnimalAdquerido(ani);
+        // checks if the zoo has enough money to buy the animal
+        if (menu.getMenu().getZoo().getSaldoContabilistico() < precoAnimal) {
+            System.out.println("Não tem dinheiro suficiente para adquirir este animal!");
+            menu.showMenu();
         } else {
-            // calls the funtion again until the animal has the desired characteristic
-            createRandomAnimal(opcao);
-        }
+            // checks if the animal has the desired characteristic
+            if (ani.getCaracteristicasEspecie()
+                    .contains(CaracteristicasEspecie.getCaracteristicasEspecie().get(opcao))) {
+                System.out.println("\n");
+                System.out.println("Foi adquirido o seguinte animal: ");
+                System.out.println(ani.basicInfo()); // adicionar maneira de ver as caracteristicas da especie
 
+                // adds the animal to the zoo and decreases the zoo's money
+                menu.getMenu().getZoo().addAnimalZoo(ani);
+                menu.getMenu().getZoo().decreaseZooMoney(AuxRand.getRandomPreco() +
+                        precoCaracteristica);
+                Historico.addAnimalAdquerido(ani);
+            } else {
+                // calls the funtion again until the animal has the desired characteristic
+                createRandomAnimal(opcao);
+            }
+        }
     }
 }
