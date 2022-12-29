@@ -125,6 +125,21 @@ public class Animal extends Especie {
         return result;
     }
 
+    public String basicInfo() {
+        String info;
+        info = "ID: " + this.id + "\n";
+        info += "Nome Artistico: " + this.nomeArtistico + "\n";
+        info += "Idade: " + this.idade + "\n";
+        info += "Caracteristicas Individuais: \n";
+        for (CaractristicaIndividual caracteristica : caracteristicasIndividuais) {
+            info += caracteristica.toString() + "\n";
+        }
+        info += "- - - - - - - - - - - - - - -\n";
+        info += super.basicInfo();
+
+        return info;
+    }
+
     // to string
     @Override
     public String toString() {

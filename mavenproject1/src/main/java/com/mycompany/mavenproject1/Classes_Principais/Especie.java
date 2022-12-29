@@ -99,6 +99,18 @@ public class Especie {
         CaracteristicasEspecie.add(caracteristica);
     }
 
+    public String basicInfo() {
+        String info;
+
+        info = "Nome da Especie: " + nomeEspecie + "\n";
+        info += "Esperanca de vida: " + esperancaVida + "\n";
+        info += "Caracteristicas de especies:  \n";
+        for (CaracteristicasEspecie caracteristica : CaracteristicasEspecie) {
+            info += caracteristica.toString() + "\n";
+        }
+        return info;
+    }
+
     // toString
     @Override
     public String toString() {

@@ -90,20 +90,13 @@ public class ColcAnimalInstal extends OpcaoMenu {
         Animal ani = menu.getZoo().getTodosAnimais(idAnimal);
         Instalacao instal = menu.getZoo().getInstalacoes(idInstalacao);
 
-        if (instal.getAnimais().size() > 0) {
-            if (instal.getAnimais(0).getNomeEspecie() == ani.getNomeEspecie()) {
-                System.out.println("Animal colocado com sucesso.");
-                instal.addAnimal(ani, idInstalacao);
-                menu.getZoo().removerAnimalSemInstalacao(ani);
-                System.out.println("Animal colocado com sucesso.");
-            } else {
-                System.out.println("O animal não pode ser colocado nesta instalação.");
-            }
-        } else {
+        // check if the animal can be put in the installation
+        if (instal.getAnimais().size() <= instal.getLotacaoMaxima()) {
             System.out.println("Animal colocado com sucesso.");
-            instal.addAnimal(ani, idInstalacao);
+            instal.addAnimal(ani);
             menu.getZoo().removerAnimalSemInstalacao(ani);
+        } else {
+            System.out.println("O animal não pode ser colocado nesta instalação.");
         }
-
     }
 }

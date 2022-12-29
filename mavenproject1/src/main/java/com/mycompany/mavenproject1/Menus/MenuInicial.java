@@ -13,7 +13,7 @@ public class MenuInicial extends MenuBase {
         super();
         this.zoo = zoo;
         addOpcaoMenu(new Cancelar());
-        addOpcaoMenu(new DadosFicheiro());
+        addOpcaoMenu(new DadosFicheiro(zoo));
         addOpcaoMenu(new DigitarDados(zoo));
     }
 
