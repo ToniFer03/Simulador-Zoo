@@ -14,8 +14,19 @@ public abstract class MenuBase {
 
     public int getOption() {
         Scanner input = new Scanner(System.in);
-        int option = input.nextInt();
-        return option;
+
+        if (input.hasNextInt()) {
+            int option = input.nextInt();
+            if (option < opcoesMenu.size() && option >= 0) {
+                return option;
+            } else {
+                System.out.print("Opção não existe, corrija o número inserido: ");
+                return getOption();
+            }
+        } else {
+            System.out.print("Opção inválida, favor digite uma opção válida: ");
+            return getOption();
+        }
     }
 
     public void executeItem(int menuId) {

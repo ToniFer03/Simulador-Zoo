@@ -8,6 +8,7 @@ import com.mycompany.mavenproject1.Menus.MenuDigitarDados;
 import com.mycompany.mavenproject1.Menus.OpcaoMenu;
 import java.util.Scanner;
 import java.util.ArrayList;
+import java.util.Locale;
 
 public class DigitarAnimais extends OpcaoMenu {
 
@@ -26,15 +27,21 @@ public class DigitarAnimais extends OpcaoMenu {
     }
 
     private ArrayList<CaracteristicasEspecie> createCaracteristicasEspecies() {
-        Scanner sc = new Scanner(System.in);
+        System.out.print("\n");
         System.out.print("Digite o número de características da espécie: ");
-        int num = sc.nextInt();
+        int num = getInt();
         ArrayList<CaracteristicasEspecie> caracteristicas = new ArrayList<CaracteristicasEspecie>();
         for (int i = 0; i < num; i++) {
             System.out.print("Digite o nome da característica: ");
-            String nome = sc.nextLine();
-            System.out.print("Digite o valor da característica: ");
-            double valor = sc.nextDouble();
+            String nome = getString();
+
+            System.out.print("Digite o valor da característica [0.0 - 10.0]: ");
+            double valor = getDouble();
+            if (valor > 10.0) {
+                System.out.print("Erro! Digite um número entre 0.0 e 10.0: ");
+                valor = getDouble();
+            }
+
             CaracteristicasEspecie caracteristica = new CaracteristicasEspecie(nome, valor);
             caracteristicas.add(caracteristica);
         }
@@ -42,15 +49,21 @@ public class DigitarAnimais extends OpcaoMenu {
     }
 
     private ArrayList<CaractristicaIndividual> createCaracteristicasIndividuais() {
-        Scanner sc = new Scanner(System.in);
+        System.out.print("\n");
         System.out.print("Digite o número de características individuais: ");
-        int num = sc.nextInt();
+        int num = getInt();
         ArrayList<CaractristicaIndividual> caracteristicas = new ArrayList<CaractristicaIndividual>();
         for (int i = 0; i < num; i++) {
             System.out.print("Digite o nome da característica: ");
-            String nome = sc.nextLine();
-            System.out.print("Digite o valor da característica: ");
-            double valor = sc.nextDouble();
+            String nome = getString();
+
+            System.out.print("Digite o valor da característica [0.0 - 10.0]: ");
+            double valor = getDouble();
+            if (valor > 10.0) {
+                System.out.print("Erro! Digite um número entre 0.0 e 10.0: ");
+                valor = getDouble();
+            }
+
             CaractristicaIndividual caracteristica = new CaractristicaIndividual(nome, valor);
             caracteristicas.add(caracteristica);
         }
@@ -58,28 +71,90 @@ public class DigitarAnimais extends OpcaoMenu {
     }
 
     private Especie createEspecie() {
-        Scanner sc = new Scanner(System.in);
+        System.out.print("\n");
         System.out.print("Digite o nome da espécie: ");
-        String nome = sc.nextLine();
+        String nome = getString();
+
         System.out.print("Digite a esperança de vida da espécie: ");
-        int idade = sc.nextInt();
-        System.out.print("Digite a atratividade base da espécie: ");
-        double atratividade = sc.nextDouble();
+        int idade = getInt();
+
+        System.out.print("Digite a atratividade base da espécie [0.0 - 10.0]: ");
+        double atratividade = getDouble();
+        if (atratividade > 10.0) {
+            System.out.print("Erro! Digite um número entre 0.0 e 10.0: ");
+            atratividade = getDouble();
+        }
+
         System.out.print("Digite o custo da ração base da espécie: ");
-        double custo = sc.nextDouble();
-        System.out.print("Digite a probabilidade de nascimento da espécie: ");
-        double prob = sc.nextDouble();
+        double custo = getDouble();
+
+        System.out.print("Digite a probabilidade de nascimento da espécie [0.00 - 1.00]: ");
+        double prob = getDouble();
+        if (prob > 1.0) {
+            System.out.print("Erro! Digite um número entre 0.00 e 1.00: ");
+            prob = getDouble();
+        }
+
         Especie especie = new Especie(nome, idade, atratividade, custo, prob, createCaracteristicasEspecies());
         return especie;
     }
 
     private Animal createAnimal() {
-        Scanner sc = new Scanner(System.in);
+        System.out.print("\n");
         System.out.print("Digite o nome do animal: ");
-        String nome = sc.nextLine();
+        String nome = getString();
         System.out.print("Digite a idade do animal: ");
-        int idade = sc.nextInt();
+        int idade = getInt();
         return new Animal(nome, idade, createEspecie(), createCaracteristicasIndividuais());
+    }
+
+    private String getString() {
+        Scanner sc = new Scanner(System.in);
+        if (sc.hasNextLine()) {
+            String s = sc.nextLine();
+            if (s.length() > 0) {
+                return s;
+            } else {
+                System.out.print("Erro! Nome vazio, digite novamente: ");
+                return getString();
+            }
+        } else {
+            System.out.print("Erro! Digite novamente: ");
+            return getString();
+        }
+    }
+
+    private Double getDouble() {
+        Scanner sc = new Scanner(System.in);
+        sc.useLocale(Locale.ROOT);
+        if (sc.hasNextDouble()) {
+            double d = sc.nextDouble();
+            if (d > 0) {
+                return d;
+            } else {
+                System.out.print("Erro! Digite um número positivo: ");
+                return getDouble();
+            }
+        } else {
+            System.out.print("Erro! Digite um número válido: ");
+            return getDouble();
+        }
+    }
+
+    private int getInt() {
+        Scanner sc = new Scanner(System.in);
+        if (sc.hasNextInt()) {
+            int i = sc.nextInt();
+            if (i > 0) {
+                return i;
+            } else {
+                System.out.print("Erro! Digite um número inteiro positivo: ");
+                return getInt();
+            }
+        } else {
+            System.out.print("Erro! Digite um número inteiro: ");
+            return getInt();
+        }
     }
 
 }

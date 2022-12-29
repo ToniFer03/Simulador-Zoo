@@ -13,8 +13,8 @@ import com.mycompany.mavenproject1.Menus.MenuPrincipal;
 public class Mavenproject1 {
 
     public static void main(String[] args) {
+
         /*
-         * initializeNames();
          * ArrayList<CaracteristicasEspecie> caracteristicasEspecie =
          * initializeCaracteristicasEspecie();
          * ArrayList<CaractristicaIndividual> caracteristicasIndividuais =
@@ -22,12 +22,15 @@ public class Mavenproject1 {
          * initializeSpecies();
          */
 
+        initializeNames();
         Zoo zoo = initializeZoo();
+
         MenuInicial menuInicial = new MenuInicial(zoo);
         menuInicial.showMenu();
 
         MenuPrincipal menu = new MenuPrincipal(zoo);
         menu.showMenu();
+
     }
 
     private static void initializeNames() {

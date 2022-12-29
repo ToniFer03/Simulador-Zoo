@@ -27,14 +27,15 @@ public class MenuDigitarDados extends MenuBase {
 
     @Override
     public void showMenu() {
+        System.out.println("\n");
         System.out.println("Menu Digitar Dados");
-        System.out.println("1 - Digitar Animais");
-        System.out.println("2 - Digitar Especies");
-        System.out.println("3 - Digitar Instalações");
-        System.out.println("4 - Digitar Caracteristicas de Animais");
-        System.out.println("5 - Digitar Caracteristicas de Especies");
-        System.out.println("6 - Digitar informações do Zoologico");
-        System.out.println("7 - Sair");
+        System.out.println("[1] - Digitar Animais");
+        System.out.println("[2] - Digitar Especies");
+        System.out.println("[3] - Digitar Instalações");
+        System.out.println("[4] - Digitar Caracteristicas de Animais");
+        System.out.println("[5] - Digitar Caracteristicas de Especies");
+        System.out.println("[6] - Digitar informações do Zoologico");
+        System.out.println("[0] - Sair");
         System.out.print("Opção: ");
         executeItem(getOption());
     }

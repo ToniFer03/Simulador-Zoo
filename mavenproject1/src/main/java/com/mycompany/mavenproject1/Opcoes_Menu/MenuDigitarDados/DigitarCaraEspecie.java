@@ -5,6 +5,7 @@ import java.util.Scanner;
 import com.mycompany.mavenproject1.Classes_Principais.CaracteristicasEspecie;
 import com.mycompany.mavenproject1.Menus.MenuDigitarDados;
 import com.mycompany.mavenproject1.Menus.OpcaoMenu;
+import java.util.Locale;
 
 public class DigitarCaraEspecie extends OpcaoMenu {
 
@@ -22,13 +23,51 @@ public class DigitarCaraEspecie extends OpcaoMenu {
     }
 
     private void createCaraEspecie() {
-        Scanner sc = new Scanner(System.in);
 
         System.out.print("Digite o nome da característica: ");
-        String nome = sc.nextLine();
-        System.out.print("Digite o valor da característica: ");
-        double valor = sc.nextDouble();
+        String nome = getString();
+
+        System.out.print("Digite o valor da característica [0.0 - 10.0]: ");
+        double valor = getDouble();
+        if (valor > 10.0) {
+            System.out.print("Erro! Valor deve ser menor ou igual a 10.0, digite novamente: ");
+            valor = getDouble();
+        }
+
         CaracteristicasEspecie caracteristica = new CaracteristicasEspecie(nome, valor);
+    }
+
+    private String getString() {
+        Scanner sc = new Scanner(System.in);
+        if (sc.hasNextLine()) {
+            String s = sc.nextLine();
+            if (s.length() > 0) {
+                return s;
+            } else {
+                System.out.print("Erro! Nome vazio, digite novamente: ");
+                return getString();
+            }
+        } else {
+            System.out.print("Erro! Digite novamente: ");
+            return getString();
+        }
+    }
+
+    private Double getDouble() {
+        Scanner sc = new Scanner(System.in);
+        sc.useLocale(Locale.ROOT);
+        if (sc.hasNextDouble()) {
+            double d = sc.nextDouble();
+            if (d > 0) {
+                return d;
+            } else {
+                System.out.print("Erro! Digite um número positivo: ");
+                return getDouble();
+            }
+        } else {
+            System.out.print("Erro! Digite um número válido: ");
+            return getDouble();
+        }
     }
 
 }

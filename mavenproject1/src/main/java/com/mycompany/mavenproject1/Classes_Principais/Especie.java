@@ -26,7 +26,10 @@ public class Especie {
         this.custoRacaobase = custoRacaobase;
         this.probNascimento = probNascimento;
         this.CaracteristicasEspecie = new ArrayList<CaracteristicasEspecie>();
-        especies.add(this);
+        // check if the species already exists else add it to the array
+        if (!especies.contains(this)) {
+            especies.add(this);
+        }
     }
 
     // constructor for species with CaracteristicasEspecie

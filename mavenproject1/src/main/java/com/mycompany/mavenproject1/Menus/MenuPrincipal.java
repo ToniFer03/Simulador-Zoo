@@ -45,7 +45,6 @@ public class MenuPrincipal extends MenuBase {
     // show MenuPrincipal options
     @Override
     public void showMenu() {
-        System.out.println("\n" + zoo.toString());
         System.out.println("\n \n \n");
         System.out.println("Escolha uma das seguintes opções: ");
         System.out.println("[1] - Adquirir animal aleatório");

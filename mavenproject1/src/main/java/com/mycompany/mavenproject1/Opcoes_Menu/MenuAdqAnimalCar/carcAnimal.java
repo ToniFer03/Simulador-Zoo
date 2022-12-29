@@ -25,26 +25,32 @@ public class carcAnimal extends OpcaoMenu {
     @Override
     public void executarOpcao() {
         showText();
-        menu.executeItem(0); // return to the main menu
+        menu.showMenu(); // return to the main menu
     }
 
     // function that shows the text of this option
     private void showText() {
         Scanner input = new Scanner(System.in);
 
-        // asks the user to select the desired characteristic
-        System.out.println("\n");
-        System.out.println("Selecione a caracteristica que deseja adquirir:");
-        for (int i = 0; i < CaractristicaIndividual.getCaracteristicasIndividuais().size(); i++) {
-            System.out.println(
-                    "[" + i + "] - "
-                            + CaractristicaIndividual.getCaracteristicasIndividuais().get(i).getCaracteristicas());
+        if (CaractristicaIndividual.getCaracteristicasIndividuais().size() == 0) {
+            System.out.println("Não existem caracteristicas individuais disponiveis!");
+            menu.showMenu();
+        } else {
+            // asks the user to select the desired characteristic
+            System.out.println("\n");
+            System.out.println("Selecione a caracteristica que deseja adquirir:");
+            for (int i = 0; i < CaractristicaIndividual.getCaracteristicasIndividuais().size(); i++) {
+                System.out.println(
+                        "[" + i + "] - "
+                                + CaractristicaIndividual.getCaracteristicasIndividuais().get(i).getCaracteristicas());
+            }
+
+            System.out.print("Opção: ");
+            int opcao = input.nextInt();
+
+            createRandomAnimal(opcao);
         }
 
-        System.out.print("Opção: ");
-        int opcao = input.nextInt();
-
-        createRandomAnimal(opcao);
     }
 
     private void createRandomAnimal(int opcao) {

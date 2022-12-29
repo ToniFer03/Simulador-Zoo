@@ -25,25 +25,32 @@ public class carcEspecie extends OpcaoMenu {
     @Override
     public void executarOpcao() {
         showText();
-        menu.executeItem(0); // return to the main menu
+        menu.getMenu().showMenu(); // return to the main menu
     }
 
     // function that shows the text of this option
     private void showText() {
         Scanner input = new Scanner(System.in);
 
-        // asks the user to select a characteristic
-        System.out.println("\n");
-        System.out.println("Selecione a caracteristica que deseja adquirir:");
-        for (int i = 0; i < CaracteristicasEspecie.getCaracteristicasEspecie().size(); i++) {
-            System.out.println(
-                    "[" + i + "] - " + CaracteristicasEspecie.getCaracteristicasEspecie().get(i).getCaracteristicas());
+        if (CaracteristicasEspecie.getCaracteristicasEspecie().size() == 0) {
+            System.out.println("Não existem caracteristicas de especie disponiveis!");
+            menu.showMenu();
+        } else {
+            // asks the user to select a characteristic
+            System.out.println("\n");
+            System.out.println("Selecione a caracteristica que deseja adquirir:");
+            for (int i = 0; i < CaracteristicasEspecie.getCaracteristicasEspecie().size(); i++) {
+                System.out.println(
+                        "[" + i + "] - "
+                                + CaracteristicasEspecie.getCaracteristicasEspecie().get(i).getCaracteristicas());
+            }
+
+            System.out.print("Opção: ");
+            int opcao = input.nextInt();
+
+            createRandomAnimal(opcao);
         }
 
-        System.out.print("Opção: ");
-        int opcao = input.nextInt();
-
-        createRandomAnimal(opcao);
     }
 
     // function that creates a random animal with the desired characteristic

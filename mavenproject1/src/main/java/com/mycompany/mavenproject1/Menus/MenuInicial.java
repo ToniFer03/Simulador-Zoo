@@ -19,6 +19,7 @@ public class MenuInicial extends MenuBase {
 
     @Override
     public void showMenu() {
+        System.out.println("\n");
         System.out.println("Menu Inicial");
         System.out.println("[1] - Ler dados de ficheiro");
         System.out.println("[2] - Digitar dados");

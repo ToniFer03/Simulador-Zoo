@@ -67,7 +67,7 @@ public class ConstInstal extends OpcaoMenu {
                 break;
             case "4":
                 System.out.println("Operação cancelada!");
-                menu.executeItem(0);
+                menu.showMenu();
                 break;
             default:
                 break;

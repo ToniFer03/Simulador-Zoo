@@ -44,7 +44,7 @@ public abstract class AuxRand {
         return (double) (Math.random() * 450) + 50;
     }
 
-    public static Animal randomAnimal() {
+    public static Animal randomAnimal() throws IndexOutOfBoundsException {
         return (new Animal(NomeArtistico.getNome(),
                 getRandomInt(10), AuxRand.getRandomEspecie(),
                 AuxRand.getRandomCaracIndividual()));
@@ -52,7 +52,7 @@ public abstract class AuxRand {
 
     // overload of the randomAnimal method to create a new animal with the species
     // defined
-    public static Animal randomAnimal(Especie especie) {
+    public static Animal randomAnimal(Especie especie) throws IndexOutOfBoundsException {
         return (new Animal(NomeArtistico.getNome(), 0, especie, AuxRand.getRandomCaracIndividual()));
     }
 
@@ -81,7 +81,7 @@ public abstract class AuxRand {
     }
 
     // method that returns a random species from the list of species
-    private static Especie getRandomEspecie() {
+    private static Especie getRandomEspecie() throws IndexOutOfBoundsException {
         int random = (int) (Math.random() * Especie.getEspecies().size());
         return Especie.getEspecies().get(random);
     }

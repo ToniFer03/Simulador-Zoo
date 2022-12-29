@@ -15,7 +15,11 @@ public class CaracteristicasEspecie {
     public CaracteristicasEspecie(String caracteristica, Double valor) {
         this.caracteristicas = caracteristica;
         this.valores = valor;
-        ce.add(this);
+
+        // check if the characteristic already exists else add it to the array
+        if (!ce.contains(this)) {
+            ce.add(this);
+        }
     }
 
     // getters

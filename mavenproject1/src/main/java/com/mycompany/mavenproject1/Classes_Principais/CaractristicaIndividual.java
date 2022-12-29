@@ -16,7 +16,11 @@ public class CaractristicaIndividual {
     public CaractristicaIndividual(String caracteristica, Double valor) {
         this.caracteristicas = caracteristica;
         this.valores = valor;
-        ci.add(this);
+
+        // check if the characteristic already exists else add it to the array
+        if (!ci.contains(this)) {
+            ci.add(this);
+        }
     }
 
     // getters

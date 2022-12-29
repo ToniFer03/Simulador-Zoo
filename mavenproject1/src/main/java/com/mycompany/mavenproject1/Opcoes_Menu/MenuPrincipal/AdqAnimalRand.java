@@ -73,17 +73,23 @@ public class AdqAnimalRand extends OpcaoMenu {
                 menu.executeItem(0);
                 break;
             default:
+                System.out.println("Opção inválida! Voltando ao menu principal...");
                 break;
         }
     }
 
     private void getRandomAnimals() {
         // create 3 random animals
-        Animal a1 = AuxRand.randomAnimal();
-        Animal a2 = AuxRand.randomAnimal();
-        Animal a3 = AuxRand.randomAnimal();
+        try {
+            Animal a1 = AuxRand.randomAnimal();
+            Animal a2 = AuxRand.randomAnimal();
+            Animal a3 = AuxRand.randomAnimal();
+            // show the animals and ask the user to choose one
+            showAnimals(a1, a2, a3);
 
-        // show the animals and ask the user to choose one
-        showAnimals(a1, a2, a3);
+        } catch (IndexOutOfBoundsException e) {
+            System.out.println("Erro, alguma das informações para criar o animal não foram encontradas!");
+            menu.showMenu();
+        }
     }
 }
