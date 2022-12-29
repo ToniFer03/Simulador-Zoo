@@ -22,13 +22,18 @@ public class ListAnimais extends OpcaoMenu {
     }
 
     private void listarAnimais() {
-        System.out.println("\n");
-        System.out.println("Lista de animais:");
-        System.out.println("_____________________________");
-        for (int i = 0; i < menu.getZoo().getTodosAnimais().size(); i++) {
-            System.out.println("-----------------------------");
-            System.out.print(menu.getZoo().getTodosAnimais().get(i));
-            System.out.println("-----------------------------\n");
+        if (menu.getZoo().getTodosAnimais().isEmpty()) {
+            System.out.println("Não existem animais registados.");
+            menu.showMenu();
+        } else {
+            System.out.println("\n");
+            System.out.println("Lista de animais:");
+            System.out.println("_____________________________");
+            for (int i = 0; i < menu.getZoo().getTodosAnimais().size(); i++) {
+                System.out.println("-----------------------------");
+                System.out.print(menu.getZoo().getTodosAnimais().get(i));
+                System.out.println("-----------------------------\n");
+            }
         }
     }
 }

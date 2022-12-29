@@ -48,12 +48,17 @@ public class carcAnimal extends OpcaoMenu {
             System.out.print("Opção: ");
             int opcao = input.nextInt();
 
-            createRandomAnimal(opcao);
+            try {
+                createRandomAnimal(opcao);
+            } catch (IndexOutOfBoundsException e) {
+                System.out.println("Opção inválida! Voltando ao menu anterior...");
+                menu.showMenu();
+            }
         }
 
     }
 
-    private void createRandomAnimal(int opcao) {
+    private void createRandomAnimal(int opcao) throws IndexOutOfBoundsException {
         Animal ani = AuxRand.randomAnimal(); // creates a random animal
 
         // checks if the animal has the desired characteristic

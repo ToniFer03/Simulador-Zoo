@@ -51,7 +51,9 @@ public class CalendChines extends OpcaoMenu {
         }
 
         if (!achou) {
-            System.out.println("Nenhuma especie pertencente a esse ano se encontra registada.");
+            System.out.println(
+                    "Nenhuma especie pertencente a esse ano se encontra registada. (" + nomesCalendario[restoAno]
+                            + ")");
         }
     }
 

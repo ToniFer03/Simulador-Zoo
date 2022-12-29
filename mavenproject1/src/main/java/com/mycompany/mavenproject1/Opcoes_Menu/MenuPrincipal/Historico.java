@@ -24,6 +24,7 @@ public class Historico extends OpcaoMenu {
     // function that executes the action of this option
     @Override
     public void executarOpcao() {
+        System.out.println("\n");
         printAnimaisAdqueridos();
         printAnimaisNascidos();
         printAnimaisFugidos();
@@ -79,7 +80,7 @@ public class Historico extends OpcaoMenu {
         System.out.println("Histórico de saldo contabilistico:");
         System.out.println("----------------------------------------");
         for (Double d : saldoContabilistico) {
-            System.out.printf("Saldo: %.2f", d);
+            System.out.printf("Saldo: %.2f \n", d);
         }
         System.out.println("----------------------------------------");
     }

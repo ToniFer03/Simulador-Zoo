@@ -23,11 +23,17 @@ public class Obituario extends OpcaoMenu {
     }
 
     private void mostrarObituario() {
-        System.out.println("\n");
-        System.out.println("Obituario: ");
-        System.out.println("--------------------------------------------");
-        for (Animal animal : menu.getZoo().getObituario()) {
-            System.out.println(animal);
+        if (menu.getZoo().getObituario().isEmpty()) {
+            System.out.println("Não existem animais no obituario.");
+            menu.showMenu();
+        } else {
+            System.out.println("\n");
+            System.out.println("Os animais que estão no obituario são: ");
+            for (Animal animal : menu.getZoo().getObituario()) {
+                System.out.println("----------------------------------------");
+                System.out.print(animal.toString());
+                System.out.println("----------------------------------------\n");
+            }
         }
     }
 }

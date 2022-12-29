@@ -27,18 +27,23 @@ public class ListAnimaisMutacao extends OpcaoMenu {
 
     // function that shows all the installations and ask the user to choose one
     private void showText() {
-        Scanner input = new Scanner(System.in);
-        System.out.println("\n");
-        System.out.println("Selecione a caracteristica que deseja adquirir:");
-        for (int i = 0; i < CaractristicaIndividual.getCaracteristicasIndividuais().size(); i++) {
-            System.out.println(
-                    "[" + i + "] - "
-                            + CaractristicaIndividual.getCaracteristicasIndividuais().get(i).getCaracteristicas());
-        }
+        if (CaractristicaIndividual.getCaracteristicasIndividuais().isEmpty()) {
+            System.out.println("Não existem mutações registadas.");
+            menu.showMenu();
+        } else {
+            Scanner input = new Scanner(System.in);
+            System.out.println("\n");
+            System.out.println("Selecione a caracteristica que deseja adquirir:");
+            for (int i = 0; i < CaractristicaIndividual.getCaracteristicasIndividuais().size(); i++) {
+                System.out.println(
+                        "[" + i + "] - "
+                                + CaractristicaIndividual.getCaracteristicasIndividuais().get(i).getCaracteristicas());
+            }
 
-        System.out.print("Opção: ");
-        int opcao = input.nextInt();
-        displayAnimals(opcao);
+            System.out.print("Opção: ");
+            int opcao = input.nextInt();
+            displayAnimals(opcao);
+        }
     }
 
     // Shows all animals with the caracteristics the user selected

@@ -23,12 +23,17 @@ public class ListInstal extends OpcaoMenu {
     }
 
     private void showInstalacoes() {
-        System.out.println("\n");
-        System.out.println("As instalações que este zoo possui são: ");
-        for (Instalacao inst : menu.getZoo().getInstalacoes()) {
-            System.out.println("----------------------------------------");
-            System.out.print(inst.toString());
-            System.out.println("----------------------------------------\n");
+        if (menu.getZoo().getInstalacoes().isEmpty()) {
+            System.out.println("Não existem instalações registadas.");
+            menu.showMenu();
+        } else {
+            System.out.println("\n");
+            System.out.println("As instalações que este zoo possui são: ");
+            for (Instalacao inst : menu.getZoo().getInstalacoes()) {
+                System.out.println("----------------------------------------");
+                System.out.print(inst.toString());
+                System.out.println("----------------------------------------\n");
+            }
         }
     }
 }

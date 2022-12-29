@@ -1,28 +1,40 @@
 package com.mycompany.mavenproject1;
 
-import java.util.ArrayList;
+import java.io.IOException;
 
 import com.mycompany.mavenproject1.Classes_Principais.CaracteristicasEspecie;
-import com.mycompany.mavenproject1.Classes_Principais.CaractristicaIndividual;
 import com.mycompany.mavenproject1.Classes_Principais.Especie;
-import com.mycompany.mavenproject1.Classes_Principais.NomeArtistico;
 import com.mycompany.mavenproject1.Classes_Principais.Zoo;
 import com.mycompany.mavenproject1.Menus.MenuInicial;
 import com.mycompany.mavenproject1.Menus.MenuPrincipal;
+import com.mycompany.mavenproject1.ReaderClasses.CaracEspecieReader;
+import com.mycompany.mavenproject1.ReaderClasses.CaractIndividualReader;
+import com.mycompany.mavenproject1.ReaderClasses.NomeArtisticoReader;
 
 public class Mavenproject1 {
 
     public static void main(String[] args) {
 
-        /*
-         * ArrayList<CaracteristicasEspecie> caracteristicasEspecie =
-         * initializeCaracteristicasEspecie();
-         * ArrayList<CaractristicaIndividual> caracteristicasIndividuais =
-         * initializeCaracteristicasIndividuais();
-         * initializeSpecies();
-         */
+        try {
+            CaracEspecieReader.readCarcEspecie();
+        } catch (IOException e) {
+            System.out.println("Erro ao ler o ficheiro");
+        }
 
-        initializeNames();
+        try {
+            CaractIndividualReader.readCarcIndividual();
+        } catch (IOException e) {
+            System.out.println("Erro ao ler o ficheiro");
+        }
+
+        try {
+            NomeArtisticoReader.readNomeArtistico();
+        } catch (IOException e) {
+            System.out.println("Erro ao ler o ficheiro");
+        }
+
+        initializeSpecies();
+
         Zoo zoo = initializeZoo();
 
         MenuInicial menuInicial = new MenuInicial(zoo);
@@ -31,61 +43,6 @@ public class Mavenproject1 {
         MenuPrincipal menu = new MenuPrincipal(zoo);
         menu.showMenu();
 
-    }
-
-    private static void initializeNames() {
-        NomeArtistico.addNome("Melano");
-        NomeArtistico.addNome("Mirtilo");
-        NomeArtistico.addNome("Carreira");
-        NomeArtistico.addNome("David");
-        NomeArtistico.addNome("Alladin");
-        NomeArtistico.addNome("Alvin");
-        NomeArtistico.addNome("Bambi");
-        NomeArtistico.addNome("Gaston");
-        NomeArtistico.addNome("Hades");
-        NomeArtistico.addNome("Hercules");
-        NomeArtistico.addNome("Jafar");
-        NomeArtistico.addNome("Kronk");
-        NomeArtistico.addNome("Kuzco");
-        NomeArtistico.addNome("Mufasa");
-        NomeArtistico.addNome("Loki");
-        NomeArtistico.addNome("Mogli");
-        NomeArtistico.addNome("Mufasa");
-        NomeArtistico.addNome("Nemo");
-        NomeArtistico.addNome("Pumba");
-        NomeArtistico.addNome("Remy");
-        NomeArtistico.addNome("Scar");
-        NomeArtistico.addNome("Simba");
-        NomeArtistico.addNome("Tarzan");
-    }
-
-    private static ArrayList<CaracteristicasEspecie> initializeCaracteristicasEspecie() {
-        ArrayList<CaracteristicasEspecie> caracteristicasEspecie = new ArrayList<CaracteristicasEspecie>();
-        caracteristicasEspecie.add(new CaracteristicasEspecie("Rugir", 6.1));
-        caracteristicasEspecie.add(new CaracteristicasEspecie("Nadar", 2.0));
-        caracteristicasEspecie.add(new CaracteristicasEspecie("Voar", 5.5));
-        caracteristicasEspecie.add(new CaracteristicasEspecie("Sprint", 4.3));
-        caracteristicasEspecie.add(new CaracteristicasEspecie("Cores vivas", 7.0));
-        caracteristicasEspecie.add(new CaracteristicasEspecie("Veneno", 5.0));
-        caracteristicasEspecie.add(new CaracteristicasEspecie("Trapalhão", 7.8));
-        caracteristicasEspecie.add(new CaracteristicasEspecie("Exotico", 7.5));
-
-        return caracteristicasEspecie;
-    }
-
-    private static ArrayList<CaractristicaIndividual> initializeCaracteristicasIndividuais() {
-        ArrayList<CaractristicaIndividual> caracteristicasIndividuais = new ArrayList<CaractristicaIndividual>();
-        caracteristicasIndividuais.add(new CaractristicaIndividual("Cor especial", 6.3));
-        caracteristicasIndividuais.add(new CaractristicaIndividual("Sem pelo", 2.3));
-        caracteristicasIndividuais.add(new CaractristicaIndividual("Albino", 7.0));
-        caracteristicasIndividuais.add(new CaractristicaIndividual("Cego", 5.1));
-        caracteristicasIndividuais.add(new CaractristicaIndividual("Sem um membro", 1.5));
-        caracteristicasIndividuais.add(new CaractristicaIndividual("Trissomia", 1.0));
-        caracteristicasIndividuais.add(new CaractristicaIndividual("Mudo", 3.0));
-        caracteristicasIndividuais.add(new CaractristicaIndividual("Anão", 8.1));
-        caracteristicasIndividuais.add(new CaractristicaIndividual("Gigante", 5.1));
-
-        return caracteristicasIndividuais;
     }
 
     private static void initializeSpecies() {
@@ -138,7 +95,7 @@ public class Mavenproject1 {
     }
 
     private static Zoo initializeZoo() {
-        Zoo zoo = new Zoo(0.0, 0.0);
+        Zoo zoo = new Zoo(1000.0, 0.0);
 
         return zoo;
     }

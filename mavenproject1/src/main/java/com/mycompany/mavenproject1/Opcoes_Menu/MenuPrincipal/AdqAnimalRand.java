@@ -70,7 +70,7 @@ public class AdqAnimalRand extends OpcaoMenu {
                 break;
             case "4":
                 System.out.println("Operação cancelada!");
-                menu.executeItem(0);
+                menu.showMenu();
                 break;
             default:
                 System.out.println("Opção inválida! Voltando ao menu principal...");

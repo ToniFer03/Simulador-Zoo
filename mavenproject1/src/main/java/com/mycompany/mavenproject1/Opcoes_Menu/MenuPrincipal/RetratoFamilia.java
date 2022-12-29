@@ -22,6 +22,7 @@ public class RetratoFamilia extends OpcaoMenu {
     }
 
     private void printZoo() {
+        System.out.println("\n");
         System.out.println(menu.getZoo().toString());
         menu.executarOpcao(11);
         menu.executarOpcao(12);
