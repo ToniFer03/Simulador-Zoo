@@ -88,8 +88,8 @@ public class Historico extends OpcaoMenu {
     private void printObituario() {
         System.out.println("Obituario:");
         System.out.println("----------------------------------------");
-        for (Animal a : animaisFugidos) {
-            System.out.println(a.toString());
+        for (Animal a : menu.getZoo().getObituario()) {
+            System.out.println(a.basicInfo());
         }
         System.out.println("----------------------------------------");
     }

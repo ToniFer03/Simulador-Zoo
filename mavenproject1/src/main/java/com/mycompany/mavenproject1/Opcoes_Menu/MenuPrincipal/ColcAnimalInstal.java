@@ -35,7 +35,7 @@ public class ColcAnimalInstal extends OpcaoMenu {
             System.out.println("Instalações no zoo: ");
             System.out.println("--------------------------------------------");
             for (int i = 0; i < menu.getZoo().getInstalacoes().size(); i++) {
-                System.out.println(menu.getZoo().getInstalacoes(i).toString());
+                System.out.println(menu.getZoo().getInstalacoes(i).basicInfo());
             }
             System.out.print("Escolha uma instalação: ");
             Scanner sc = new Scanner(System.in);
@@ -62,7 +62,7 @@ public class ColcAnimalInstal extends OpcaoMenu {
             System.out.println("Animais no zoo: ");
             System.out.println("--------------------------------------------");
             for (Animal a : menu.getZoo().getAnimaisSemInstacao()) {
-                System.out.println(a.toString());
+                System.out.println(a.basicInfo());
             }
             System.out.print("Escolha um animal: ");
             Scanner sc = new Scanner(System.in);
