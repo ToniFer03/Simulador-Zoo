@@ -64,6 +64,16 @@ public class Instalacao {
         }
     }
 
+    public void addAnimal(Animal animal) {
+        if (animais.size() < lotacaoMaxima) {
+            animais.add(animal);
+            aumentarCustoLimpeza();
+            aumentarCustoTrabalhadores();
+        } else {
+            System.out.println("Lotacao maxima atingida");
+        }
+    }
+
     public void removeAnimal(Animal animal) {
         animais.remove(animal);
         if (animais.size() == 0) {

@@ -57,6 +57,10 @@ public class Animal extends Especie {
         this.idade++;
     }
 
+    public void addCaracteristicaIndividuais(CaractristicaIndividual caracteristica) {
+        this.caracteristicasIndividuais.add(caracteristica);
+    }
+
     // returns the array with the individual caracteristics of the animal
     public ArrayList<CaractristicaIndividual> getCaracteristicasIndividuais() {
         return this.caracteristicasIndividuais;
