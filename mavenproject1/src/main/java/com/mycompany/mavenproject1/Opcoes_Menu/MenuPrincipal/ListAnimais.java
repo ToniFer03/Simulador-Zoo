@@ -31,7 +31,7 @@ public class ListAnimais extends OpcaoMenu {
             System.out.println("_____________________________");
             for (int i = 0; i < menu.getZoo().getTodosAnimais().size(); i++) {
                 System.out.println("-----------------------------");
-                System.out.print(menu.getZoo().getTodosAnimais().get(i));
+                System.out.print(menu.getZoo().getTodosAnimais().get(i).basicInfo());
                 System.out.println("-----------------------------\n");
             }
         }

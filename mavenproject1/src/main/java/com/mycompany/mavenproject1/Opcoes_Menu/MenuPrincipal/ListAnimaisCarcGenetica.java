@@ -53,7 +53,7 @@ public class ListAnimaisCarcGenetica extends OpcaoMenu {
             if (ani.getCaracteristicasEspecie()
                     .contains(CaracteristicasEspecie.getCaracteristicasEspecie().get(opcao))) {
                 System.out.println("----------------------------------------");
-                System.out.print(ani.toString());
+                System.out.print(ani.basicInfo());
                 System.out.println("----------------------------------------\n");
             }
         }

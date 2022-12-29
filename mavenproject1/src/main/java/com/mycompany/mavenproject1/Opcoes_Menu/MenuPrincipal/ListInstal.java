@@ -31,7 +31,7 @@ public class ListInstal extends OpcaoMenu {
             System.out.println("As instalações que este zoo possui são: ");
             for (Instalacao inst : menu.getZoo().getInstalacoes()) {
                 System.out.println("----------------------------------------");
-                System.out.print(inst.toString());
+                System.out.print(inst.basicInfo());
                 System.out.println("----------------------------------------\n");
             }
         }

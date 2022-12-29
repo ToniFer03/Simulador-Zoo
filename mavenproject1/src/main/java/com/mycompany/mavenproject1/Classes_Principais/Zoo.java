@@ -176,7 +176,7 @@ public class Zoo {
         s += "                   Animais                  \n";
         s += "--------------------------------------------\n";
         for (Animal animal : todosAnimais) {
-            s += animal.toString();
+            s += animal.basicInfo();
             s += "--------------------------------------------\n";
         }
         s += "Animais sem instalacao: \n";
@@ -190,7 +190,7 @@ public class Zoo {
         s += "--------------------------------------------\n";
 
         for (Instalacao instalacao : instalacoes) {
-            s += instalacao.toString();
+            s += instalacao.basicInfo();
             s += "--------------------------------------------\n";
         }
         return s;

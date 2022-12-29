@@ -91,6 +91,27 @@ public class Instalacao {
         this.custoTrabalhadores = custoTrabalhadoresInicial + 10 + (Math.random() * 10);
     }
 
+    public String basicInfo() {
+        String info;
+        info = "---------------------------------- \n";
+        info += "ID Instalacao: " + idInstalacao + "\n";
+        info += "Custo Trabalhadores: " + String.format("%.2f", custoTrabalhadores) + "\n";
+        info += "Custo Limpeza: " + String.format("%.2f", custoLimpeza) + "\n";
+        info += "Lotacao Maxima: " + lotacaoMaxima + "\n";
+        if (animais.size() > 0) {
+            info += "Animais: \n";
+            for (Animal animal : animais) {
+                info += "---------------------------------- \n";
+                info += "Posição: " + animais.indexOf(animal) + "\n";
+                info += animal.basicInfo();
+            }
+        } else {
+            info += "Sem animais \n";
+        }
+        info += "---------------------------------- \n";
+        return info;
+    }
+
     // toString
     @Override
     public String toString() {
@@ -101,12 +122,12 @@ public class Instalacao {
         info += "Custo Limpeza: " + custoLimpeza + "\n";
         info += "Lotacao Maxima: " + lotacaoMaxima + "\n";
         info += "Animais: \n";
-        info += "---------------------------------- \n";
         for (Animal animal : animais) {
+            info += "---------------------------------- \n";
             info += "Posição: " + animais.indexOf(animal) + "\n";
-            info += animal.toString();
+            info += animal.basicInfo();
+            info += "---------------------------------- \n";
         }
-        info += "---------------------------------- \n";
 
         return info;
     }

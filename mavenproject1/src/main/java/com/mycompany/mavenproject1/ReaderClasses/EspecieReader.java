@@ -21,42 +21,29 @@ public class EspecieReader {
 
         StringTokenizer token = null;
 
-        String ident = "";
-
         // initialize the variables for the object Especie
         String nomeEspecie = "";
         int esperancaVida = 0;
         Double atratividadeBase = 0.0;
         Double custoRacaobase = 0.0;
         Double probNascimento = 0.0;
-        ArrayList<CaracteristicasEspecie> ce = new ArrayList<CaracteristicasEspecie>();
-
-        String nomeCarac = "";
-        Double valorCarac = 0.0;
 
         while (sc.hasNextLine()) {
             token = new StringTokenizer(sc.nextLine(), "-");
-            ident = token.nextToken();
-            if (ident.equals("id:esp")) {
-                nomeEspecie = token.nextToken();
-                esperancaVida = Integer.parseInt(token.nextToken());
-                atratividadeBase = Double.parseDouble(token.nextToken());
-                custoRacaobase = Double.parseDouble(token.nextToken());
-                probNascimento = Double.parseDouble(token.nextToken());
-            } else if (ident.equals("id:ce")) {
-                nomeCarac = token.nextToken();
-                valorCarac = Double.parseDouble(token.nextToken());
-                CaracteristicasEspecie c = new CaracteristicasEspecie(nomeCarac, valorCarac);
-                ce.add(c);
-            } else if (ident.equals("id:fim")) {
-                // cria a especie caso seja detetato que chegou ao fim
-                Especie e = new Especie(nomeEspecie, esperancaVida, atratividadeBase, custoRacaobase, probNascimento);
 
-                for (CaracteristicasEspecie caracteristicasEspecie : ce) {
-                    e.addCaracteristicaEspecie(caracteristicasEspecie);
-                }
-                ce.clear();
+            nomeEspecie = token.nextToken();
+            esperancaVida = Integer.parseInt(token.nextToken());
+            atratividadeBase = Double.parseDouble(token.nextToken());
+            custoRacaobase = Double.parseDouble(token.nextToken());
+            probNascimento = Double.parseDouble(token.nextToken());
+            Especie temp = new Especie(nomeEspecie, esperancaVida, atratividadeBase, custoRacaobase, probNascimento);
+
+            int cont = Integer.parseInt(token.nextToken());
+            for (int i = 0; i < cont; i++) {
+                temp.addCaracteristicaEspecie(
+                        CaracteristicasEspecie.getCaracteristicasEspecie().get(Integer.parseInt(token.nextToken())));
             }
+
         }
 
         sc.close();

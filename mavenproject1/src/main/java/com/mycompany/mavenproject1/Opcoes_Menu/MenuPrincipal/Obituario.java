@@ -31,7 +31,7 @@ public class Obituario extends OpcaoMenu {
             System.out.println("Os animais que estão no obituario são: ");
             for (Animal animal : menu.getZoo().getObituario()) {
                 System.out.println("----------------------------------------");
-                System.out.print(animal.toString());
+                System.out.print(animal.basicInfo());
                 System.out.println("----------------------------------------\n");
             }
         }

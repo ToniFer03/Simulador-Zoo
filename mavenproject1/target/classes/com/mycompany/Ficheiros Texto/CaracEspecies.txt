@@ -1,8 +1,8 @@
-Rugir - 7.5
-Nadar - 2.0
-Voar - 5.5
-Sprint - 4.3
-Cores Vivas - 7.0
-Veneno - 5.0
-Trapalhão - 7.8
-Exotico - 7.5
+Rugir-7.5
+Nadar-2.0
+Voar-5.5
+Sprint-4.3
+Cores Vivas-7.0
+Veneno-5.0
+Trapalhão-7.8
+Exotico-7.5

@@ -25,7 +25,7 @@ public class carcEspecie extends OpcaoMenu {
     @Override
     public void executarOpcao() {
         showText();
-        menu.getMenu().showMenu(); // return to the main menu
+        menu.showMenu();
     }
 
     // function that shows the text of this option
@@ -67,11 +67,12 @@ public class carcEspecie extends OpcaoMenu {
         if (ani.getCaracteristicasEspecie().contains(CaracteristicasEspecie.getCaracteristicasEspecie().get(opcao))) {
             System.out.println("\n");
             System.out.println("Foi adquirido o seguinte animal: ");
-            System.out.println(ani); // adicionar maneira de ver as caracteristicas da especie
+            System.out.println(ani.basicInfo()); // adicionar maneira de ver as caracteristicas da especie
 
             // adds the animal to the zoo and decreases the zoo's money
             menu.getMenu().getZoo().addAnimalZoo(ani);
-            menu.getMenu().getZoo().decreaseZooMoney(AuxRand.getRandomPreco() + precoCaracteristica);
+            menu.getMenu().getZoo().decreaseZooMoney(AuxRand.getRandomPreco() +
+                    precoCaracteristica);
             Historico.addAnimalAdquerido(ani);
         } else {
             // calls the funtion again until the animal has the desired characteristic

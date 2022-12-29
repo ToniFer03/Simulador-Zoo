@@ -66,7 +66,7 @@ public class carcAnimal extends OpcaoMenu {
                 .contains(CaractristicaIndividual.getCaracteristicasIndividuais().get(opcao))) {
             System.out.println("\n");
             System.out.println("Foi adquirido o seguinte animal: ");
-            System.out.println(ani);
+            System.out.println(ani.basicInfo());
 
             // adds the animal to the zoo and decreases the zoo's money
             menu.getMenu().getZoo().addAnimalZoo(ani);

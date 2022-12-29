@@ -23,7 +23,7 @@ public class PeriodoConta extends OpcaoMenu {
     @Override
     public void executarOpcao() {
         double dinheiro;
-        dinheiro = calculcarCustos();
+        dinheiro = -calculcarCustos();
         dinheiro += calcularGanhos();
         Historico.addSaldoContabilistico(dinheiro);
         atualizarProbFugir(dinheiro);
@@ -31,6 +31,7 @@ public class PeriodoConta extends OpcaoMenu {
         nasceAnimal();
         increaseAge();
         fogeAnimal();
+        System.out.println("Periodo contabilistico terminado.");
         menu.showMenu();
     }
 
@@ -71,11 +72,13 @@ public class PeriodoConta extends OpcaoMenu {
 
     private void atualizarProbFugir(double valor) {
         if (valor < 0) {
-            if (menu.getZoo().getProbFugir() > 0.94)
-                menu.getZoo().setProbFugir(menu.getZoo().getProbFugir() + 0.05);
+            menu.getZoo().setProbFugir(menu.getZoo().getProbFugir() + 0.05);
+            if (menu.getZoo().getProbFugir() > 1)
+                menu.getZoo().setProbFugir(1);
         } else {
-            if (menu.getZoo().getProbFugir() < 0.06)
-                menu.getZoo().setProbFugir(menu.getZoo().getProbFugir() - 0.05);
+            menu.getZoo().setProbFugir(menu.getZoo().getProbFugir() - 0.05);
+            if (menu.getZoo().getProbFugir() < 0)
+                menu.getZoo().setProbFugir(0);
         }
 
     }

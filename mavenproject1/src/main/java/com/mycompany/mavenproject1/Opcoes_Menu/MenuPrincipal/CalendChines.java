@@ -44,7 +44,7 @@ public class CalendChines extends OpcaoMenu {
             if (especie.getNomeEspecie().equals(nomesCalendario[restoAno])) {
                 especie.bonusAnoChines();
                 System.out
-                        .println("A espécie " + especie.getNomeEspecie() + " ganhou um bônus de 50% de atrativiidade.");
+                        .println("A espécie " + especie.getNomeEspecie() + " ganhou um bônus de 50% de atratividade.");
                 especie.bonusAnoChines();
                 achou = true;
             }

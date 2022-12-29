@@ -2,6 +2,8 @@ package com.mycompany.mavenproject1.Classes_Principais;
 
 import java.util.ArrayList;
 
+import com.mycompany.mavenproject1.Opcoes_Menu.MenuPrincipal.RetratoFamilia;
+
 public class CaracteristicasEspecie {
 
     // attributes
@@ -16,9 +18,12 @@ public class CaracteristicasEspecie {
         this.caracteristicas = caracteristica;
         this.valores = valor;
 
-        // check if the characteristic already exists else add it to the array
-        if (!ce.contains(this)) {
-            ce.add(this);
+        ce.add(this);
+        for (int i = 0; i < ce.size() - 1; i++) {
+            if (ce.get(i).equals(this)) {
+                ce.remove(ce.size() - 1);
+                return;
+            }
         }
     }
 
@@ -42,6 +47,26 @@ public class CaracteristicasEspecie {
         info = "    " + caracteristicas + " - [" + valores + "]";
 
         return info;
+    }
+
+    // equals if the characteristics are the same
+    @Override
+    public boolean equals(Object obj) {
+        if (obj == null) {
+            return false;
+        }
+        if (this == obj) {
+            return true;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final CaracteristicasEspecie other = (CaracteristicasEspecie) obj;
+        if ((this.caracteristicas == null) ? (other.caracteristicas != null)
+                : !this.caracteristicas.equals(other.caracteristicas)) {
+            return false;
+        }
+        return true;
     }
 
 }

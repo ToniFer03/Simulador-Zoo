@@ -55,7 +55,7 @@ public class ListAnimaisMutacao extends OpcaoMenu {
                     .contains(
                             CaractristicaIndividual.getCaracteristicasIndividuais().get(opcao))) {
                 System.out.println("----------------------------------------");
-                System.out.print(ani.toString());
+                System.out.print(ani.basicInfo());
                 System.out.println("----------------------------------------\n");
             }
         }
