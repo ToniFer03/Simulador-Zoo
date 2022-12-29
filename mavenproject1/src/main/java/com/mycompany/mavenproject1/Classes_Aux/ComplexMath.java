@@ -3,6 +3,7 @@ package com.mycompany.mavenproject1.Classes_Aux;
 //this class is not meant to be instantiated
 public abstract class ComplexMath {
 
+    // private constructor because this functions is not be instanciated
     private ComplexMath() {
         // private constructor
     }

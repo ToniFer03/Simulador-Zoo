@@ -6,6 +6,7 @@ public abstract class NomeArtistico {
 
     private static ArrayList<String> nomes = new ArrayList<>();
 
+    // constructor
     private NomeArtistico() {
     }
 

@@ -31,6 +31,7 @@ public abstract class AuxRand {
         ArrayList<CaractristicaIndividual> caracteristicasSelecionadas = new ArrayList<CaractristicaIndividual>();
         for (int i = 0; i < AuxRand.numCaracteristicas(); i++) {
             int random = (int) (Math.random() * CaractristicaIndividual.getCaracteristicasIndividuais().size());
+
             // check if the characteristic is already in the list and if not add it
             if (!caracteristicasSelecionadas
                     .contains(CaractristicaIndividual.getCaracteristicasIndividuais().get(random)))
@@ -44,6 +45,7 @@ public abstract class AuxRand {
         return (double) (Math.random() * 450) + 50;
     }
 
+    // method to return a random animal that will be created
     public static Animal randomAnimal() throws IndexOutOfBoundsException {
         return (new Animal(NomeArtistico.getNome(),
                 getRandomInt(10), AuxRand.getRandomEspecie(),
@@ -61,6 +63,7 @@ public abstract class AuxRand {
         return (new Instalacao(getRandomCapacity(), getRandomCosts(), getRandomCosts()));
     }
 
+    // method that returns if a certain animal will escape or not
     public static boolean AnimalFoge(double probFuga) {
         double random = Math.random();
         return random < probFuga;

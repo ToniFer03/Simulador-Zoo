@@ -53,7 +53,7 @@ public class Instalacao {
         return animais.get(posicao);
     }
 
-    // methods
+    // methods to add animal to the zoo, for a certain position
     public void addAnimal(Animal animal, int posicao) {
         if (animais.size() < lotacaoMaxima) {
             animais.add(0, animal);
@@ -64,6 +64,7 @@ public class Instalacao {
         }
     }
 
+    // method to animal to the zoo, if the zoo is not full
     public void addAnimal(Animal animal) {
         if (animais.size() < lotacaoMaxima) {
             animais.add(animal);
@@ -74,6 +75,7 @@ public class Instalacao {
         }
     }
 
+    // method to remove animal from the zoo
     public void removeAnimal(Animal animal) {
         animais.remove(animal);
         if (animais.size() == 0) {

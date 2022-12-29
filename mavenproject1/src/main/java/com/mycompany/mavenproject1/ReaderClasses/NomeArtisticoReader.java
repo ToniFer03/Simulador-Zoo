@@ -12,19 +12,17 @@ public class NomeArtisticoReader {
     public static void readNomeArtistico() throws IOException {
         // connect the file to the program
         File file = new File("mavenproject1\\src\\main\\java\\com\\mycompany\\Ficheiros Texto\\NomeArtistico.txt");
-
         Scanner sc = new Scanner(file);
 
         // initialize the variables for object CaracteristicasEspecie
         String nome = "";
 
         while (sc.hasNextLine()) {
-
             nome = sc.nextLine();
-
             NomeArtistico.addNome(nome);
         }
 
+        // close the scanner
         sc.close();
     }
 }
