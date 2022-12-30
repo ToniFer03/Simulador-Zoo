@@ -9,12 +9,15 @@ import com.mycompany.mavenproject1.Classes_Principais.Especie;
 import java.io.*;
 
 public class EspecieReader {
+
+    private static String FILENAME = "Ficheiros_Texto\\Especie.txt";
+
     private EspecieReader() {
     }
 
     public static void readEspecie() throws IOException {
         // connect the file to the program
-        File file = new File("Ficheiros_Texto\\Especie.txt");
+        File file = new File(FILENAME);
         Scanner sc = new Scanner(file);
 
         // initialize the variables for the StringTokenizer

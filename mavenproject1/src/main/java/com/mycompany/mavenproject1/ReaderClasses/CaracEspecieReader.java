@@ -9,13 +9,15 @@ import java.io.*;
 
 public class CaracEspecieReader {
 
+    private static String FILENAME = "Ficheiros_Texto\\CaracEspecies.txt";
+
     // private constructor to avoid object creation
     private CaracEspecieReader() {
     }
 
     public static void readCarcEspecie() throws IOException {
         // connect the file to the program
-        File file = new File("Ficheiros_Texto\\CaracEspecies.txt");
+        File file = new File(FILENAME);
         Scanner sc = new Scanner(file);
 
         // initialize the variables for the StringTokenizer

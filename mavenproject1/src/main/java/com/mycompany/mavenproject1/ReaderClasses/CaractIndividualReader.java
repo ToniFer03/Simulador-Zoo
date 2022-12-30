@@ -8,12 +8,14 @@ import com.mycompany.mavenproject1.Classes_Principais.CaractristicaIndividual;
 
 public class CaractIndividualReader {
 
+    private static String FILENAME = "Ficheiros_Texto\\CaracIndividual.txt";
+
     private CaractIndividualReader() {
     }
 
     public static void readCarcIndividual() throws IOException {
         // connect the file to the program
-        File file = new File("Ficheiros_Texto\\CaracIndividual.txt");
+        File file = new File(FILENAME);
         Scanner sc = new Scanner(file);
 
         // initialize the variables for the StringTokenizer

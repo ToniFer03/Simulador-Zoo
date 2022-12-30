@@ -13,6 +13,8 @@ import com.mycompany.mavenproject1.Classes_Principais.Zoo;
 
 public class ZooReader {
 
+    private static String FILENAME = "Ficheiros_Texto\\Zoo.txt";
+
     private ZooReader() {
     }
 
@@ -20,7 +22,7 @@ public class ZooReader {
         Zoo z = zoo;
 
         // connect the file to the program
-        File file = new File("Ficheiros_Texto\\Zoo.txt");
+        File file = new File(FILENAME);
         Scanner sc = new Scanner(file);
 
         // initialize the variables for the StringTokenizer

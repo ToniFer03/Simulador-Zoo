@@ -6,12 +6,15 @@ import java.util.Scanner;
 import com.mycompany.mavenproject1.Classes_Principais.NomeArtistico;
 
 public class NomeArtisticoReader {
+
+    private static String FILENAME = "Ficheiros_Texto\\NomeArtistico.txt";
+
     private NomeArtisticoReader() {
     }
 
     public static void readNomeArtistico() throws IOException {
         // connect the file to the program
-        File file = new File("Ficheiros_Texto\\NomeArtistico.txt");
+        File file = new File(FILENAME);
         Scanner sc = new Scanner(file);
 
         // initialize the variables for object CaracteristicasEspecie
