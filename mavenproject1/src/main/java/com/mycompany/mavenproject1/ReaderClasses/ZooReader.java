@@ -20,7 +20,7 @@ public class ZooReader {
         Zoo z = zoo;
 
         // connect the file to the program
-        File file = new File("mavenproject1\\src\\main\\java\\com\\mycompany\\Ficheiros_Texto\\Zoo.txt");
+        File file = new File("Ficheiros_Texto\\Zoo.txt");
         Scanner sc = new Scanner(file);
 
         // initialize the variables for the StringTokenizer

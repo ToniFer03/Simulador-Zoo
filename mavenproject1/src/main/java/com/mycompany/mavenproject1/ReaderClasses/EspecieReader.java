@@ -14,7 +14,7 @@ public class EspecieReader {
 
     public static void readEspecie() throws IOException {
         // connect the file to the program
-        File file = new File("mavenproject1\\src\\main\\java\\com\\mycompany\\Ficheiros_Texto\\Especie.txt");
+        File file = new File("Ficheiros_Texto\\Especie.txt");
         Scanner sc = new Scanner(file);
 
         // initialize the variables for the StringTokenizer
