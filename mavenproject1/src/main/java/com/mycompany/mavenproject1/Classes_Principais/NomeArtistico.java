@@ -19,4 +19,8 @@ public abstract class NomeArtistico {
         int index = (int) (Math.random() * nomes.size());
         return nomes.get(index);
     }
+
+    public static String getNome(int index) {
+        return nomes.get(index);
+    }
 }

@@ -14,7 +14,7 @@ public class Instalacao {
     private ArrayList<Animal> animais;
 
     // constructor
-    public Instalacao(int lotacaoMaxima, int custoTrabalhadores, int custoLimpeza) {
+    public Instalacao(int lotacaoMaxima, Double custoTrabalhadores, Double custoLimpeza) {
         this.custoTrabalhadores = custoTrabalhadores;
         this.custoLimpeza = custoLimpeza;
         this.lotacaoMaxima = lotacaoMaxima;
@@ -51,17 +51,6 @@ public class Instalacao {
 
     public Animal getAnimais(int posicao) {
         return animais.get(posicao);
-    }
-
-    // methods to add animal to the zoo, for a certain position
-    public void addAnimal(Animal animal, int posicao) {
-        if (animais.size() < lotacaoMaxima) {
-            animais.add(0, animal);
-            aumentarCustoLimpeza();
-            aumentarCustoTrabalhadores();
-        } else {
-            System.out.println("Lotacao maxima atingida");
-        }
     }
 
     // method to animal to the zoo, if the zoo is not full

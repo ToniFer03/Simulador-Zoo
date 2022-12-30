@@ -95,8 +95,8 @@ public abstract class AuxRand {
     }
 
     // methond to get a random number between 50 and 100 for the costs
-    private static int getRandomCosts() {
-        return (int) (Math.random() * 50) + 50;
+    private static double getRandomCosts() {
+        return (Math.random() * 50) + 50;
     }
 
     // method to get a random number between 1 and 6 for the capacity of the cage

@@ -10,6 +10,7 @@ import java.util.Locale;
 public class DigitarCaraEspecie extends OpcaoMenu {
 
     private MenuDigitarDados menu;
+    private final double MAXVAL = 10.0;
 
     public DigitarCaraEspecie(MenuDigitarDados menu) {
         super();
@@ -29,7 +30,7 @@ public class DigitarCaraEspecie extends OpcaoMenu {
 
         System.out.print("Digite o valor da característica [0.0 - 10.0]: ");
         double valor = getDouble();
-        if (valor > 10.0) {
+        if (valor > MAXVAL) {
             System.out.print("Erro! Valor deve ser menor ou igual a 10.0, digite novamente: ");
             valor = getDouble();
         }

@@ -26,9 +26,9 @@ public class DigitarInstalacoes extends OpcaoMenu {
         System.out.print("Digite a lotação da instação: ");
         int lotacao = getInt();
         System.out.print("Digite o custo de trabalhadores da instação: ");
-        int custoTrabalhadores = getInt();
+        double custoTrabalhadores = getDouble();
         System.out.print("Digite o custo de limpeza da instação: ");
-        int custoLimpeza = getInt();
+        double custoLimpeza = getDouble();
         Instalacao instalacao = new Instalacao(lotacao, custoTrabalhadores, custoLimpeza);
         menu.getZoo().addInstalacaoZoo(instalacao);
     }

@@ -11,6 +11,8 @@ import java.util.Scanner;
 public class DigitarEspecies extends OpcaoMenu {
 
     private MenuDigitarDados menu;
+    private final double MAXVAL = 10.0;
+    private final double MAXPROB = 1.00;
 
     public DigitarEspecies(MenuDigitarDados menu) {
         super();
@@ -33,7 +35,7 @@ public class DigitarEspecies extends OpcaoMenu {
 
             System.out.print("Digite o valor da característica [0.0 - 10.0]: ");
             double valor = getDouble();
-            if (valor > 10.0) {
+            if (valor > MAXVAL) {
                 System.out.print("Erro! Valor deve ser menor ou igual a 10.0, digite novamente: ");
                 valor = getDouble();
             }
@@ -54,7 +56,7 @@ public class DigitarEspecies extends OpcaoMenu {
 
         System.out.print("Digite a atratividade base da espécie [0.0 - 10.0]: ");
         double atratividade = getDouble();
-        if (atratividade > 10.0) {
+        if (atratividade > MAXVAL) {
             System.out.print("Erro! Digite um número entre 0.0 e 10.0: ");
             atratividade = getDouble();
         }
@@ -64,7 +66,7 @@ public class DigitarEspecies extends OpcaoMenu {
 
         System.out.print("Digite a probabilidade de nascimento da espécie [0.00 - 1.00]: ");
         double prob = getDouble();
-        if (prob > 1.0) {
+        if (prob > MAXPROB) {
             System.out.print("Erro! Digite um número entre 0.00 e 1.00: ");
             prob = getDouble();
         }

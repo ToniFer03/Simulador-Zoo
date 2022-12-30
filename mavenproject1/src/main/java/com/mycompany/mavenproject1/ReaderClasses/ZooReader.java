@@ -8,6 +8,7 @@ import com.mycompany.mavenproject1.Classes_Principais.Animal;
 import com.mycompany.mavenproject1.Classes_Principais.CaractristicaIndividual;
 import com.mycompany.mavenproject1.Classes_Principais.Especie;
 import com.mycompany.mavenproject1.Classes_Principais.Instalacao;
+import com.mycompany.mavenproject1.Classes_Principais.NomeArtistico;
 import com.mycompany.mavenproject1.Classes_Principais.Zoo;
 
 public class ZooReader {
@@ -39,8 +40,8 @@ public class ZooReader {
 
         // initialize the variables for instalações
         int lotacaoMaxima = 0;
-        int custoTrabalhadores = 0;
-        int custoLimpeza = 0;
+        double custoTrabalhadores = 0;
+        double custoLimpeza = 0;
 
         while (sc.hasNextLine()) {
             token = new StringTokenizer(sc.nextLine(), "-"); // split the line by the "-" character
@@ -51,7 +52,7 @@ public class ZooReader {
                 z.setProbFugir(probFugir);
                 z.setSaldocoContabilistico(saldoContabilistico);
             } else if (ident.equals("id:tdani")) { // if the identifier is "id:tdani"
-                nomeAnimal = token.nextToken();
+                nomeAnimal = NomeArtistico.getNome(Integer.parseInt(token.nextToken()));
                 idade = Integer.parseInt(token.nextToken());
                 idEspecie = Integer.parseInt(token.nextToken());
 
@@ -71,8 +72,8 @@ public class ZooReader {
 
             } else if (ident.equals("id:inst")) { // if the identifier is "id:inst"
                 lotacaoMaxima = Integer.parseInt(token.nextToken());
-                custoTrabalhadores = Integer.parseInt(token.nextToken());
-                custoLimpeza = Integer.parseInt(token.nextToken());
+                custoTrabalhadores = Double.parseDouble(token.nextToken());
+                custoLimpeza = Double.parseDouble(token.nextToken());
 
                 // create local and temporary object instalacao
                 Instalacao temp = new Instalacao(lotacaoMaxima, custoTrabalhadores, custoLimpeza);

@@ -13,6 +13,8 @@ import java.util.Locale;
 public class DigitarAnimais extends OpcaoMenu {
 
     private MenuDigitarDados menu;
+    private final double MAXVAL = 10.0;
+    private final double MAXPROB = 1.0;
 
     public DigitarAnimais(MenuDigitarDados menu) {
         super();
@@ -37,7 +39,7 @@ public class DigitarAnimais extends OpcaoMenu {
 
             System.out.print("Digite o valor da característica [0.0 - 10.0]: ");
             double valor = getDouble();
-            if (valor > 10.0) {
+            if (valor > MAXVAL) {
                 System.out.print("Erro! Digite um número entre 0.0 e 10.0: ");
                 valor = getDouble();
             }
@@ -59,7 +61,7 @@ public class DigitarAnimais extends OpcaoMenu {
 
             System.out.print("Digite o valor da característica [0.0 - 10.0]: ");
             double valor = getDouble();
-            if (valor > 10.0) {
+            if (valor > MAXVAL) {
                 System.out.print("Erro! Digite um número entre 0.0 e 10.0: ");
                 valor = getDouble();
             }
@@ -80,7 +82,7 @@ public class DigitarAnimais extends OpcaoMenu {
 
         System.out.print("Digite a atratividade base da espécie [0.0 - 10.0]: ");
         double atratividade = getDouble();
-        if (atratividade > 10.0) {
+        if (atratividade > MAXVAL) {
             System.out.print("Erro! Digite um número entre 0.0 e 10.0: ");
             atratividade = getDouble();
         }
@@ -90,7 +92,7 @@ public class DigitarAnimais extends OpcaoMenu {
 
         System.out.print("Digite a probabilidade de nascimento da espécie [0.00 - 1.00]: ");
         double prob = getDouble();
-        if (prob > 1.0) {
+        if (prob > MAXPROB) {
             System.out.print("Erro! Digite um número entre 0.00 e 1.00: ");
             prob = getDouble();
         }
