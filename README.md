@@ -1,4 +1,4 @@
-# Projeto-2-POO---G17
+# Simulador-Zoo
 Notas sobre o projeto:
 
 Classes Reader e ficheiros de texto:
