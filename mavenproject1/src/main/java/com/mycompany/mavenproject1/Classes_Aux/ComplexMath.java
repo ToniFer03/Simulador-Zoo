@@ -1,18 +1,24 @@
 package com.mycompany.mavenproject1.Classes_Aux;
 
-//this class is not meant to be instantiated
 public abstract class ComplexMath {
 
-    // private constructor because this functions is not be instanciated
+    /**
+     * Constructor for the class, private because there is no need to create an instance of this class
+     */
     private ComplexMath() {
         // private constructor
     }
 
-    /*
-     * The following function calculates a constant to be multiplied to the
-     * atractiveness of an animal based on its relative age, the younger the animal
-     * the bigger the bonus, but if an animal manages to live more than its based
-     * age its atractiveness starts to increase again
+
+    /**
+     * Method meant to calculate a constant to be multiplied to the attractiveness on an animal bases on its age. The
+     * younger the animal the bigger the bonus it gets but, if the animal manages to live more than the life
+     * expectancy of its species the bonus begins to increase as well.
+     *
+     * @param idade The animal's age
+     * @param esperancaVida The animal species life expectancy
+     *
+     * @return the bonus to be applied
      */
     public static double calculateAtracBasedAge(int idade, int esperancaVida) {
         double result;
@@ -26,9 +32,20 @@ public abstract class ComplexMath {
         return result;
     }
 
+
     /*
      * The following function calculates the probability of an animal dying based on
      * its current age in relations to the life expectancy of its species
+     */
+
+    /**
+     * Method meant to calculate the probability of an animal dying based on its current age in relation to the life
+     * expectancy of its species.
+     *
+     * @param idade animal's age
+     * @param esperancaVida animal species life expectancy
+     *
+     * @return probability of the animal dying
      */
     public static double calculateProbabilityDeath(int idade, int esperancaVida) {
         double result;

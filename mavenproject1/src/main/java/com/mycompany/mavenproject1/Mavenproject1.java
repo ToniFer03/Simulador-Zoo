@@ -5,7 +5,10 @@ import com.mycompany.mavenproject1.Menus.MenuInicial;
 import com.mycompany.mavenproject1.Menus.MenuPrincipal;
 
 public class Mavenproject1 {
-
+    /**
+     * Entry point into the program
+     * @param args Arguments to be passed when launching the program
+     */
     public static void main(String[] args) {
 
         Zoo zoo = initializeZoo();
@@ -20,9 +23,12 @@ public class Mavenproject1 {
 
     }
 
+    /**
+     * Auxiliary function that creates a Zoo object
+     * @return  Zoo Object
+     */
     private static Zoo initializeZoo() {
-        Zoo zoo = new Zoo(1000.0, 0.0);
 
-        return zoo;
+        return new Zoo(1000.0, 0.0);
     }
 }
