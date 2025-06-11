@@ -9,6 +9,11 @@ public class MenuInicial extends MenuBase {
 
     private Zoo zoo;
 
+    /**
+     * Constructor of the class MenuInicial, receives an object of type Zoo
+     *
+     * @param zoo Object of type Zoo that the options on this menu will have an impact on
+     */
     public MenuInicial(Zoo zoo) {
         super();
         this.zoo = zoo;
@@ -17,6 +22,9 @@ public class MenuInicial extends MenuBase {
         addOpcaoMenu(new DigitarDados(zoo));
     }
 
+    /**
+     * Override of the abstract function show menu in MenuBase, displays the possible options in this menu
+     */
     @Override
     public void showMenu() {
         System.out.println("\n");
@@ -28,6 +36,9 @@ public class MenuInicial extends MenuBase {
         executeItem(getOption());
     }
 
+    /**
+     * @return Object of type Zoo that the actions on this menu Affect
+     */
     public Zoo getZoo() {
         return this.zoo;
     }

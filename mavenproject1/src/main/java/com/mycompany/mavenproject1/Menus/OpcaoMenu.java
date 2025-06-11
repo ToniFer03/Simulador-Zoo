@@ -1,13 +1,22 @@
 package com.mycompany.mavenproject1.Menus;
 
 //abstract class that serves as a model for all the options in the menu
+
+/**
+ * Abstract class that serves as a model from all teh options in a menu
+ */
 public abstract class OpcaoMenu {
 
-    // constructor
+    /**
+     * Empty constructor of the abstract class OpcaoMenu
+     */
     public OpcaoMenu() {
     }
 
-    // functions that executes the action of this option
+    /**
+     * Abstract function meant to be implemented in Menus, meant to be implemented in menus and execute whatever option
+     * the user choose in that menu
+     */
     public abstract void executarOpcao();
 
 }

@@ -13,6 +13,11 @@ public class MenuDigitarDados extends MenuBase {
 
     private Zoo zoo;
 
+    /**
+     * Constructor for MenuDigitarDados
+     *
+     * @param zoo Zoo object that represents the current Zoo
+     */
     public MenuDigitarDados(Zoo zoo) {
         super();
         this.zoo = zoo;
@@ -25,6 +30,9 @@ public class MenuDigitarDados extends MenuBase {
         addOpcaoMenu(new DigitarZoo(this));
     }
 
+    /**
+     * Override of the abstract function show menu in MenuBase, displays the possible options in this menu
+     */
     @Override
     public void showMenu() {
         System.out.println("\n");
@@ -40,6 +48,9 @@ public class MenuDigitarDados extends MenuBase {
         executeItem(getOption());
     }
 
+    /**
+     * @return Object of type Zoo that the actions on this menu Affect
+     */
     public Zoo getZoo() {
         return this.zoo;
     }

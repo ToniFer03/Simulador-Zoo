@@ -14,21 +14,34 @@ public class carcAnimal extends OpcaoMenu {
     private final int precoCaracteristica;
     private MenuAdqAnimalCarc menu;
 
-    // constructor
+    /**
+     * Constructor of class CarcAnimal, receives an object from the Menu it was called as a parameter and initializes
+     * the price of a Characteristic as 500
+     *
+     * @param menu Object of the Menu that called this option
+     */
     public carcAnimal(MenuAdqAnimalCarc menu) {
         super();
         this.menu = menu;
         this.precoCaracteristica = 500;
     }
 
-    // function that executes the action of this option
+    /**
+     * Override of executarOpcao from OpcaoMenu, executes the function regarding this option and goes back to the
+     * previous menu after it is completed.
+     */
     @Override
     public void executarOpcao() {
         showText();
-        menu.showMenu(); // return to the main menu
+        menu.showMenu();
     }
 
-    // function that shows the text of this option
+    /**
+     * Executes the specifics of this option, checks if there is any Individual Characteristics, if there aren´t any it
+     * returns to the menu that called this option. If the list is not empty, asks the user to choose the one he wants.
+     * After that calls the function to create a random animal with the characteristic that was chosen and returns to
+     * the menu that called this option.
+     */
     private void showText() {
         Scanner input = new Scanner(System.in);
 
@@ -36,7 +49,6 @@ public class carcAnimal extends OpcaoMenu {
             System.out.println("Não existem caracteristicas individuais disponiveis!");
             menu.showMenu();
         } else {
-            // asks the user to select the desired characteristic
             System.out.println("\n");
             System.out.println("Selecione a caracteristica que deseja adquirir:");
             for (int i = 0; i < CaractristicaIndividual.getCaracteristicasIndividuais().size(); i++) {
@@ -58,27 +70,39 @@ public class carcAnimal extends OpcaoMenu {
 
     }
 
+    /**
+     * Function to create a random animal, creates a random animal and gives it a random acquisition price, if the
+     * current account of the Zoo is not enough to buy the animal gives the user an error message and goes back to the
+     * previous menu.
+     * If the Zoo has enough money to acquire the animal, it checks if the random animal has the desired characteristic
+     * and if it has not repeats the process. If the random animal does have the characteristic chosen inform the user
+     * about the fact and print all the information regarding said animal, after that update the relevant information in
+     * the Zoo.
+     *
+     * @param opcao a number that represents the index of a Characteristic chosen by the user on the Individual
+     * Characteristics list.
+     *
+     * @throws IndexOutOfBoundsException
+     */
     private void createRandomAnimal(int opcao) throws IndexOutOfBoundsException {
-        Animal ani = AuxRand.randomAnimal(); // creates a random animal
-        double precoAnimal = AuxRand.getRandomPreco() + precoCaracteristica; // gets the random price of the animal
+        //TODO: Put a maximum number of times the loop can perform or else it may become unusable
+        Animal ani = AuxRand.randomAnimal();
+        double precoAnimal = AuxRand.getRandomPreco() + precoCaracteristica;
 
         if (menu.getMenu().getZoo().getSaldoContabilistico() < precoAnimal) {
             System.out.println("Não tem dinheiro suficiente para adquirir este animal!");
             menu.showMenu();
         } else {
-            // checks if the animal has the desired characteristic
             if (ani.getCaracteristicasIndividuais()
                     .contains(CaractristicaIndividual.getCaracteristicasIndividuais().get(opcao))) {
                 System.out.println("\n");
                 System.out.println("Foi adquirido o seguinte animal: ");
                 System.out.println(ani.basicInfo());
 
-                // adds the animal to the zoo and decreases the zoo's money
                 menu.getMenu().getZoo().addAnimalZoo(ani);
                 menu.getMenu().getZoo().decreaseZooMoney(precoAnimal);
                 Historico.addAnimalAdquerido(ani);
             } else {
-                // calls the funtion again until the animal has the desired characteristic
                 createRandomAnimal(opcao);
             }
         }

@@ -18,10 +18,15 @@ import com.mycompany.mavenproject1.Opcoes_Menu.MenuPrincipal.RetratoFamilia;
 import com.mycompany.mavenproject1.Opcoes_Menu.MenuPrincipal.sairMenu;
 
 public class MenuPrincipal extends MenuBase {
+
     // declare variables
     private Zoo zoo;
 
-    // constructor
+    /**
+     * Constructor of class MenuPrincipal, receives an object of type Zoo as a parameter
+     *
+     * @param zoo Object of type Zoo that the options on this menu will have an impact on
+     */
     public MenuPrincipal(Zoo zoo) {
         super();
         addOpcaoMenu(new sairMenu(this));
@@ -42,7 +47,9 @@ public class MenuPrincipal extends MenuBase {
         this.zoo = zoo;
     }
 
-    // show MenuPrincipal options
+    /**
+     * Override of the abstract function show menu in MenuBase, displays the possible options in this menu
+     */
     @Override
     public void showMenu() {
         System.out.println("\n \n \n");
@@ -66,11 +73,14 @@ public class MenuPrincipal extends MenuBase {
         executeItem(getOption());
     }
 
-    // get zoo
+    /**
+     * @return Object of type Zoo that the actions on this menu Affect
+     */
     public Zoo getZoo() {
         return zoo;
     }
 
+    //TODO: Understand this function
     public void executarOpcao(int opcao) {
         executeItem(opcao);
     }

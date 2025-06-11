@@ -13,7 +13,14 @@ public class Animal extends Especie {
     private int idade;
     private ArrayList<CaractristicaIndividual> caracteristicasIndividuais;
 
-    // constructor for animal without caracteristicasIndividuais
+
+    /**
+     * Constructor for the class Animals, this constructor does not take individual characteristics as an argument
+     *
+     * @param nomeArtistico Name of the animal
+     * @param idade Age of the animal
+     * @param especie Species of the animal
+     */
     public Animal(String nomeArtistico, int idade, Especie especie) {
         super(especie.getNomeEspecie(), especie.getEsperancaVida(), especie.getAtratividadeBase(),
                 especie.custoRacaobase(), especie.getProbNascimento(), especie.getCaracteristicasEspecie());
@@ -22,7 +29,14 @@ public class Animal extends Especie {
         this.caracteristicasIndividuais = new ArrayList<CaractristicaIndividual>();
     }
 
-    // constructor for animal with caracteristicasIndividuais
+    /**
+     * Constructor for the class Animals, this constructor takes individual characteristics as an argument
+     *
+     * @param nomeArtistico Name of the animal
+     * @param idade Age of the animal
+     * @param especie Species of the animal
+     * @param caracteristicasIndividuais Array of the initial characteristics of the animal
+     */
     public Animal(String nomeArtistico, int idade, Especie especie,
             ArrayList<CaractristicaIndividual> caracteristicasIndividuais) {
         super(especie.getNomeEspecie(), especie.getEsperancaVida(), especie.getAtratividadeBase(),
@@ -32,70 +46,96 @@ public class Animal extends Especie {
         this.caracteristicasIndividuais = caracteristicasIndividuais;
     }
 
-    // receives total number of animals and sets the id
+    /**
+     * Getter for the Id of the animal
+     * @return Id of the animal
+     */
     public int getId() {
         return this.id;
     }
 
-    // sets the id of the animal based on the number received
+    /**
+     * Setter for the Id of the animal, receives the total number of animals (already including himself) and sets that
+     * as the Id
+     * @param numeroAnimal Total number of animals created
+     */
     public void setId(int numeroAnimal) {
         this.id = numeroAnimal;
     }
 
-    // removes the id of the animal
+    /**
+     * Method to remove the Id of an animal
+     */
     public void removeId() {
         this.id = null;
     }
 
-    // returns the age of the animal
+    /**
+     * Getter for the age of the animal
+     * @return Age of the animal
+     */
     public int getIdade() {
         return this.idade;
     }
 
-    // increases the age of the animal by 1
+    /**
+     * Method ot increase the age of the animal by 1
+     */
     public void aumentarIdade() {
         this.idade++;
     }
 
+    /**
+     * Add an individual characteristic to the animals array of Individual Characteristics
+     * @param caracteristica The characteristic to be added
+     */
     public void addCaracteristicaIndividuais(CaractristicaIndividual caracteristica) {
         this.caracteristicasIndividuais.add(caracteristica);
     }
 
-    // returns the array with the individual caracteristics of the animal
+    /**
+     * Getter for the array of individual characteristics of the animal
+     * @return List of individual characteristics
+     */
     public ArrayList<CaractristicaIndividual> getCaracteristicasIndividuais() {
         return this.caracteristicasIndividuais;
     }
 
-    /*
-     * This function gets the base atractiveness from the species, the value of all
-     * the species caracteristics for the species and the animal, adds them up, and
-     * executes a function to apply a modifier based on age in order to get the
-     * total atractiveness
+    /**
+     * Function to calculate the base attractiveness of the animal at the present moment, gets the base attractiveness
+     * value from the species, adds the values of attractiveness from every characteristic the animal has and applies a
+     * modifier based of the age of the animal to get the current attractiveness.
+     *
+     * @return The current attractiveness of the animal
      */
     public double calculatAtratividade() {
         double atratividade;
         atratividade = this.getAtratividadeBase();
         for (CaractristicaIndividual caracteristica : caracteristicasIndividuais) {
-            atratividade += caracteristica.getValor(); // gets the value of all caracteristics of the animal
+            atratividade += caracteristica.getValor();
         }
 
         for (CaracteristicasEspecie caracteristica : super.getCaracteristicasEspecie()) {
-            atratividade += caracteristica.getValor(); // gets the value of all caracteristics of the species
+            atratividade += caracteristica.getValor();
         }
 
         atratividade = atratividade * ComplexMath.calculateAtracBasedAge(idade,
-                super.getEsperancaVida()); // applies the modifier based on age
+                super.getEsperancaVida());
 
         return atratividade;
     }
 
-    // function to remove the animal from the zoo
+    /**
+     * Function to remove the animal from the zoo upon his death, checks if the animal belong to an installation and if
+     * not removes the animal from the list of animals with no installation, if it belongs to one removes teh animal
+     * from that installation.
+     *
+     * @param zoo The zoo in which the animal lives
+     */
     public void morte(Zoo zoo) {
-        // checks if the animal belongs to an instalation or not
         if (zoo.getAnimaisSemInstacao(this.getId()) != null) {
             zoo.removerAnimalSemInstalacao(this); // if it does remove it from the array
         } else {
-            // else check all instalations and remove it from the one it belongs to
             for (Instalacao instalacao : zoo.getInstalacoes()) {
                 if (instalacao.getAnimais().contains(this)) {
                     instalacao.removeAnimal(this);
@@ -103,15 +143,15 @@ public class Animal extends Especie {
             }
         }
 
-        // removes the animal from the array of animals in the zoo and removes the id
         zoo.removeAnimal(this);
         this.removeId();
     }
 
-    /*
-     * This function is used to calculate the cost of food for every animal, it has
-     * a luck factor of 25% where the price can increase or decrease from its base
-     * price
+    /**
+     * Function to calculate the cost of food for every animal, it has a luck factor of 25% where the price can increase
+     * or decrease 25% from its base price
+     *
+     * @return the price of ration for the animal
      */
     public double calculateCustoRacao() {
         double result;
@@ -125,6 +165,11 @@ public class Animal extends Especie {
         return result;
     }
 
+    /**
+     * Returns a string with every information of the object animal it has
+     *
+     * @return String with every information of the object
+     */
     public String basicInfo() {
         String info;
         info = "ID: " + this.id + "\n";
@@ -140,7 +185,10 @@ public class Animal extends Especie {
         return info;
     }
 
-    // to string
+    /**
+     * Method toString of the class Animal
+     * @return String with every information of the animal
+     */
     @Override
     public String toString() {
         String info;

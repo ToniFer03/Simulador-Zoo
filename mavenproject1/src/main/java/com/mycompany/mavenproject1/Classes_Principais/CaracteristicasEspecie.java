@@ -13,7 +13,13 @@ public class CaracteristicasEspecie {
     // arraylist that stores all the characteristics instances
     private static ArrayList<CaracteristicasEspecie> ce = new ArrayList<CaracteristicasEspecie>();
 
-    // constructor
+    /**
+     * Constructor of the class CaracteristicasEspecie, receives the name of the Characteristic and its value for a
+     * certain species, also adds it to a list containing all the species characteristics ever created
+     *
+     * @param caracteristica Name of the characteristic
+     * @param valor Value of the characteristic
+     */
     public CaracteristicasEspecie(String caracteristica, Double valor) {
         this.caracteristicas = caracteristica;
         this.valores = valor;
@@ -27,20 +33,33 @@ public class CaracteristicasEspecie {
         }
     }
 
-    // getters
+    /**
+     * Getter of the array containing characteristic of a species ever added
+     *
+     * @return List containing every characteristic of a species
+     */
     public static ArrayList<CaracteristicasEspecie> getCaracteristicasEspecie() {
         return ce;
     }
 
+    /**
+     * @return Returns the name of this characteristic
+     */
     public String getCaracteristicas() {
         return caracteristicas;
     }
 
+    /**
+     * @return Returns the value of this characteristic
+     */
     public Double getValor() {
         return valores;
     }
 
-    // to string
+    /**
+     * Method toString of the class CaracteristiasEspecie
+     * @return String with every information of the CaracteristicasEspecie
+     */
     @Override
     public String toString() {
         String info;
@@ -49,7 +68,13 @@ public class CaracteristicasEspecie {
         return info;
     }
 
-    // equals if the characteristics are the same
+    /**
+     * Method to compare if two CaracteristicasEspecie are equal or not
+     *
+     * @param obj CaracteristicaEspecie to compare
+     *
+     * @return Boolean if they are equal or not
+     */
     @Override
     public boolean equals(Object obj) {
         if (obj == null) {
