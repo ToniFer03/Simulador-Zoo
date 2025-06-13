@@ -7,24 +7,39 @@ import com.mycompany.mavenproject1.Classes_Principais.Animal;
 import com.mycompany.mavenproject1.Menus.MenuPrincipal;
 import com.mycompany.mavenproject1.Menus.OpcaoMenu;
 
-//referente a opção de menu "Adquirir animal aleatório"
 public class AdqAnimalRand extends OpcaoMenu {
 
     private MenuPrincipal menu;
 
-    // constructor
+    /**
+     * Constructor of class AdqAnimalRand
+     *
+     * @param menu Object that represents the previous menu that called this option
+     */
     public AdqAnimalRand(MenuPrincipal menu) {
         super();
         this.menu = menu;
     }
 
-    // function that executes the action of this option
+    /**
+     * Override of executarOpcao from OpcaoMenu, executes the function regarding this option and goes back to the
+     * previous menu after it is completed.
+     */
     @Override
     public void executarOpcao() {
         getRandomAnimals();
         menu.showMenu();
     }
 
+    /***
+     * Receives three objects of the class animals, gives them random prices and shows the animals as well as the price
+     * to the user for him to choose. As soon as an animal is chosen, adds it to the Zoo, decreases the money of the
+     * current account of the Zoo and adds the information to the History of the Zoo.
+     *
+     * @param a1 Object of type animal number 1
+     * @param a2 Object of type animal number 1
+     * @param a3 Object of type animal number 1
+     */
     private void showAnimals(Animal a1, Animal a2, Animal a3) {
         Scanner sc = new Scanner(System.in);
         double price1 = AuxRand.getRandomPreco();
@@ -93,13 +108,14 @@ public class AdqAnimalRand extends OpcaoMenu {
         }
     }
 
+    /**
+     * Generates 3 random objects of the class animal and calls a function to show them to the user
+     */
     private void getRandomAnimals() {
-        // create 3 random animals
         try {
             Animal a1 = AuxRand.randomAnimal();
             Animal a2 = AuxRand.randomAnimal();
             Animal a3 = AuxRand.randomAnimal();
-            // show the animals and ask the user to choose one
             showAnimals(a1, a2, a3);
 
         } catch (IndexOutOfBoundsException e) {

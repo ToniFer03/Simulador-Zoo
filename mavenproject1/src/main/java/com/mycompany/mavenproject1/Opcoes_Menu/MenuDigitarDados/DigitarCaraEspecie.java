@@ -12,17 +12,30 @@ public class DigitarCaraEspecie extends OpcaoMenu {
     private MenuDigitarDados menu;
     private final double MAXVAL = 10.0;
 
+    /**
+     * Constructor of class DigitarCaraEspecie
+     *
+     * @param menu Object that represents the previous menu that called this option
+     */
     public DigitarCaraEspecie(MenuDigitarDados menu) {
         super();
         this.menu = menu;
     }
 
+    /**
+     * Override of executarOpcao from OpcaoMenu, executes the function regarding this option and goes back to the
+     * previous menu after it is completed.
+     */
     @Override
     public void executarOpcao() {
         createCaraEspecie();
         menu.showMenu();
     }
 
+    /**
+     * Creates a new species specific characteristic, asks for its name and value and adds it to the list that contains
+     * all species specific characteristics
+     */
     private void createCaraEspecie() {
 
         System.out.print("Digite o nome da característica: ");
@@ -38,6 +51,11 @@ public class DigitarCaraEspecie extends OpcaoMenu {
         CaracteristicasEspecie caracteristica = new CaracteristicasEspecie(nome, valor);
     }
 
+    /**
+     * Method to get a string from the console
+     *
+     * @return String that was typed in the console
+     */
     private String getString() {
         Scanner sc = new Scanner(System.in);
         if (sc.hasNextLine()) {
@@ -54,6 +72,11 @@ public class DigitarCaraEspecie extends OpcaoMenu {
         }
     }
 
+    /**
+     * Method to get a number with decimals from the console
+     *
+     * @return the number that was typed in the console
+     */
     private Double getDouble() {
         Scanner sc = new Scanner(System.in);
         sc.useLocale(Locale.ROOT);

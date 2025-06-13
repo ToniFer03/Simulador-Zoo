@@ -6,25 +6,34 @@ import com.mycompany.mavenproject1.Menus.MenuPrincipal;
 import com.mycompany.mavenproject1.Menus.OpcaoMenu;
 import java.util.Scanner;
 
-//referente a opcao de menu "Construir instalação"
 public class ListAnimaisCarcGenetica extends OpcaoMenu {
 
     private MenuPrincipal menu;
 
-    // constructor
+    /**
+     * Constructor of class ListAnimaisCarcGenetica
+     *
+     * @param menu Object that represents the previous menu that called this option
+     */
     public ListAnimaisCarcGenetica(MenuPrincipal menu) {
         super();
         this.menu = menu;
     }
 
-    // function that executes the action of this option
+    /**
+     * Override of executarOpcao from OpcaoMenu, executes the function regarding this option and goes back to the
+     * previous menu after it is completed.
+     */
     @Override
     public void executarOpcao() {
         showText();
         menu.showMenu();
     }
 
-    // function that shows all the installations and ask the user to choose one
+    /**
+     * Checks if there is any species specific characteristics and if there are, list them ot the user. Asks the user to
+     * select one of the characteristics from the list and gives the option to another function.
+     */
     private void showText() {
         if (CaracteristicasEspecie.getCaracteristicasEspecie().isEmpty()) {
             System.out.println("Não existem caracteristicas genéticas registadas.");
@@ -45,7 +54,12 @@ public class ListAnimaisCarcGenetica extends OpcaoMenu {
         }
     }
 
-    // Shows all animals with the caracteristics the user selected
+    /**
+     * Receives a number that represents and index in the species specif characteristics list, checks all animals and
+     * displays to the user all that have that species specific characteristic
+     *
+     * @param opcao Number that represents the characteristic chosen by the user
+     */
     private void displayAnimals(int opcao) {
         System.out.println("\n");
         System.out.println("Os seguintes animais possuem a caracteristica selecionada: ");

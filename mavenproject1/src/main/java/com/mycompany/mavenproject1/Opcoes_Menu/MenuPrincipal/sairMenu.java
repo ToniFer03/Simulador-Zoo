@@ -7,13 +7,19 @@ public class sairMenu extends OpcaoMenu {
 
     private MenuPrincipal menu;
 
-    // constructor
+    /**
+     * Constructor of class sairMenu
+     *
+     * @param menu Object that represents the previous menu that called this option
+     */
     public sairMenu(MenuPrincipal menu) {
         super();
         this.menu = menu;
     }
 
-    // function that executes the action of this option
+    /**
+     * Override of executarOpcao from OpcaoMenu, exits the program and gives that information to the user
+     */
     @Override
     public void executarOpcao() {
         System.out.println("A sair da aplicação...");

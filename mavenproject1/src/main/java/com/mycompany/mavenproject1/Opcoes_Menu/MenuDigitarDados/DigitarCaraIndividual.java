@@ -12,17 +12,30 @@ public class DigitarCaraIndividual extends OpcaoMenu {
     private MenuDigitarDados menu;
     private final double MAXVAL = 10.0;
 
+    /**
+     * Constructor of class DigitarCaraIndividual
+     *
+     * @param menu Object that represents the previous menu that called this option
+     */
     public DigitarCaraIndividual(MenuDigitarDados menu) {
         super();
         this.menu = menu;
     }
 
+    /**
+     * Override of executarOpcao from OpcaoMenu, executes the function regarding this option and goes back to the
+     * previous menu after it is completed.
+     */
     @Override
     public void executarOpcao() {
         createCaraIndividual();
         menu.showMenu();
     }
 
+    /**
+     * Creates a new Individual characteristic, asks for its name and value and adds it to the list that contains
+     * all Individual characteristics
+     */
     private void createCaraIndividual() {
 
         System.out.print("Digite o nome da característica: ");
@@ -38,6 +51,11 @@ public class DigitarCaraIndividual extends OpcaoMenu {
         CaractristicaIndividual caracteristica = new CaractristicaIndividual(nome, valor);
     }
 
+    /**
+     * Method to get a string from the console
+     *
+     * @return String that was typed in the console
+     */
     private String getString() {
         Scanner sc = new Scanner(System.in);
         if (sc.hasNextLine()) {
@@ -54,6 +72,11 @@ public class DigitarCaraIndividual extends OpcaoMenu {
         }
     }
 
+    /**
+     * Method to get a number with decimals from the console
+     *
+     * @return the number that was typed in the console
+     */
     private Double getDouble() {
         Scanner sc = new Scanner(System.in);
         sc.useLocale(Locale.ROOT);

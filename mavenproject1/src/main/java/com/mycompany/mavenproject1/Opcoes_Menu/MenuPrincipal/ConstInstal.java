@@ -7,24 +7,40 @@ import com.mycompany.mavenproject1.Menus.OpcaoMenu;
 
 import java.util.Scanner;
 
-//referente a opcao de menu "Construir instalação"
 public class ConstInstal extends OpcaoMenu {
 
     private MenuPrincipal menu;
 
-    // constructor
+    /**
+     * Constructor of class ConstInstal
+     *
+     * @param menu Object that represents the previous menu that called this option
+     */
     public ConstInstal(MenuPrincipal menu) {
         super();
         this.menu = menu;
     }
 
-    // function that executes the action of this option
+    /**
+     * Override of executarOpcao from OpcaoMenu, executes the function regarding this option and goes back to the
+     * previous menu after it is completed.
+     */
     @Override
     public void executarOpcao() {
         getRandomInstal();
         menu.showMenu();
     }
 
+    /**
+     * Receives 3 objects of class Instalacao, gives them a random price and shows the enclosures as long with the price
+     * for the user to pick.
+     * Having chosen 1 option, checks if there is enough money in the Zoo's current account to proceed with the
+     * operation and if there is, adds the enclosure to the Zoo
+     *
+     * @param instal1 Random object of class Instacao number 1
+     * @param instal2 Random object of class Instacao number 2
+     * @param instal3 Random object of class Instacao number 3
+     */
     private void showInstals(Instalacao instal1, Instalacao instal2, Instalacao instal3) {
         Scanner sc = new Scanner(System.in);
         double price1 = AuxRand.getRandomPreco();
@@ -88,13 +104,14 @@ public class ConstInstal extends OpcaoMenu {
         }
     }
 
+    /**
+     * Generates 3 enclosures and passes them as argument to a function that will show them to the user
+     */
     private void getRandomInstal() {
-        // create 3 random installations
         Instalacao instal1 = AuxRand.randomInstalacao();
         Instalacao instal2 = AuxRand.randomInstalacao();
         Instalacao instal3 = AuxRand.randomInstalacao();
 
-        // show the installations
         showInstals(instal1, instal2, instal3);
     }
 }

@@ -12,11 +12,20 @@ public class DadosFicheiro extends OpcaoMenu {
 
     private Zoo zoo;
 
+    /**
+     * Constructor of Class DadosFicheiro
+     *
+     * @param zoo Zoo whose information this menu will affect
+     */
     public DadosFicheiro(Zoo zoo) {
         super();
         this.zoo = zoo;
     }
 
+    /**
+     * Override of executarOpcao from OpcaoMenu, tries to load the information on the files and load it into the
+     * program, if unable prints an error message.
+     */
     @Override
     public void executarOpcao() {
         try {
