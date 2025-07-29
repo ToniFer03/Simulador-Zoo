@@ -24,7 +24,7 @@ public class NomeArtisticoReader {
     /**
      * The relative path to the text file containing artistic names.
      */
-    private static String FILENAME = "Ficheiros_Texto\\NomeArtistico.txt";
+    private static String FILENAME = "mavenproject1\\Ficheiros_Texto\\NomeArtistico.txt";
 
     /**
      * Private constructor to prevent instantiation of this utility class.

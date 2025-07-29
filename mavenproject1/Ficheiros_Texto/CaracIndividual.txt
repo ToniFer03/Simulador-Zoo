@@ -1,9 +1,38 @@
-Cor especial-6.3
-Sem pelo-2.3
-Albino-7.0
-Cego-5.1
-Sem um membro-1.5
-Trissomia-1.0
-Mudo-3.0
-Anão-8.1
-Gigante-5.1
+Albino-9.1  
+Cicatriz sobre o olho esquerdo-4.3
+Ponta da cauda ausente-3.8
+Orelhas incomumente grandes-7.4
+Heterocromia-9.0
+Vocalizações extremamente altas-5.2
+Temperamento tímido-7.6
+Extremamente brincalhão-8.5
+Agressivo com humanos-2.1
+Pelagem encaracolada-8.0
+Cor da pelagem desbotada-6.1
+Pernas incomumente curtas-5.9
+Manca ao andar-3.2
+Dente ausente-3.7
+Chifre torto-4.5
+Patas superdimensionadas-7.2
+Cheiro incomum-2.6
+Padrão de cor inconsistente-6.4
+Variação rara de cor na pelagem-9.3
+Cegueira parcial-3.0
+Bigodes incomumente longos-6.5
+Andar instável-3.4
+Feridas de lutas anteriores-3.1
+Ponta da orelha ausente-3.6
+Comportamento dócil-8.2
+Altamente reativo a ruídos-4.9
+Crescimento de juba unilateral-5.4
+Garras danificadas-3.3
+Focinho desfigurado-2.8
+Marca única nas costas-8.7
+Expectativa de vida reduzida-2.7
+Comportamento hiperativo-6.0
+Relutante para comer-3.9
+Rugido distorcido-4.2
+Surdez em um ouvido-3.5
+Cauda com curvatura estranha-5.8
+Reflexo muscular involuntário-3.6
+Dedo ou garra extra-6.3

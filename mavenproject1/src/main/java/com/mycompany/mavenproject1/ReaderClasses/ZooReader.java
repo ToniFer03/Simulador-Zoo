@@ -27,7 +27,7 @@ public class ZooReader {
     /**
      * File path to the Zoo configuration text file.
      */
-    private static String FILENAME = "Ficheiros_Texto\\Zoo.txt";
+    private static String FILENAME = "mavenproject1\\Ficheiros_Texto\\Zoo.txt";
 
     /**
      * Private constructor to prevent instantiation.

@@ -26,7 +26,7 @@ public class CaracEspecieReader {
     /**
      * The relative path to the file containing species characteristics.
      */
-    private static String FILENAME = "Ficheiros_Texto\\CaracEspecies.txt";
+    private static String FILENAME = "mavenproject1\\Ficheiros_Texto\\CaracEspecies.txt";
 
     /**
      * Private constructor to prevent instantiation.

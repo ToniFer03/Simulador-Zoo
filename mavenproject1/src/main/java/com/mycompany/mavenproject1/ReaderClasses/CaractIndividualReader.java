@@ -24,7 +24,7 @@ public class CaractIndividualReader {
     /**
      * The relative path to the file containing individual characteristics.
      */
-    private static String FILENAME = "Ficheiros_Texto\\CaracIndividual.txt";
+    private static String FILENAME = "mavenproject1\\Ficheiros_Texto\\CaracIndividual.txt";
 
     /**
      * Private constructor to prevent instantiation of this utility class.

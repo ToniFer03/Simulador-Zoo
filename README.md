@@ -10,9 +10,13 @@
 - [Video Demo](#video-demonstration-of-the-repository)
 
 
-## A function code that immitates a ticket machine in a metro system, done in the context of a university project
+## A console base game that simulates the operation of a Zoo in the real world
 
-TODO  
+Game written in Java to simulate the funtioning of a Zoo in the real world, allows you to for example add animals and instalations to 
+the Zoo and simulate what will happen in a year. Simulates the food and cage costs of an animal, the money it brings to the zoo based
+on its own characteristics as well as if the the animal will die based on its age or have a baby.
+If the Zoo is badly managed and the current account of the Zoo goes negative the chances of animals escaping the Zoo increase.
+Other factors such as if the animal in question is the same as the animal on the chinese new year will have an impact on the money it brings.
 
 
 ## Rules to follow before a commit
@@ -69,17 +73,15 @@ The branch names must be short and explain its purpose, can't contain special ch
 
 ## Requirements
 
-TODO  
+Java 19 and an IDE that supports Maven
 
 
-## How to setup the Tools
+##  How to use the code (With Intellij)
 
-TODO  
-
-
-##  How to use the code
-
-TODO  
+1. Open the project with Intellij
+2. Search for MavenProject1 class inside the main folder and run it
+3. Choose if you want to load the data from the files or create new data
+4. Play the game 
 
 
 ## Video demonstration of the repository

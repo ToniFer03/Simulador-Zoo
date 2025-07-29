@@ -35,7 +35,7 @@ public class EspecieReader {
     /**
      * The relative path to the file containing species data.
      */
-    private static String FILENAME = "Ficheiros_Texto\\Especie.txt";
+    private static String FILENAME = "mavenproject1\\Ficheiros_Texto\\Especie.txt";
 
     /**
      * Private constructor to prevent instantiation of this utility class.

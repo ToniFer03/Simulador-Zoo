@@ -1,8 +1,20 @@
-Rugir-7.5
-Nadar-2.0
-Voar-5.5
-Sprint-4.3
-Cores Vivas-7.0
-Veneno-5.0
-Trapalhão-7.8
-Exotico-7.5
+Cor da Pelagem-8.5  
+Tamanho-6.7  
+Padrão (listras/manchas)-9.2  
+Cor dos Olhos-7.3  
+Comprimento da Cauda-5.9  
+Som Vocal-6.4  
+Juba ou Crista-8.1  
+Envergadura das Asas-7.8  
+Formato dos Chifres-6.2  
+Brilho das Penas-9.0  
+Formato das Orelhas-5.3  
+Tipo de Focinho ou Nariz-4.8  
+Textura da Pele-5.7  
+Simetria Corporal-8.9  
+Andar ou Movimento-7.5  
+Capacidade de Mudar de Cor-9.4  
+Bioluminescência-9.7  
+Comportamento Brincalhão-8.3  
+Expressões Faciais-7.9  
+Odor/Cheiro-2.6
