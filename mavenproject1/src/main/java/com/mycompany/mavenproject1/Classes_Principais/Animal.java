@@ -171,18 +171,28 @@ public class Animal extends Especie {
      * @return String with every information of the object
      */
     public String basicInfo() {
-        String info;
-        info = "ID: " + this.id + "\n";
-        info += "Nome Artistico: " + this.nomeArtistico + "\n";
-        info += "Idade: " + this.idade + "\n";
-        info += "Caracteristicas Individuais: \n";
-        for (CaractristicaIndividual caracteristica : caracteristicasIndividuais) {
-            info += caracteristica.toString() + "\n";
-        }
-        info += "- - - - - - - - - - - - - - -\n";
-        info += super.basicInfo();
+        final String RESET = "\u001B[0m";
+        final String CYAN = "\u001B[36m";
+        final String GREEN = "\u001B[32m";
+        final String YELLOW = "\u001B[33m";
+        final String PURPLE = "\u001B[35m";
+        final String BLUE = "\u001B[34m";
+        final String RED = "\u001B[31m";
 
-        return info;
+        StringBuilder info = new StringBuilder();
+        info.append(CYAN).append("ID: ").append(RESET).append(this.id).append("\n");
+        info.append(GREEN).append("Nome Artístico: ").append(RESET).append(this.nomeArtistico).append("\n");
+        info.append(YELLOW).append("Idade: ").append(RESET).append(this.idade).append("\n");
+        info.append(PURPLE).append("Características Individuais:").append(RESET).append("\n");
+
+        for (CaractristicaIndividual caracteristica : caracteristicasIndividuais) {
+            info.append(BLUE).append(" - ").append(caracteristica.toString()).append(RESET).append("\n");
+        }
+
+        info.append(RED).append("- - - - - - - - - - - - - - -").append(RESET).append("\n");
+        info.append(super.basicInfo());
+
+        return info.toString();
     }
 
     /**

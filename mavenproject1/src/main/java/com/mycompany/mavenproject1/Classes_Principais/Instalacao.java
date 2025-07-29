@@ -131,24 +131,37 @@ public class Instalacao {
      * @return a string containing every information in the Instalacao object
      */
     public String basicInfo() {
-        String info;
-        info = "---------------------------------- \n";
-        info += "ID Instalacao: " + idInstalacao + "\n";
-        info += "Custo Trabalhadores: " + String.format("%.2f", custoTrabalhadores) + "\n";
-        info += "Custo Limpeza: " + String.format("%.2f", custoLimpeza) + "\n";
-        info += "Lotacao Maxima: " + lotacaoMaxima + "\n";
+        final String RESET = "\u001B[0m";
+        final String CYAN = "\u001B[36m";
+        final String GREEN = "\u001B[32m";
+        final String YELLOW = "\u001B[33m";
+        final String PURPLE = "\u001B[35m";
+        final String RED = "\u001B[31m";
+        final String BLUE = "\u001B[34m";
+
+        StringBuilder info = new StringBuilder();
+
+        info.append(RED).append("----------------------------------\n").append(RESET);
+        info.append(CYAN).append("ID Instalação: ").append(RESET).append(idInstalacao).append("\n");
+        info.append(GREEN).append("Custo Trabalhadores: ").append(RESET)
+                .append(String.format("%.2f", custoTrabalhadores)).append("\n");
+        info.append(GREEN).append("Custo Limpeza: ").append(RESET)
+                .append(String.format("%.2f", custoLimpeza)).append("\n");
+        info.append(YELLOW).append("Lotação Máxima: ").append(RESET).append(lotacaoMaxima).append("\n");
+
         if (animais.size() > 0) {
-            info += "Animais: \n";
+            info.append(PURPLE).append("Animais:\n").append(RESET);
             for (Animal animal : animais) {
-                info += "---------------------------------- \n";
-                info += "Posição: " + animais.indexOf(animal) + "\n";
-                info += animal.basicInfo();
+                info.append(RED).append("----------------------------------\n").append(RESET);
+                info.append(BLUE).append("Posição: ").append(RESET).append(animais.indexOf(animal)).append("\n");
+                info.append(animal.basicInfo());
             }
         } else {
-            info += "Sem animais \n";
+            info.append(PURPLE).append("Sem animais\n").append(RESET);
         }
-        info += "---------------------------------- \n";
-        return info;
+
+        info.append(RED).append("----------------------------------\n").append(RESET);
+        return info.toString();
     }
 
     /**

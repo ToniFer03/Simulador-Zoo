@@ -155,15 +155,23 @@ public class Especie {
      * @return Returns a string with every information of the Species
      */
     public String basicInfo() {
-        String info;
+        final String RESET = "\u001B[0m";
+        final String CYAN = "\u001B[36m";
+        final String GREEN = "\u001B[32m";
+        final String PURPLE = "\u001B[35m";
+        final String BLUE = "\u001B[34m";
 
-        info = "Nome da Especie: " + nomeEspecie + "\n";
-        info += "Esperanca de vida: " + esperancaVida + "\n";
-        info += "Caracteristicas de especies:  \n";
+        StringBuilder info = new StringBuilder();
+
+        info.append(CYAN).append("Nome da Espécie: ").append(RESET).append(nomeEspecie).append("\n");
+        info.append(GREEN).append("Esperança de Vida: ").append(RESET).append(esperancaVida).append("\n");
+        info.append(PURPLE).append("Características da Espécie:").append(RESET).append("\n");
+
         for (CaracteristicasEspecie caracteristica : CaracteristicasEspecie) {
-            info += caracteristica.toString() + "\n";
+            info.append(BLUE).append(" - ").append(caracteristica.toString()).append(RESET).append("\n");
         }
-        return info;
+
+        return info.toString();
     }
 
     /**
