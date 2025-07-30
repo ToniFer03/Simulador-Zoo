@@ -8,13 +8,14 @@
 - [Setup](#how-to-setup-the-tools)
 - [User Manual](#how-to-use-the-code)
 - [Video Demo](#video-demonstration-of-the-repository)
+- [Resume of the code](#Resume-of-the-code)
 
 
-## A console base game that simulates the operation of a Zoo in the real world
+## Demo project for programming using OOP - A console base game that simulates the operation of a Zoo in the real world
 
-Game written in Java to simulate the funtioning of a Zoo in the real world, allows you to for example add animals and instalations to 
+Game written in Java to simulate the functioning of a Zoo in the real world, allows you to for example add animals and instalations to 
 the Zoo and simulate what will happen in a year. Simulates the food and cage costs of an animal, the money it brings to the zoo based
-on its own characteristics as well as if the the animal will die based on its age or have a baby.
+on its own characteristics as well as if the animal will die based on its age or have a baby.
 If the Zoo is badly managed and the current account of the Zoo goes negative the chances of animals escaping the Zoo increase.
 Other factors such as if the animal in question is the same as the animal on the chinese new year will have an impact on the money it brings.
 
@@ -86,70 +87,87 @@ Java 19 and an IDE that supports Maven
 
 ## Video demonstration of the repository
 
-TODO  
+https://youtu.be/8-a-2YvnVL8  
+  
 
+## Resume of the code
+### Reader Classes and Text Files:
+There are two cases:
 
-## Notas
-Notas sobre o projeto:
+Objects on Separate Lines:
+For cases where each object is on a separate line, the Reader class reads each line and uses tokens separated by the delimiter (-) to split the object’s attributes.
 
-Classes Reader e ficheiros de texto:
-  Existem dois casos, para os casos em que cada objeto se encontra em linhas distintas, para cada linha lida pela classe reader são utilizados tokens com o delimitador (-) para separar os atributos dos objetos. No caso do Zoo, onde possui varios arrays que podem ser inicializados, é utilizado um sistema onde o primeiro token de cada linha serve de indicador para qual dos arrays essa informação se destina.
+Zoo File (More Complex Arrays):
+For the Zoo file, which contains various arrays that can be initialized, a system is used where the first token of each line acts as an indicator for which array the information belongs to.
 
-  Ficheiros de texto CaracEspecies, e CaracIndividuais seguem a formatação:
-    Nome da Caracteristica - Valor;
+### Text File Formats:
+CaracEspecies (Species Characteristics) and CaracIndividuais (Individual Characteristics) files follow the format:
+Characteristic Name - Value;
 
-  Ficheiro Nome artistico segue a formatação:
-    Nome
+Nome Artistico (Artistic Name) file format:
+Name
 
-  Ficheiro Especie segue a formatação:
-    Nome - Esperança de Vida - atratividadeBase - custoRacao - probNascimento - nº caracteristicas da especie - index das caracteristicas de especie
+Especie (Species) file format:
+Name - Life Expectancy - Base Attractiveness - Base Food Cost - Birth Probability - Number of Species Characteristics - Indexes of Species Characteristics
 
-  Ficheiro Zoo segue a formatação:
-    Para o id(ini):
-      Saldo Contabilistico - Probabilidade de fugir
+Zoo file format:
 
-    Para o id(tdani):
-    Nome - idade - index da especie - nº caracteristicas individuais - id's das caracteristicas
+For the id (ini):
+Accounting Balance - Escape Probability
 
-    Para o id(inst):
-    Lotação maxima - Custo Trabalhadores - Custo Limpeza - Nº Animais - Id dos animais
+For the id (tdani):
+Name - Age - Species Index - Number of Individual Characteristics - IDs of Characteristics
 
+For the id (inst):
+Max Capacity - Worker Cost - Cleaning Cost - Number of Animals - Animal IDs
 
-Classes Auxiliares:
-  Existem classes auxiliares, Static que funcionam como auxiliares para realizar várias funções uteis a outras classes no programa sem ser necessário que se instancie um objeto desta classe. São as classes AuxRand e ComplexMath.
+### Helper Classes:
+There are static helper classes that assist other parts of the program without needing to instantiate them. These include AuxRand and ComplexMath.
 
-  AuxRand:
-    Existe para calcular e auxiliar nas partes do programa ditadas que necessitam que se crie/obtenha resultados ou objetos aleatorios para outras partes do programa. Exemplo de getRandomEspecie(), que retorna uma especie ao calhas do ArrayList que possui todas as especies.
+AuxRand:
+Used for generating and assisting with random elements required by the program.
+Example: getRandomEspecie() returns a random species from the ArrayList containing all species.
 
-  ComplexMath:
-    Existe para calcular com funções mais complexas, se um animal deve morrer, nascer entre outros.  
+ComplexMath:
+Used for calculating more complex logic such as whether an animal should die, be born, among others.
 
+### Main Classes:
+These are the most important classes in the program:
 
-Classes Principais:
-  Sãos as classes mais importantes do nosso programa.
+Animal:
+Composed of name, age, and an array of unique individual characteristics (mutations).
+Includes various functions, for example, to calculate attractiveness based on available information.
 
-  Animal:
-    Composto por nome, idade, e um array de caracteristicas individuais unico para tal animal (mutação). Possuir várias funções que por exemplo, permitem calcular a atritividade baseada na informção possível.
+Especie (Species):
+Composed of the species name, average life expectancy, base attractiveness, base food cost, birth probability, and an array of species characteristics.
 
-  Especie: 
-    Composto por nome da especie, esperança media de vida, atratividadeBase, custoRacaobase, probNascimento, e um array de caracteristicas de especie;
+Instalação (Enclosure/Installation):
+Composed of worker cost, cleaning cost, and initial values for both.
 
-  Instação:
-    Composto por custoTrabalhadores, custoLimpeza, custoTrabalhadoresInicial, custoLimpezaInicial();
+Nome Artistico (Artistic Name):
+Only contains the name.
 
-  Nome Artistico:
-    Apenas o nome;
+Zoo:
+Composed of the accounting balance, escape probability, and several arrays to store:  
+All animals  
+Animals without enclosures  
+Enclosures  
+The zoo’s obituary (deceased animals)  
 
-  Zoo:
-    Composto por saldoContabilistico, probFugir assim como varios arrays como um para guardar todos os animais, todos os animais sem instação, instações e o obituario de todos os animais do zoo;
+### Menu System:
+There are two abstract classes for the menus:
 
+menuBase:
+Serves as the base for all existing menus and includes many useful methods.
 
-Para os menus, existem duas classes abstratas:
-  A primeira menuBase, serve como base para todos os menus que existem e possui vários metodos uteis;
-  A segunda opcaosMenu, serve como base para todas as opcoes de menu e possuir vários metodos uteis;
+opcaosMenu (MenuOption):
+Serves as the base for all menu options and also contains several useful methods.
 
-  Menu inicial serve para escolher se queremos digitar os objetos ou le-los de um ficheiro;
-  Menu AdqAnimalCarc serve para adquirir um animal com certas caracteristicas/mutações;
-  Menu digitarDados é um menu que nos permite criar os objetos com aprovação do PR;
+Initial Menu:
+Lets the user choose whether to input objects manually or read them from a file.
 
-  Cada menu tera o seu metodo showMenu() que mostra o menu. E para algumas pessoas é dado a um cacifo;
+Menu AdqAnimalCarc:
+Used to acquire an animal with certain characteristics/mutations.
+
+Menu DigitarDados:
+A menu that allows creating objects with PR (possibly "project responsible") approval.

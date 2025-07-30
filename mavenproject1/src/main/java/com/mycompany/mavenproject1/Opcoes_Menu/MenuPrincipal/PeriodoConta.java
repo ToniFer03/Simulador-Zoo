@@ -1,6 +1,7 @@
 package com.mycompany.mavenproject1.Opcoes_Menu.MenuPrincipal;
 
 import com.mycompany.mavenproject1.Classes_Principais.Instalacao;
+import com.mycompany.mavenproject1.Classes_Principais.Zoo;
 import com.mycompany.mavenproject1.Menus.MenuPrincipal;
 import com.mycompany.mavenproject1.Menus.OpcaoMenu;
 import com.mycompany.mavenproject1.Classes_Aux.AuxRand;
@@ -31,12 +32,16 @@ public class PeriodoConta extends OpcaoMenu {
         double dinheiro;
         dinheiro = -calculcarCustos();
         dinheiro += calcularGanhos();
+        dinheiro += menu.getZoo().getSaldoContabilistico();
         Historico.addSaldoContabilistico(dinheiro);
         atualizarProbFugir(dinheiro);
         morteAnimal();
         nasceAnimal();
         increaseAge();
         fogeAnimal();
+        String mensagemSaldo = "Novo saldo é ";
+        mensagemSaldo = mensagemSaldo + dinheiro;
+        System.out.println(mensagemSaldo);
         System.out.println("Periodo contabilistico terminado.");
         menu.showMenu();
     }
